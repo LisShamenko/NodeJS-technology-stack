@@ -23,7 +23,10 @@
 
 // --------------- sequelize
 
-console.log(`\n\n\n--- SequelizeApp ---\n\n\n`);
-const SequelizeApp = require('./Database/Sequelize/SequelizeApp');
+//console.log(`\n\n\n--- SequelizeApp ---\n\n\n`);
+//const SequelizeApp = require('./Database/Sequelize/SequelizeApp');
 
+// --------------- typescript app
 
+console.log(`\n\n\n--- TypescriptApp ---\n\n\n`);
+const TypescriptApp = require('./TypeScriptTechno/app/dist/app');

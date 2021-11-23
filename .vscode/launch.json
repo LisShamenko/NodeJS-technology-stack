@@ -4,6 +4,55 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+        // --------------- отладка TypeScript 
+
+        /*
+        // пункт в меню: Run -> Add Configuration...
+        // эта конфигурация будет подключаться к работающему экземпляру Chrome с использованием порта отладки 9222
+        // запуск Chrome с использованием параметра порта отладки (Linux): google-chrome --remote-debugging-port=9222
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "pwa-chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+        */
+
+        // --------------- отладка TypeScript (авто запуск)
+
+        /*
+        // эта конфигурация позволяет атвоматически запускать chrome для отладки (при нажатии F5), 
+        // с указанным URL-адресом и опциями отладки
+        {
+            "name": "Launch chrome",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "url": "file:///...insert full path here.../index.html",
+            "runtimeArgs": [
+                "--new-window",
+                "--remote-debugging-port=9222"
+            ],
+            "sourceMaps": true
+        },
+        */
+
+        // --------------- отладка Node
+
+        // запуск отладки NodeJS
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\index.js"
+        }
+
+        // --------------- отладка Mocha
+
         //{
         //    "args": [
         //        "-u",
@@ -22,14 +71,8 @@
         //    ],
         //    "type": "pwa-node"
         //},
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\index.js"
-        }
     ]
 }
+
+
+
