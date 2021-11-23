@@ -1,0 +1,23 @@
+/*
+	- указать задачу сборки по умолчанию (файл tasks.json) View -> Command Pallet (Ctrl+Shift+Р) -> 'Tasks: configure default build task'
+	- вызвать сборку по умолчанию: Ctrl+Shift+B
+*/
+{
+	"version": "2.0.0",
+	// массив задач, которые имеют ряд подсвойств
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "tsc-src",
+			"problemMatcher": [],
+			// имя задачи в Command Pallet -> 'Tasks: Run Task'
+			"label": "npm-tsc-src",
+			"detail": "tsc ./TypeScriptTechno/app/src/compilertest.ts --target esnext --outfile ./TypeScriptTechno/app/dist/compilertest.js --module System",
+			"group": {
+				"kind": "build",
+				// задача по умолчанию
+				"isDefault": true
+			}
+		}
+	]
+}

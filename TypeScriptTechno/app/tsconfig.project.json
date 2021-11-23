@@ -1,0 +1,147 @@
+// --------------- cmd
+// 
+//      https://docs.microsoft.com/ru-ru/windows-server/administration/windows-commands/copy
+// 
+// --------------- tsc CLI Options
+//
+//      https://www.typescriptlang.org/docs/handbook/compiler-options.html
+//      https://www.typescriptlang.org/tsconfig
+// 
+// ---------------
+// 
+//      https://angular.io/config/tsconfig
+// 
+{
+    // --------------- compileOnSave
+    // 
+    // при сохранении файлов ts или scss происходит повторная транспиляция в соответствующий формат
+    //      не работает в Visual Studio Code
+    "compileOnSave": false,
+    //
+    // --------------- опции компиляции
+    // 
+    "compilerOptions": {
+        //
+        // --------------- target
+        //
+        // Целевая версия JavaScript для компилятора. 
+        // Компилятор преобразует TypeScript в простой код JavaScript, использующий только возможности заданной версии. 
+        // Значение es5 соответствует стандарту ES5, поддерживаемому большинством браузеров, включая старые версии; 
+        // оно распространяется на большинство браузеров, поддерживаемых Angular 
+        //      refactoring - https://www.typescriptlang.org/tsconfig#target
+        //      refactoring - https://www.typescriptlang.org/tsconfig#lib
+        //      refactoring - https://github.com/tsconfig/bases#centralized-recommendations-for-tsconfig-bases
+        "target": "ES2020",
+        "lib": [
+            "es2018",
+            "dom"
+        ],
+        //
+        // --------------- module / moduleResolution
+        //
+        // Формат создания модулей JavaScript; 
+        // значение должно соответствовать загрузчику, используемому в проекте. 
+        // В листинге задано значение commonjs; создаваемые модули могут использоваться с многими разными 
+        // загрузчиками модулей JavaScript, включая загрузчик SystemJS, описанный в разделе 
+        // «Настройка загрузчика модулей JavaScript» 
+        //      refactoring - https://www.typescriptlang.org/docs/handbook/modules.html
+        //      refactoring - https://www.typescriptlang.org/tsconfig#module
+        "module": "commonjs",
+        // Режим обработки команд import компилятором. 
+        // Со значением node пакеты ищутся в папке node_modules, где их размещает NPM 
+        //      refactoring - https://www.typescriptlang.org/tsconfig#moduleResolution
+        "moduleResolution": "node",
+        // 
+        // --------------- emitDecoratorMetadata / experimentalDecorators
+        // 
+        // Со значением true компилятор включает информацию о декораторе, к которой можно 
+        // обратиться при помощи пакета reflect-metadata. Это необходимо для приложений Angular.
+        //      refactoring - https://www.typescriptlang.org/tsconfig#emitDecoratorMetadata
+        "emitDecoratorMetadata": true,
+        // Параметр необходим для emitDecoratorMetadata 
+        //      refactoring - https://www.typescriptlang.org/tsconfig#experimentalDecorators
+        //      refactoring - https://www.typescriptlang.org/docs/handbook/decorators.html
+        "experimentalDecorators": true,
+        // 
+        // --------------- Debug: sourceMaps
+        // 
+        // указывает компилятору выводить исходный файл (с именем .map) для каждого файла TypeScript
+        "sourceMap": true,
+        // 
+        // --------------- strict
+        // 
+        // флаг, который включает все параметры строгой проверки типов
+        "strict": true,
+        // 
+        // --------------- strictNullChecks
+        // 
+        // https://www.typescriptlang.org/tsconfig#strictNullChecks
+        // 
+        // --------------- 
+        // 
+        "esModuleInterop": true,
+        "outDir": "./dist",
+        "rootDir": "./src"
+    },
+    // Параметр сообщает компилятору, какие каталоги следует игнорировать 
+    "exclude": [
+        "node_modules"
+    ],
+}
+// - Компилятор TypeScript использует файл tsconfig.json в корне каталога проекта для указания любых глобальных 
+//      параметров проекта TypeScript и параметров компилятора.
+// - TypeScript позволяет использовать несколько файлов tsconfig.json в структуре каталога. Это дает возможность 
+//      различным подкаталогам применять разные параметры компилятора.
+// - Команда 'tsc' вызывает компилятор TypeScript, используя файл конфигурации tsconfig.json и генерирует js файлы.
+// - Команда 'tsc --locale pl' выводит сообщения на указанном языке.
+/*
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        // путь к базовой директории, начиная с которой будут задаваться все не абсолютные пути
+        //      https://www.typescriptlang.org/tsconfig#baseUrl
+        "baseUrl": "./",
+        // каталог в который будут помещаться файлы js после транспиляции
+        //      https://www.typescriptlang.org/tsconfig#outDir
+        "outDir": "./TypeScriptTechno/app/dist/out-tsc",
+        // не учитывает регистр букв в названиях файлов (fileManager.ts эквиваленто FileManager.ts)
+        //      https://www.typescriptlang.org/tsconfig#forceConsistentCasingInFileNames
+        "forceConsistentCasingInFileNames": true,
+        // компилятор будет проверять все ветки возвращения результата из функций через return
+        //      https://www.typescriptlang.org/tsconfig#noImplicitReturns
+        "noImplicitReturns": true,
+        // грантирует, что любой оператор case завершается break или return, что исключает наличие сквозных case
+        //      https://www.typescriptlang.org/tsconfig#noFallthroughCasesInSwitch
+        "noFallthroughCasesInSwitch": true,
+        // создает для каждого файла ts и js файл с описанием типов, т.е. создается внешний API
+        //      https://www.typescriptlang.org/tsconfig#declaration
+        "declaration": false,
+        // 
+        // --------------- downleveling operations
+        //
+        // операции понижения уровня JavaScript
+        //      https://www.npmjs.com/package/tslib
+        // 
+        //      https://www.typescriptlang.org/tsconfig#downlevelIteration
+        "downlevelIteration": true,
+        // 
+        //      https://www.typescriptlang.org/tsconfig#importHelpers
+        "importHelpers": true
+    },
+}
+*/
+// 
+// --------------- про compileOnSave
+// 
+// Ben Crowl, lives in New Zealand
+// Answered 2 years ago
+//      AFAIK, compileOnSave is a feature that is only supported by the full Visual Studio (but not by Visual Studio Code or WebStorm for example).
+//      The concept is that when a .ts/.tsx file is saved, then a transpile of that file and its dependencies will be triggered (note: OnSave itself implies that you are in an editor of some kind saving the file).
+//      In earlier versions of Typescript, watch was relatively slow, especially for large projects, and Visual Studio's compileOnSave was a compelling feature for recompiling a smaller subset of files quickly.
+//      The TypeScript team intended to build support for compileOnSave into tsc itself, which other IDEs could then have taken advantage of. Instead they focused their efforts on making watch fast and efficient.
+//      Watch monitors all .ts / .tsx files within your project's directory and maintains an in-memory dependency graph of the relationships between these files. When a watched file is changed, it triggers the recompile process.
+// 
+// Dan Wellman, works at Web Development
+// Answered 2 years ago · Author has 2.7K answers and 881.5K answer views
+//      The CompileOnSave option means that any time a .ts or .scss file in your project is saved, a corresponding .js or .css file will be compiled from that .ts or .scss file.
+//      The watch option means that the test runner will watch all appropriate files (usually .ts files), and any time one of them changes, it will rerun the unit tests.
