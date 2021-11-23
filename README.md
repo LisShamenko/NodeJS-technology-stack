@@ -28,7 +28,7 @@ ____
 
 ## Docker
 
-Каталог проекта: [~/RM/](https://github.com/LisShamenko/technology_NodeJS/tree/master/RM).
+Каталог проекта: [~/RM/Docker/](https://github.com/LisShamenko/technology_NodeJS/tree/master/RM/Docker).
 ____
 
 [Наверх](#Стек-технологий-NodeJS)
