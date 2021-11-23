@@ -1,5 +1,8 @@
 # Стек технологий NodeJS
 
+- [Sequelize](#Sequelize)
+    - [Запуск проекта](#Запуск-проекта-Sequelize)
+    - [Основные файлы проекта](#Основные-файлы-проекта-Sequelize)
 - [Chai](#Chai)
     - [Запуск проекта](#Запуск-проекта-Chai)
     - [Основные файлы проекта](#Основные-файлы-проекта-Chai)
@@ -14,6 +17,37 @@
     - [Запуск проекта](#Запуск-проекта-Postgres)
     - [Основные файлы проекта](#Основные-файлы-проекта-Postgres)
 ____
+
+
+
+## Sequelize
+
+Каталог проекта: [~/Database/Sequelize/](https://github.com/LisShamenko/technology_NodeJS/tree/master/Database/Sequelize).
+____
+
+### Запуск проекта Sequelize
+
+```javascript
+
+// приложение
+const SequelizeApp = require('./Database/Sequelize/SequelizeApp');
+console.log('--- SequelizeApp = ' + SequelizeApp);
+
+```
+
+### Основные файлы проекта Sequelize
+
+- **db/db_for_sequelize.db**
+    > База данных sqlite. Для тестирования следует создать postgres базу 'db_for_sequelize'.
+- **SequelizeTechno/SetupModels.js**
+    > Анализ документации (не полный). [Sequelize Manual](https://sequelize.org/master/index.html)
+- **SequelizeTechno/SetupSQLite.js**
+    > Настройка sqlite базы, содержит DDL инструкции.
+- **SequelizeApp.js**
+    > Приложение Sequelize, запускает тестовые методы.
+
+[Наверх](#Стек-технологий-NodeJS)
+____ 
 
 
 
