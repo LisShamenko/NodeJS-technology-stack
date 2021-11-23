@@ -1,0 +1,11 @@
+<%- include('head', { title: title }) %>
+<ul>
+    <% users.forEach ((user) => { %>  
+        <li>
+            <a href="/users/<%= user.id %>">
+                <%= user.name %>
+            </a>
+        </li>
+    <% }) %>
+</ul>
+<%- include('foot') %>
