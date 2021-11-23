@@ -1,0 +1,28 @@
+{
+  "name": "technology_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisShamenko/technology_NodeJS.git"
+  },
+  "author": "lis shamen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LisShamenko/technology_NodeJS/issues"
+  },
+  "homepage": "https://github.com/LisShamenko/technology_NodeJS#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "request": "^2.88.2"
+  }
+}
