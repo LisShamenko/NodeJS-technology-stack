@@ -1,0 +1,307 @@
+.real-header {
+    color: red;
+    padding: 20px;
+    font-size: 20px;
+}
+
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* --------------- Конфликтующие объявления. */
+
+#example-1 h1 {
+    font-family: serif;
+}
+
+#example-1 #page-title {
+    font-family: sans-serif;
+}
+
+#example-1 .title {
+    font-family: monospace;
+}
+
+/* --------------- Переопределение браузерных стилей. */
+
+#example-2 h1 {
+    color: #2f4f4f;
+    /* уменьшение полей */
+    margin-bottom: 10px;
+}
+
+#example-2 #main-nav {
+    /* уменьшение полей */
+    margin-top: 10px;
+    /* удаление браузерных стилей */
+    list-style: none;
+    padding-left: 0;
+}
+
+#example-2 #main-nav li {
+    /* отображение элементов списка рядом друг с другом, а не один над другим */
+    display: inline-block;
+}
+
+#example-2 #main-nav a {
+    /* более специфичный селектор (1,0,1), оформление навигационных ссылок в виде кнопок */
+    color: white;
+    /* фоновый цвет - бирюзовый */
+    background-color: #13a4a4;
+    padding: 5px;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+#example-2 .featured {
+    /* переопределение цвета не работает из-за специфичности селектора (0,1,0) */
+    background-color: orange;
+}
+
+/* --------------- Селекторы с возрастающей специфичностью. */
+
+/*                           идентификаторы классы теги нотация         */
+
+#example-3 html body header h1 {
+    /* 1. Четыре тега              0           0     4   0,0,4          */
+    color: blue;
+}
+
+#example-3 body header.page-header h1 {
+    /* 2. Два тега и один класс    0           1     3   0,1,3          */
+    color: orange;
+}
+
+#example-3 .page-header .title {
+    /* 3. Два класса               0           2     0   0,2,0          */
+    color: green;
+}
+
+#example-3 #page-title {
+    /* 4. Один идентификатор       1           0     0   1,0,0          */
+    color: red;
+}
+
+/* --------------- Переопределение стилей. */
+
+/* 
+ * - объявление '!important' позволяет переопределить стиль с большим приоритетом, но вызывает проблемы
+ *      когда необходимо поднять приоритет объявления еще выше, обширное применение '!important' в конечном
+ *      итоге сведется к применению обычных правил определения источника и специфичности
+ * - повышение специфичности, может потребовать использования идентификатора, что является плохой идеей
+ * - понижение специфичности, всегда следует сохранять более низкую специфичность 
+ */
+
+/*
+ * РЕКОМЕНДАЦИЯ:
+ * решать задачи форматирвоания следует в два этапа:
+ * - определить какие объявления будут применяться корректно
+ * - найти наилучший способ структурирования селекторов
+ */
+
+#example-4-1 #main-nav a, #example-4-2 #main-nav a {
+    /* специфичность равна (1,0,1) */
+    color: white;
+    background-color: #13a4a4;
+    padding: 5рх;
+    border-radius: 2рх;
+    text-decoration: none;
+}
+
+/* Использовать !important. Специфичность равна (0,1,0). */
+
+#example-4-1 .featured-important {
+    /* объявление будет иметь более высокий приоритет */
+    background-color: rgb(55, 197, 66) !important;
+}
+
+/* Использовать идентификатор с повышением специфичности до (1,1,0). */
+
+#example-4-1 #main-nav .featured-identifier {
+    /* !important больше не требуется */
+    background-color: rgb(100, 0, 255);
+}
+
+/* Использовать класс с понижением специфичности до (0,1,0). */
+
+#example-4-2 .nav {
+    /* понизить специфичность до (0,1,0) за счет замены идентификатора #main-nav на класс .nav */
+    margin-top: 10рх;
+    list-style: none;
+    padding-left: 0;
+}
+
+#example-4-2 .nav li {
+    display: inline-block;
+}
+
+#example-4-2 .nav a {
+    /* понижаем первую специфичность (0,1,1) */
+    color: white;
+    background-color: #13a4a4;
+    padding: 5px;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+#example-4-2 .nav .featured {
+    /* повышаем вторую специфичность (0,2,0) */
+    background-color: rgb(179, 54, 162);
+    margin: 0px 5px;
+}
+
+/* Использовать исходный порядок. */
+
+#example-4-2 .nav a.featured-order {
+    background-color: rgb(0, 0, 255);
+    margin: 0px 5px;
+}
+
+#example-4-3 .nav a.featured-order {
+    background-color: rgb(0, 0, 255);
+    margin: 0px 5px;
+}
+
+/* --------------- Стили ссылок. */
+
+/* 
+ * РЕКОМЕНДАЦИЯ:
+ * порядок применения стилей ссылок: непосещенная, посещенная, наведение, активная
+ */
+
+#example-5 a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+#example-5 a:visited {
+    color: purple;
+}
+
+#example-5 a:hover {
+    text-decoration: underline;
+}
+
+#example-5 a:active {
+    color: red;
+}
+
+/* --------------- Наследование. */
+
+body {
+    /* наследуемое свойство будет применено и к дочерним элементам */
+    font-family: monospace;
+}
+
+/* --------------- inherit / initial */
+
+#example-6 a {
+    /* глобальное значение цвета на странице */
+    color: rgb(255, 255, 0);
+    text-decoration: none;
+}
+
+#example-6 .footer-inherit, #example-6 .footer-initial {
+    /* значение цвета в элементе footer */
+    color: #666;
+    padding: 15рх 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* inherit применяется когда необходимо унаследовать стиль от родительского элемента */
+
+#example-6 .footer-inherit a {
+    /* наследует цвет шрифта от элемента footer */
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* initial сбрасывает значение свойтсва до значения по умолчанию */
+
+#example-6 .footer-initial a {
+    /* сбросить в черный цвет по умолчанию */
+    color: initial;
+    text-decoration: underline;
+}
+
+/* --------------- Сокращенная запись свойства. */
+
+/*
+- font              font-style, font-weight, font-size, lineheight, font-family
+- background        background-color, backgroundimage, background-size, background-repeat, 
+                    background-position, backgroundorigin, background-chip, background-attachment
+- border            border-width, border-style, border-color
+- border-width      top, right, bottom, left 
+
+- 
+*/
+
+/* 
+РЕКОМЕНДАЦИЯ:
+свойство font определяет очень широкий набор параметров, что может вызывать проблемы,
+    следует применять это свойство для установки общих стилей в теле страницы
+*/
+
+#example-8 h1 {
+    color: #2f4f4f;
+    margin: 10px;
+    font-weight: bold;
+}
+
+#example-8 .short {
+    /* пропущенные свойства сбрасываются в начальные значения, что отменяет другие стили */
+    font: 32px Helvetica, Arial, sans-serif;
+}
+
+#example-8 .long {
+    /* эквивалент сокращенной записи свойства, значения свойств по умолчанию */
+    font-style: normal;
+    font-variant: normal;
+    /* значение устанавливается если его не указать в сокращенной форме */
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: normal;
+    font-size: 32px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* --------------- Свойство padding. */
+
+#example-8 .padding-4 {
+    /* top, right, bottom и left */
+    padding: 20px 30px 0 50px;
+    color: white;
+    background-color: #13a4a4;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+#example-8 .padding-3 {
+    /* top, right и left, bottom */
+    padding: 10px 15px 20px;
+    color: white;
+    background-color: #13a4a4;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+#example-8 .padding-2 {
+    /* top и bottom, left и right */
+    padding: 5px 15px;
+    color: white;
+    background-color: #13a4a4;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+/* --------------- Свойство box-shadow */
+
+#example-8 .box-shadow {
+    background-color: orange;
+    /* свойства background-position, box-shadow и text-shadow поддерживают только два значения по осям (X, Y) */
+    box-shadow: 20px 10px rgb(0, 0, 255);
+}
