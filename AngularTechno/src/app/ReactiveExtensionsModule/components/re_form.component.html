@@ -1,0 +1,44 @@
+<h3>Канал async.</h3>
+
+<div class="bg-primary p-a-1" [class.bg-warning]="editing">
+    Последнее событие: {{ stateEvents | async | json }}
+</div>
+
+<div class="bg-primary p-a-1" [class.bg-warning]="editing">
+    Последнее событие: {{ stateEvents | async | formStatePipe }}
+</div>
+
+<h3>Форма.</h3>
+
+<form novalidate #ngFormRef="ngForm">
+    <table>
+        <tr>
+            <td>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" name="name" [(ngModel)]="currentProduct.name" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input class="form-control" name="category" [(ngModel)]="currentProduct.category" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input class="form-control" name="price" [(ngModel)]="currentProduct.price" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-primary" (click)="submitForm(ngFormRef)">Отправить.</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="resetForm()">Сброс формы.</button><br>
+            </td>
+        </tr>
+    </table>
+</form>

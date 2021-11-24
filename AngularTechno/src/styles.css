@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* --- как включить файлы ресурсов в приложение:
+ * - через папку ресурсов assets, которая должна быть прописана в конфигурации angular.json раздел assets
+ * - файлы стилей можно разместить в этом файле, angular.json раздел styles
+ *      @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+ * - файлы скриптов из папки node_modules указывать в angular.json раздел scripts, эти скрипты будут грузится всегда
+ * 
+ * https://stackoverflow.com/questions/38855891/angular-cli-webpack-how-to-add-or-bundle-external-js-files
+ * https://stackoverflow.com/questions/48521971/mime-type-error-when-adding-a-css-file-to-angular/49269425
+ *
+ * https://stackoverflow.com/questions/53553134/stylesheet-not-loaded-because-of-mime-type-angular-application
+ *      The usual reason for this error message is that when the browser tries to load that resource, the server returns an HTML page instead, for example if your router catches unknown paths and displays a default page without a 404 error. Of course that means the path does not return the expected CSS file / image / icon / whatever.
+ *      To make sure you are in that case, copy the path and try to access it directly in a new browser window or tab. You will see what your server sends.
+ *      The solution is to find the correct path and router configuration so that you get your plain CSS file / image / etc. when accessing that path.
+ *      The exact path and router configuration depends on how you have setup your project and the framework you are using.
+ */
+
+@import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+ 

@@ -1,0 +1,82 @@
+<div class="form-group m-t-1">
+
+    <h2>Привязки.</h2>
+
+    <h3>Привязка со строковой интерполяцией.</h3>
+
+    <div>
+        <div class="bg-info p-a-1">
+            <p>1. Привязка со строковой интерполяцией включает результат выражения в текстовый контекст управляющего элемента.</p>
+            <p>productRepository.getCountProducts() => {{productRepository.getCountProducts()}}</p>
+        </div>
+        <div [ngClass]="'p-a-1 ' + getClasses()">
+            2.1. Hello, World!
+        </div>
+        <div [textContent]="'Name: ' + (productRepository.getProduct(1)?.name || 'none')">
+            <p>Свойство textContent используется для задания контента элементов HTML.</p>
+            <p>2.2. Hello, World!</p>
+        </div>
+    </div>
+
+    <h3>Привязки классов.</h3>
+
+    <div>
+        <div [class]="getClasses(1)">
+            3. Привязка всех классов, первый: {{ productRepository.getProductName(1, 'none') }}.
+        </div>
+        <div [class]="getClasses(2)">
+            4. Привязка всех классов, второй: {{ productRepository.getProductName(2, 'none') }}
+        </div>
+        <div class="p-a-1" 
+            [class.bg-success]="checkPrice(2, 50) === 1" 
+            [class.bg-info]="checkPrice(2, 50) >= 2">
+            5. Привязка конкретного класса, второй: {{ productRepository.getProductName(2, 'none') }}
+        </div>
+        <div class="p-a-1" [ngClass]="getClassMap(1)">
+            6. Привязка ngClass, первый: {{ productRepository.getProductName(1, 'none') }}
+        </div>
+    </div>
+
+    <h3>Привязки стилей.</h3>
+
+    <div>
+        <div class="p-a-1 bg-warning">
+            7. Привязка стилевого свойства (with px), <span [style.fontSize]="fontSizeWithPx">первый</span>: {{ productRepository.getProductName(1, 'none') }}
+        </div>
+        <div class="p-a-1 bg-warning">
+            8. Привязка стилевого свойства (without px), <span [style.fontSize.px]="fontSizeWithoutPx">второй</span>: {{ productRepository.getProductName(2, 'none') }}
+        </div>
+        <div class="p-a-1 bg-warning">
+            9. Привязка ngStyle, <span [ngStyle]="getStyles(1)">первый</span>: {{ productRepository.getProductName(1, 'none') }}
+        </div>
+        <div class="p-a-1 bg-info">
+            10. Привязка ngStyle, <span [ngStyle]="getStyles(2)">второй</span>: {{ productRepository.getProductName(2, 'none') }}
+        </div>
+    </div>
+
+    <h3>Привязки атрибутов.</h3>
+
+    <div>
+        <table class="table table-sm table-bordered table-striped m-t-1">
+            <caption>11. Привязка атрибутов, для которых нет свойств в объекте DOM.</caption>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+            </tr>
+            <tr>
+                <td [attr.colspan]="productRepository.getProducts().length">
+                    {{ productRepository.getProductName(1, 'none') }}
+                </td>
+            </tr>
+        </table>
+        <div>
+            12. Привязка атрибута value элемента input: <input class="form-control" [value]="getProductName(1, 'None')" />
+        </div>
+    </div>
+
+</div>
+
+<hr>

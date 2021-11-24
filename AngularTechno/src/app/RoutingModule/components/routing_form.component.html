@@ -1,0 +1,76 @@
+<div class="checkbox">
+    <label>Редактировать: </label><input type="checkbox" [(ngModel)]="isEditing" />
+</div>
+
+<form novalidate #ngFormRef="ngForm">
+    <table>
+        <tr>
+            <td>
+                <div class="form-group">
+                    <label>ID</label>
+                    <input class="form-control" name="id" [(ngModel)]="currentProduct.id" />
+                </div>
+            </td>            
+            <td>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" name="name" [(ngModel)]="currentProduct.name" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input class="form-control" name="category" [(ngModel)]="currentProduct.category" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input class="form-control" name="price" [(ngModel)]="currentProduct.price" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-primary" (click)="submitForm(ngFormRef)">
+                    {{ (isEditing) ? 'Изменить' : 'Создать'}}
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="resetForm()">Сброс формы.</button><br>
+            </td>
+            <td>
+                <button class="btn btn-primary" routerLink="/table">Таблица.</button><br>
+            </td>
+            <td>
+                <button class="btn btn-primary" routerLink="/">Вернуться.</button><br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <h3>Навигация внутри компонента</h3>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p>Текущий компонент: {{ currentProduct | json }}</p>
+            </td>
+        </tr>        
+        <tr *ngIf="isEditing">
+            <td>
+                <div class="p-t-1">
+                    <button class="btn btn-secondary" [routerLink]="['/form', 'edit', getPrevious()]">
+                        Previous
+                    </button>
+                </div>
+            </td>
+            <td>
+                <div class="p-t-1">
+                    <button class="btn btn-secondary" [routerLink]="['/form', 'edit', getNext()]">
+                        Next
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>

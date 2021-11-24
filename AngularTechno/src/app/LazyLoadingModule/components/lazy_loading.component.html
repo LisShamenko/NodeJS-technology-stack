@@ -1,0 +1,25 @@
+<table>
+    <caption>Отложенная загрузка модуля.</caption>
+    <tr>
+        <td>
+            <router-outlet></router-outlet>
+        </td>
+        <td>
+            <router-outlet name="left"></router-outlet>
+        </td>
+        <td>
+            <router-outlet name="right"></router-outlet>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="btn btn-secondary m-t-1" routerLink="/lazy_loading">Первый / Второй</button>
+        </td>
+        <td>
+            <button class="btn btn-secondary m-t-1" routerLink="/lazy_loading/third">Третий</button>
+        </td>
+        <td>
+            <button class="btn btn-primary m-t-1" routerLink="/">Вернуться</button>
+        </td>
+    </tr>
+</table>

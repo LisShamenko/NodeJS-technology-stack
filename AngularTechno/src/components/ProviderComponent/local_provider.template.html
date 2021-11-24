@@ -1,0 +1,42 @@
+<div class="form-group m-t-1">
+
+    <h2>Провайдеры.</h2>
+
+    <hr color="green">
+    <h3>Разное:</h3>
+
+    <p>Простой сервис: {{ useThirdService() }}</p>
+    <p>Переменная providerBase_1: {{ providerBase_1.getMessage() }}</p>
+    <p>Переменная providerBase_2: {{ providerBase_2.getMessage() }}</p>
+    <p>Переменная providerBase_3: {{ providerBase_3.getMessage() }}</p>
+    <p>Переменная providerSubclass: {{ providerSubclass.getMessage() }}</p>
+    <p>Несколько провайдеров: {{ useProviderServices() }}</p>
+    <p>Разрешение с помощью экземпляра: {{ fourthService.message }}</p>
+    <p>Несколько фабричных функций: {{ useFourthServices() }}</p>
+    <p>Переменная providerValue с учетом @SkipSelf(): {{ providerValue }}</p>
+
+    <hr color="green">
+    <h3>Таблица с дочерними директивами.</h3>
+
+    <p>Зависисмости разрешаются на уровне компонента LocalProviderComponent.</p>
+    <table local-provider-parent="" class="table table-sm table-bordered m-t-1">
+        <tbody>
+            <tr>
+                <td class="bg-info" local-provider-child=""></td>
+                <td class="bg-warning" local-provider-child=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr color="green">
+    <h3>Директива.</h3>
+
+    <p local-provider-value=""></p>
+
+    <hr color="green">
+    <h3>Канал.</h3>
+
+    <p>Исходник: {{ providerValue }}</p>
+    <p>Канал: {{ providerValue | localProviderPipe }}</p>
+
+</div>

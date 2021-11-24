@@ -1,0 +1,27 @@
+<div class="form-group m-t-1">
+
+    <h2>Компоненты.</h2>
+
+    <hr color="green">
+    <h3>Форма.</h3>
+
+    <div class="col-xs-4 p-a-1 bg-success">
+        <form-component (create-product)="addProduct($event)"></form-component>
+    </div>
+
+    <hr color="green">
+    <h3>Таблица.</h3>
+
+    <div class="col-xs-8 p-a-1 bg-primary">
+        <table-component [child-product-repository]="rootProductRepository"></table-component>
+    </div>
+
+    <hr color="green">
+    <h3>Управляющий компонент.</h3>
+
+    <div class="col-xs-8 p-a-1">
+        <ngcontent-component>
+            <table-component [child-product-repository]="rootProductRepository"></table-component>
+        </ngcontent-component>
+    </div>
+</div>

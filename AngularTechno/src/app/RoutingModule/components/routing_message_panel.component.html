@@ -1,0 +1,12 @@
+<div class="text-xs-center p-a-1 bg-info">
+    <p>{{ lastMessage }}</p>
+</div>
+
+<h3>Действие:</h3>
+
+<div class="text-xs-center m-b-1">
+    <button *ngFor="let response of currentMessage?.responses; let i = index" (click)="response[1](response[0])"
+        class="btn btn-primary m-a-1" [class.btn-secondary]="i > 0">
+        {{ response[0] }}
+    </button>
+</div>

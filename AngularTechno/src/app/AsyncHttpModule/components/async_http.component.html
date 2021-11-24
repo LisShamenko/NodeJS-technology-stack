@@ -1,0 +1,78 @@
+<div class="form-group m-t-1">
+
+    <h2>Асинхронные запросы HTTP.</h2>
+
+    <hr color="green">
+    <h3>Описание запросов.</h3>
+
+    <re-message-panel></re-message-panel>
+
+    <hr color="green">
+    <h3>Запросы.</h3>
+
+    <form novalidate #ngFormRef="ngForm">
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" name="name" [(ngModel)]="currentProduct.name" />
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input class="form-control" name="category" [(ngModel)]="currentProduct.category" />
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input class="form-control" name="price" [(ngModel)]="currentProduct.price" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-primary" (click)="submitForm(ngFormRef)">
+                        {{ (editing) ? 'Изменить' : 'Создать'}}
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-primary" (click)="resetForm()">Сброс формы.</button><br>
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="clearProducts()">Очистка коллекции.</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="refreshProducts()">Запрос: getProducts.</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+    <hr color="green">
+    <h3>Данные с сервера.</h3>
+
+    <table class="table table-sm table-bordered table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let item of getProducts()">
+            <td style="vertical-align:middle">{{ item.id }}</td>
+            <td style="vertical-align:middle">{{ item.name }}</td>
+            <td style="vertical-align:middle">{{ item.category }}</td>
+            <td style="vertical-align:middle">{{ item.price }}</td>
+            <td class="text-xs-center">
+                <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">Delete</button>
+                <button class="btn btn-warning btn-sm" (click)="selectProduct(item.id)">Edit</button>
+            </td>
+        </tr>
+    </table>
+
+</div>

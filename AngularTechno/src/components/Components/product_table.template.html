@@ -1,0 +1,22 @@
+<div class="checkbox">
+    <label>Флаг дочерней директивы: </label><input type="checkbox" [(ngModel)]="isSet" />
+</div>
+
+<table class="table table-sm table-bordered table-striped">
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    <tr *differDirective="let item of getProducts(); let i = index; let odd = odd; let even = even">
+        <td class="vertical-td" child="">{{i + 1}}</td>
+        <td class="vertical-td" child="">{{item.name}}</td>
+        <td class="vertical-td" child="">{{item.category}}</td>
+        <td class="vertical-td" child="">{{item.price}}</td>
+        <td class="text-xs-center">
+            <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">Delete</button>
+        </td>
+    </tr>
+</table>
