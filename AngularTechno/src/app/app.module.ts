@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./../components/AppComponent/app.component";
 import { ProductComponent } from "./../components/ProductComponent/product.component";
 import { FormComponent } from "./../components/FormComponent/form.component";
+import { DirectiveComponent } from "./../components/DirectiveComponent/directive.component";
+import { DirectiveSimple } from "../directives/directive.simple";
+import { DirectiveTwowayBinding } from "../directives/directive.twoway_binding";
 
 // @NdModule - корневой модуль, который отвечает за описание приложения для Angular:
 //      используемые зависимости, компоненты, точки входа
@@ -18,9 +21,11 @@ import { FormComponent } from "./../components/FormComponent/form.component";
 @NgModule({
     // задает зависимости, используемые приложением
     imports: [BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],
-    // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты
-    declarations: [ProductComponent, AppComponent, FormComponent],
+    // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
+    declarations: [ProductComponent, AppComponent, FormComponent, DirectiveComponent,
+        DirectiveSimple, DirectiveTwowayBinding
+    ],
     // определяет точку входа приложения
-    bootstrap: [ProductComponent, AppComponent, FormComponent]
+    bootstrap: [ProductComponent, AppComponent, FormComponent, DirectiveComponent]
 })
 export class AppModule { }

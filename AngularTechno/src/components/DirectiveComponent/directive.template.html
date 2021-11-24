@@ -1,0 +1,76 @@
+<div class="m-t-1">
+
+    <h2>Пользовательские директивы.</h2>
+
+    <hr color="Red">
+    <h3>Простая директива.</h3>
+
+    <style>
+        input.ng-dirty.ng-invalid {
+            border: 2px solid #ff0000
+        }
+
+        input.ng-dirty.ng-valid {
+            border: 2px solid #6bc502
+        }
+
+        .table-directives {
+            margin: 50px;
+        }
+    </style>
+
+    <div class="col-xs-6">
+        <label>двустороняя привязка без директивы --- name [(ngModel)]: </label>
+        <input class="form-control" [(ngModel)]="currentProduct.name" />
+
+        <label>директива с двумя привязками --- name [twoway] + (twowayChange): </label>
+        <input class="form-control" [twoway]="currentProduct.name" (twowayChange)="currentProduct.name=$event" />
+
+        <label>директива с двустороней привязкой --- name [(twoway)] + {{ twoway.direction }}: </label>
+        <input class="form-control" [(twoway)]="currentProduct.name" #twoway="DirectiveTwowayBinding" />
+
+        <label>category</label>
+        <input class="form-control" [(ngModel)]="currentProduct.category" />
+
+        <label>price</label>
+        <input class="form-control" [(ngModel)]="currentProduct.price" />
+
+        <hr color="Red">
+        <table class="table table-sm table-bordered table-striped table-directives">
+            <caption>Применение директив.</caption>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td [attr.colspan]="4">
+                    <hr color="Blue">
+                    Применяется @Attribute.
+                </td>
+            </tr>
+            <tr *ngFor="let item of getProducts(); let i = index" simple-directive>
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.name }}</td>
+                <td simple-directive="bg-warning">{{ item.category }}</td>
+                <td simple-directive="bg-info">{{ item.price }}</td>
+            </tr>
+            <tr>
+                <td [attr.colspan]="4">
+                    <hr color="Blue">
+                    Применяется входное свойство.
+                </td>
+            </tr>
+            <tr *ngFor="let item of getProducts(); let i = index; let odd = odd; let last = last"
+                [is-console-log]="last" [ng-on-changes]="'change'"
+                [simple-directive]="odd ? 'bg-success' : 'bg-warning'" [product-property]="item"
+                (category-event)="currentProduct.category=$event">
+                <td>{{i + 1}}</td>
+                <td>{{item.name}}</td>
+                <td [simple-directive]="item.category == 'еда' ? 'bg-info' : null">{{item.category}}</td>
+                <td [simple-directive]="'bg-info'">{{item.price}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
