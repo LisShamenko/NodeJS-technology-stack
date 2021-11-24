@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // компоненты
+import { AppComponent } from "./../components/AppComponent/app.component";
 import { ProductComponent } from "./../components/ProductComponent/product.component";
 
 // @NdModule - корневой модуль, который отвечает за описание приложения для Angular:
@@ -13,8 +14,8 @@ import { ProductComponent } from "./../components/ProductComponent/product.compo
     // задает зависимости, используемые приложением
     imports: [BrowserModule, BrowserAnimationsModule],
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты
-    declarations: [ProductComponent],
+    declarations: [ProductComponent, AppComponent],
     // определяет точку входа приложения
-    bootstrap: [ProductComponent]
+    bootstrap: [ProductComponent, AppComponent]
 })
 export class AppModule { }
