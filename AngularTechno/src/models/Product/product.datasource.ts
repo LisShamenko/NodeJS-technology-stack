@@ -1,5 +1,6 @@
 import { Product } from "./product.model";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 // класс источника данных предоставляет данные приложению
 @Injectable()
@@ -19,5 +20,11 @@ export class ProductsSource {
 
     getData(): Product[] {
         return this._data;
+    }
+
+    getDataAsync(): Observable<Product[]> {
+        return new Observable<Product[]>(obs => {
+            setTimeout(() => obs.next(this._data), 1000);
+        })
     }
 }
