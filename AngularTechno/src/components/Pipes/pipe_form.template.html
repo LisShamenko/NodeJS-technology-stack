@@ -23,8 +23,7 @@
             <input class="form-control" name="price" [(ngModel)]="currentProduct.price" formControlName="price" />
         </div>
 
-        <button class="btn btn-primary" type="submit" [disabled]="isFormSubmit && productForm.invalid"
-            [class.btn-secondary]="isFormSubmit && productForm.invalid">
+        <button class="btn btn-primary" type="submit">
             Create
         </button>
     </form>

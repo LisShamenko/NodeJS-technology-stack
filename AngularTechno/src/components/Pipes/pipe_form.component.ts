@@ -155,19 +155,19 @@ export class PipeFormComponent {
     // --------------- форма
 
     productForm: ProductFormGroup = new ProductFormGroup();
-    currentProduct: Product = new Product(0, 'test', 'test', 100);
-    isFormSubmit: boolean = false;
-
-    @Output("create-product")
-    createProduct = new EventEmitter<Product>();
+    currentProduct: Product = new Product(0, 'test', 'category_3', 100);
 
     submitForm(form: ProductFormGroup) {
-        this.isFormSubmit = true;
-        if (form.valid) {
-            this.createProduct.emit(this.currentProduct);
-            this.currentProduct = new Product();
-            this.productForm.reset();
-            this.isFormSubmit = false;
-        }
+        console.log(`--- Продукт добавляется --- ${this.currentProduct}`);
+        this.productRepository.addProduct(this.currentProduct);
+        console.log(`--- Результат добавления --- ${this.productRepository.getProducts()}`);
+        // если перед сбросом формы не обновить свойство currentProduct, объект к которому 
+        //      привязывается форма, то метод reset обновит объект уже записанный в репозиторий
+        //      нулевыми значениями, в данном коде метод reset обнулит поля нового объекта
+        this.currentProduct = new Product();
+        this.productForm.reset();
+        // более простой вариант это просто создать объект со значениями по умолчанию, что
+        //      обновит форму
+        this.currentProduct = new Product(0, 'test', 'category_3', 100);
     }
 }
