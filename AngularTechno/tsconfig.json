@@ -1,17 +1,39 @@
+// --------------- Angular tsconfig
+//
+//      https://angular.io/cli/serve
+//      https://angular.io/guide/angular-compiler-options
+//      https://angular.io/guide/typescript-configuration
+// 
 {
     "compileOnSave": false,
     "compilerOptions": {
+        // Целевая версия JavaScript в которую транспилируется TypeScript, т.е. используются возможности 
+        //      только этой версии JavaScript. 
+        //      https://www.typescriptlang.org/tsconfig#target
+        // Возможные значения: 
+        //      ES3 (default), ES5, ES6/ES2015 (synonymous), ES7/ES2016, ES2017, ES2018, ES2019, ES2020, ESNext
+        //      ESNext - последняя поддерживаемая версия для используемой версии TypeScript (Не рекомендуется!)
         "target": "es2015",
         "lib": [
             "es2018",
             "dom"
         ],
+        // Загрузчик модулей. 
+        //      https://www.typescriptlang.org/tsconfig#module
+        // Возможные значения: 
+        //      CommonJS (default если target=[ES3|ES5]), ES6, ES2015, ES2020, None, UMD, AMD, System, ESNext 
         "module": "es2020",
+        // Режим обработки команд import, для значения 'node' поиск пакетов будет выполняться в папке node_modules
         "moduleResolution": "node",
+        // Параметр необходим для emitDecoratorMetadata
         "experimentalDecorators": true,
+        // Со значением true компилятор добавляет информацию о декораторах, к которой можно обратиться при помощи 
+        //      пакета reflect-metadata. Это необходимо для приложений Angular.
         "emitDecoratorMetadata": true,
+        // 
         "sourceMap": true,
         "strict": true,
+        // 
         "baseUrl": "./",
         "outDir": "./dist/out-tsc",
         "forceConsistentCasingInFileNames": true,
@@ -21,9 +43,13 @@
         "downlevelIteration": true,
         "importHelpers": true
     },
+    // Параметр сообщает компилятору, какие каталоги следует игнорировать
     "exclude": [
         "node_modules"
     ],
+    // 
+    // --------------- Angular options
+    // 
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,
         "strictInjectionParameters": true,
