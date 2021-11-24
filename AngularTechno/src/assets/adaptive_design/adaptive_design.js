@@ -1,6 +1,6 @@
 // --------------- 
 
-function setEventListeners() {
+function adaptiveDesignEventListeners() {
     (function () {
         var button = document.getElementById('toggle-menu');
         /* обработчик события щелчка (срабатывает также в результате прикосновения к сенсорному экрану) */

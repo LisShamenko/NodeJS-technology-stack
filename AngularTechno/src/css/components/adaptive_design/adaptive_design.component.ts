@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-declare function setEventListeners(): any;
+declare function adaptiveDesignEventListeners(): any;
 
 @Component({
     selector: "adaptive-design-component",
@@ -9,7 +9,7 @@ declare function setEventListeners(): any;
 })
 export class AdaptiveDesignComponent {
     ngOnInit() {
-        setEventListeners();
+        adaptiveDesignEventListeners();
     }
 }
 

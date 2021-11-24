@@ -1,6 +1,6 @@
 // --------------- 
 
-function setEventListeners() {
+function positionOverlayEventListeners() {
 
     console.log('--- --- position overlay --- set events listeners ---');
 

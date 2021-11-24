@@ -1,6 +1,6 @@
 // --------------- 
 
-function setEventListeners() {
+function modularCSSEventListeners() {
     (function () {
         var toggle = document.querySelector('.dropdown__toggle');
         // переключает класс is-open при нажатии кнопки меню

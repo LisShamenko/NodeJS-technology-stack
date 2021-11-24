@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-declare function setEventListeners(): any;
+declare function positionOverlayEventListeners(): any;
 
 @Component({
     selector: "position-overlay-component",
@@ -9,7 +9,7 @@ declare function setEventListeners(): any;
 })
 export class PositionOverlayComponent {
     ngOnInit() {
-        setEventListeners();
+        positionOverlayEventListeners();
     }
 }
 

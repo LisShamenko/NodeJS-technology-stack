@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-declare function setEventListeners(): any;
+declare function modularCSSEventListeners(): any;
 
 @Component({
     selector: "modular-css-component",
@@ -9,7 +9,7 @@ declare function setEventListeners(): any;
 })
 export class ModularCSSComponent {
     ngOnInit() {
-        setEventListeners();
+        modularCSSEventListeners();
     }
 }
 
