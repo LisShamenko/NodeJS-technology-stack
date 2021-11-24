@@ -13,6 +13,7 @@ import { ModularCSSComponent } from "./components/modular_css/modular_css.compon
 import { BackgroundComponent } from "./components/background/background.component";
 import { ColorsComponent } from "./components/colors/colors.component";
 import { FontsComponent } from "./components/fonts/fonts.component";
+import { TransitionsComponent } from "./components/transitions/transitions.component";
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { FontsComponent } from "./components/fonts/fonts.component";
         ModularCSSComponent,
         BackgroundComponent,
         ColorsComponent,
-        FontsComponent
+        FontsComponent,
+        TransitionsComponent
     ],
     bootstrap: [
         CSSBaseComponent, RelativeUnitsComponent,
@@ -40,7 +42,8 @@ import { FontsComponent } from "./components/fonts/fonts.component";
         ModularCSSComponent,
         BackgroundComponent,
         ColorsComponent,
-        FontsComponent
+        FontsComponent,
+        TransitionsComponent
     ],
 
 })
