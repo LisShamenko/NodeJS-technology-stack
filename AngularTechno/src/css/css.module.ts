@@ -9,6 +9,7 @@ import { FlexboxLayoutsComponent } from "./components/flexbox_layouts/flexbox_la
 import { CSSGridComponent } from "./components/css_grid/css_grid.component";
 import { PositionOverlayComponent } from "./components/position_overlay/position_overlay.component";
 import { AdaptiveDesignComponent } from "./components/adaptive_design/adaptive_design.component";
+import { ModularCSSComponent } from "./components/modular_css/modular_css.component";
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import { AdaptiveDesignComponent } from "./components/adaptive_design/adaptive_d
         FlexboxLayoutsComponent,
         CSSGridComponent,
         PositionOverlayComponent,
-        AdaptiveDesignComponent
+        AdaptiveDesignComponent,
+        ModularCSSComponent
     ],
     bootstrap: [
         CSSBaseComponent, RelativeUnitsComponent, 
@@ -28,7 +30,8 @@ import { AdaptiveDesignComponent } from "./components/adaptive_design/adaptive_d
         FlexboxLayoutsComponent,
         CSSGridComponent,
         PositionOverlayComponent,
-        AdaptiveDesignComponent
+        AdaptiveDesignComponent,
+        ModularCSSComponent
     ],
 
 })

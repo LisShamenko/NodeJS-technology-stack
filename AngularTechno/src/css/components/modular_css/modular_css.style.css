@@ -1,0 +1,356 @@
+.real-header {
+    color: red;
+    padding: 20px;
+    font-size: 20px;
+}
+
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* --------------- Базовые стили на самостоятельной странице. */
+
+/* 
+ * свойства box-sizing:
+ * 
+ *      :root {
+ *          box-sizing: border-box;
+ *      }
+ * 
+ *      *, ::before, ::after {
+ *          box-sizing: inherit;
+ *      }
+ *
+ * фон и шрифт:
+ *
+ *      body {
+ *          background-color: #709b90;
+ *          font-family: Helvetica, Arial, sans-serif;
+ *      }
+ * 
+ * глобальные поля:
+ * 
+ *      body *+* {
+ *          margin-top: 1.5em;
+ *      }
+ * 
+ * двойной контейнер для центрирования контента:
+ * 
+ *      .container {
+ *          max-width: 1080px;
+ *          margin: 0 auto;
+ *      }
+ */
+
+/* --------------- Базовые стили. */
+
+/* свойства box-sizing */
+
+.body {
+    box-sizing: border-box;
+}
+
+.body *, .body ::before, .body ::after {
+    box-sizing: inherit;
+}
+
+/* фон и шрифт */
+
+.body {
+    /* сброс полей, элемент body по умолчанию имеет небольшие поля */
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* глобальные поля */
+
+.body *+* {
+    margin-top: 1.5em;
+}
+
+/* двойной контейнер для центрирования контента */
+
+.body .container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* --------------- Модуль Message. */
+
+/*
+ * связанный html:
+ *      <div class="message">Модуль Message.</div>
+ */
+
+/*
+ * что делает этот CSS-код модульным:
+ *      селектор состоит из одного класса, селектор не привязан к странице через 
+ *      идентификатор и не содержит подкласса, то есть может быть повторно использован
+ *      в любой части кода
+ */
+
+/*
+ * код модуля должен находится в одном месте, чтобы все модификаторы было легко найти и
+ * понять что они изменяют
+ */
+
+/*
+ * классы модификаторов должны состоять из имени модуля и имени модификатора, которые
+ * разделяются двойным дефисом, что позволяет различать сложные имена содержащие дефис,
+ * например, 'nav-menu--horizontal' и 'nav--menu-horizontal'
+ */
+
+.message {
+    /* базовый модуль Message */
+    padding: 0.8em 1.2em;
+    border-radius: 0.2em;
+    border: 1px solid #265559;
+    color: #265559;
+    background-color: #e0f0f2;
+}
+
+/* --------------- модификаторы */
+
+/*
+ * связанный html:
+ *      <div class="message message--success">Модификатор модуля.</div>
+ */
+
+/*
+ * модификаторы затирают часть стилей основного модуля
+ */
+
+.message--success {
+    /* модификатор success */
+    color: #2f5926;
+    border-color: #2f5926;
+    background-color: #cfe8c9;
+}
+
+.message--warning {
+    /* модификатор warning */
+    color: #594826;
+    border-color: #594826;
+    background-color: #e8dec9;
+}
+
+.message--error {
+    /* модификатор error */
+    color: #59262f;
+    border-color: #59262f;
+    background-color: #e8c9cf;
+}
+
+/* --------------- Модуль button. */
+
+.button {
+    /* базовые стили кнопки */
+    padding: 0.5em 0.8em;
+    border: 1px solid #265559;
+    border-radius: 0.2em;
+    background-color: transparent;
+    font-size: 1rem;
+}
+
+.button--success {
+    /* вариант success */
+    border-color: #cfe8c9;
+    color: #fff;
+    background-color: #2f5926;
+}
+
+.button--danger {
+    /* вариант danger */
+    border-color: #e8c9c9;
+    color: #fff;
+    background-color: #a92323;
+}
+
+.button--small {
+    /* вариант small */
+    font-size: 0.8rem;
+}
+
+.button--large {
+    /* вариант large */
+    font-size: 1.2rem;
+}
+
+/* --------------- Модуль Media. */
+
+/* главный контейнер */
+
+.media {
+    padding: 1.5em;
+    background-color: #eee;
+    border-radius: 0.5em;
+}
+
+/* clearfix */
+
+.media::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* дочерние элементы изображения и основной части */
+
+.media__image {
+    float: left;
+    margin-right: 1.5em;
+}
+
+.media__body {
+    overflow: auto;
+    margin-top: 0;
+}
+
+/* заголовок внутри основной части */
+
+.media__body>h4 {
+    margin-top: 0;
+}
+
+/* модификатор: media--right */
+
+.media--right>.media__image {
+    float: right;
+}
+
+/* --------------- Модуль Dropdown. */
+
+.dropdown {
+    display: inline-block;
+    /* 
+     * устанавливает внешний блок для абсолютного позиционирования drawer-элемента 
+     * позиционированные элементы, связанные друг с другом, должны находится в одном модуле
+     */
+    position: relative;
+}
+
+.dropdown__toggle {
+    padding: 0.5em 2em 0.5em 1.5em;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #eee;
+}
+
+.dropdown__toggle::after {
+    content: "";
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    border: 0.3em solid;
+    /* треугольник */
+    border-color: black transparent transparent;
+}
+
+.dropdown__drawer {
+    /* изначально скрывает меню */
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 2.1em;
+    min-width: 100%;
+    background-color: #eee;
+}
+
+/*
+ * класс состояния указывают на текущее состояние модуля или на его ожидаемое изменение
+ * по соглашению имена классов состояния должны начинаться с префикса is- или has-
+ * классы состояний должны группироваться вместе с остальной частью кода модуля
+ */
+
+.dropdown.is-open .dropdown__toggle::after {
+    top: 0.7em;
+    /* переворачивает треугольник, когда список раскрыт */
+    border-color: transparent transparent black;
+}
+
+.dropdown.is-open .dropdown__drawer {
+    /* показывает меню */
+    display: block;
+}
+
+/* --------------- Модуль Menu. */
+
+/* модуль Menu не зависит от модуля Dropdown */
+
+.menu {
+    padding-left: 0;
+    margin: 0;
+    /* затирает браузерные стили списков, чтобы удалить маркеры */
+    list-style-type: none;
+    border: 1px solid #999;
+}
+
+/* 
+ * элементы li являются дочерними элементами модуля, селектор прямого потомка '.menu>li' в 
+ * данном случае достаточно специфичен 
+ */
+
+.menu>li+li {
+    /* убирает глобальный отступ */
+    margin-top: 0;
+    /* добавляет границы между ссылками */
+    border-top: 1px solid #999;
+}
+
+/* большие чувствительные к щелчку ссылки */
+
+.menu>li>a {
+    display: block;
+    padding: 0.5em 1.5em;
+    background-color: #eee;
+    color: #369;
+    text-decoration: none;
+}
+
+/* подсветка при наведении указателя мыши */
+
+.menu>li>a:hover {
+    background-color: #fff;
+}
+
+/* --------------- Вспомогательные классы. */
+
+/*
+ * всопомгательные класс единственное место где можно задействовать аннотацию '!important',
+ * такие классы считаются последним средством изменения стилей, поэтому после них не должно
+ * следовать стилей пытающихся переопределить important, чтобы изменить стиль предоставляемый
+ * вспомогательным классом следует его убрать и написать новый вспомогательный класс, либо 
+ * провести рефакторинг
+ */
+
+/* выравнивает текст по центру внутри контейнера */
+
+.text-center {
+    text-align: center !important;
+}
+
+/* делает элемент плавающим слева */
+
+.float-left {
+    float: left;
+}
+
+/* выполняет очистку */
+
+.clearfix::before, .clearfix::after {
+    content: " ";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+/* скрывает элемент на странице */
+
+.hidden {
+    display: none !important;
+}
