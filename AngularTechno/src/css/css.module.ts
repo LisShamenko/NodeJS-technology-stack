@@ -11,6 +11,7 @@ import { PositionOverlayComponent } from "./components/position_overlay/position
 import { AdaptiveDesignComponent } from "./components/adaptive_design/adaptive_design.component";
 import { ModularCSSComponent } from "./components/modular_css/modular_css.component";
 import { BackgroundComponent } from "./components/background/background.component";
+import { ColorsComponent } from "./components/colors/colors.component";
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { BackgroundComponent } from "./components/background/background.componen
         PositionOverlayComponent,
         AdaptiveDesignComponent,
         ModularCSSComponent,
-        BackgroundComponent
+        BackgroundComponent,
+        ColorsComponent
     ],
     bootstrap: [
         CSSBaseComponent, RelativeUnitsComponent,
@@ -34,7 +36,8 @@ import { BackgroundComponent } from "./components/background/background.componen
         PositionOverlayComponent,
         AdaptiveDesignComponent,
         ModularCSSComponent,
-        BackgroundComponent
+        BackgroundComponent,
+        ColorsComponent
     ],
 
 })
