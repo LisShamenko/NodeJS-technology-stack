@@ -17,10 +17,10 @@ import { NgcontentComponent } from "./../components/Components/ngcontent.compone
 import { ProductTableComponent } from "./../components/Components/product_table.component";
 import { PipeFormComponent } from "./../components/Pipes/pipe_form.component";
 import { ServiceComponent } from "./../components/ServiceComponent/service.component";
-import { FirstDisplayComponent } from "src/components/ServiceComponent/firstDisplay.component";
-import { SecondDisplayComponent } from "src/components/ServiceComponent/secondDisplay.component";
-import { FirstEditComponent } from "src/components/ServiceComponent/firstEdit.component";
-import { SecondEditComponent } from "src/components/ServiceComponent/secondEdit.component";
+import { FirstDisplayComponent } from "./../components/ServiceComponent/firstDisplay.component";
+import { SecondDisplayComponent } from "./../components/ServiceComponent/secondDisplay.component";
+import { FirstEditComponent } from "./../components/ServiceComponent/firstEdit.component";
+import { SecondEditComponent } from "./../components/ServiceComponent/secondEdit.component";
 import { LocalProviderComponent } from "./../components/ProviderComponent/local_provider.component";
 
 // директивы
@@ -31,7 +31,7 @@ import { DirectiveIterator } from "../directives/directive.iterator";
 import { DirectiveDiffer } from "../directives/directive.differ";
 import { DirectiveParent } from "../directives/directive.parent";
 import { DirectiveChild } from "../directives/directive.child";
-import { ServiceDirective } from "src/directives/directive.serviceDirective";
+import { ServiceDirective } from "./../directives/directive.serviceDirective";
 import { ProviderValueDirective } from "./../directives/ProviderDirectives/provider_value.directive";
 import { ProviderChildDirective } from "./../directives/ProviderDirectives/provider_child.directive";
 import { ProviderParentDirective } from "./../directives/ProviderDirectives/provider_parent.directive";
@@ -39,15 +39,15 @@ import { ProviderParentDirective } from "./../directives/ProviderDirectives/prov
 // каналы
 import { AddNumberPipe } from "../pipes/addNumber.pipe";
 import { CategoryFilterPipe } from "../pipes/categoryFilter.pipe";
-import { PipeService } from "src/pipes/pipeService.pipe";
+import { PipeService } from "./../pipes/pipeService.pipe";
 import { ProviderPipe } from "./../pipes/provider_pipe.pipe";
 
 // провайдеры
 import { LOCALE_ID } from "@angular/core";
 import { FirstService } from "./../services/first.service";
 import { SecondService } from "./../services/second.service";
-import { ProductRepository } from "src/models/Product/product.repository";
-import { ProductsSource } from "src/models/Product/product.datasource";
+import { ProductRepository } from "./../models/Product/product.repository";
+import { ProductsSource } from "./../models/Product/product.datasource";
 import { ThirdService } from "./../services/third.service";
 import { ProviderBaseService } from "./../services/provider_base.service";
 import { PROVIDER_ALIAS, PROVIDER_BASE_SERVICE, PROVIDER_BOTH_SERVICES, PROVIDER_DEPENDENCY, PROVIDER_INSTANCE, PROVIDER_MULTI, PROVIDER_SUB_SERVICE, PROVIDER_VALUE, PROVIDER_VALUE_PROVIDERS, PROVIDER_VALUE_VIEW_PROVIDERS } from "./../Tokens/provider_tokens";
@@ -99,8 +99,11 @@ import { FourthService } from "./../services/fourth.service";
         // --------------- 
 
         // - провайдеры служб создают объекты (классы служб), используемые для разрешения зависимостей
+        
         // - каждый провайдер управляет одним типом зависимости, если для разрешения заваисимости нет провайдера, 
         //      то Angualr не сможет создать объект
+
+        // - провайдеры служб модуля используются для разрешения зависимостей всех корневых компонентов
 
         // 1. класса службы передается в массив providers
         ThirdService,
