@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
+import { PaginationData } from "src/app/RoutingModule/models/pagination_data.model";
 import { RestProductsSource } from "./rest.datasource";
 import { RestProduct } from "./rest.model";
 
-// --------------- 
+// ---------------
 
 @Injectable()
 export class RestProductRepository {
 
     private _products: RestProduct[] = new Array<RestProduct>();
+    private _paginationData: PaginationData = new PaginationData(0, 0);
 
 
 
@@ -86,5 +88,58 @@ export class RestProductRepository {
                     this._products.splice(index, 1);
                 }
             });
+    }
+
+    // --------------- навигация по коллекции
+
+    getNextProductId(id: number): number | undefined {
+        return this.getProductByOffset(id, 1);
+    }
+
+    getPreviousProductId(id: number): number | undefined {
+        return this.getProductByOffset(id, -1);
+    }
+
+    getProductByOffset(id: number, offset: number) {
+        if (this._products.length == 0) {
+            return undefined;
+        }
+
+        let index = this._products.findIndex(p => p.id == id) + offset;
+        if (index >= this._products.length) {
+            index = 0;
+        }
+        else if (index < 0) {
+            index = this._products.length - 1;
+        }
+        return this._products[index].id;
+    }
+
+    // --------------- дочерние маршруты  
+
+    getPaginationData() {
+        return this._paginationData;
+    }
+
+    refreshPagination() {
+        this._dataSource.getPagination().subscribe(data => {
+            console.log('--- --- refreshPagination = ' + JSON.stringify(data));
+            Object.assign(this._paginationData, data);
+        });
+    }
+
+    getCountCategories(): number {
+        let products = this.getCategories();
+        return products.length;
+    }
+
+    getCountProducts(): number {
+        return this._products.length;
+    }
+
+    getCategories(): string[] {
+        return this._products
+            .map(p => p.category ? p.category : '')
+            .filter((category, index, array) => array.indexOf(category) == index);
     }
 }

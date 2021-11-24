@@ -1,6 +1,6 @@
 import { Component, Inject } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { RestProduct } from "src/app/AsyncHttpModule/models/rest.model";
 import { RestProductRepository } from "src/app/AsyncHttpModule/models/rest.repository";
 import { ROUTING_PRODUCT_REPOSITORY } from "../tokens/routing.tokens";
@@ -53,14 +53,14 @@ export class RoutingFormComponent {
         console.log(activatedRoute.snapshot);
 
         // проверка 2-ого сегмента URL-адреса активного маршрута
-        this.isEditing = activatedRoute.snapshot.url[1].path == "edit";
+        this.isEditing = (activatedRoute.snapshot.url[1].path == "edit");
 
         // свойство params позволяет обращаться к параметрам URL (строки запроса)
-        this.isEditing = activatedRoute.snapshot.params["mode"] == "edit";
+        this.isEditing = (activatedRoute.snapshot.params["mode"] == "edit");
 
         // необязательные параметры
         let id = activatedRoute.snapshot.params["id"];
-        if (id != null) {
+        if (id != null && id > -1) {
             // репозиторий загружает данные асинхронно, и если данные не будут загружены к моменту отображения формы,
             //      то возникнет ошибка, поэтому следует проверять загружаемые данные из репозитория
             let product = productRepository.getProduct(id);
@@ -84,6 +84,49 @@ export class RoutingFormComponent {
         if (price != null) {
             this.currentProduct.price = Number.parseFloat(price);
         }
+
+        // --------------- навигация по коллекции
+
+        // - кнопки Previous и Next содержат привязку директивы routerLink для перехода
+        //      к предыдущему и следующему продукту
+
+        // - URL-адреса кнопок Previous и Next обрабатываются тем же маршрутом, что и 
+        //      маршрут содержащего их компонента, поэтому Angular не создает новый экземпляр 
+        //      компонента, а сообщает существующему компоненту, что маршрут изменился 
+
+        // - при внутренней навигации не имеет смысла использовать свойство snapshot
+        //      объекта ActivatedRoute, так как компонент не будет создаваться заново и 
+        //      конструктор выполнится только один раз, вместо этого следует использовать
+        //      свойства возвращающие объекты Observable (Reactive Extension) на которые
+        //      можно подписаться и получать уведомления об изменениях:
+        //      - url               Observable<UrlSegment[]>    набор сегментов URL
+        //      - params            Observable<Params>          параметры URL
+        //      - queryParams       Observable<Params>          параметры запроса
+        //      - fragment          Observable<string>          фрагмент
+
+        console.log('--- --- навигация конструктор');
+
+        // свойство 'params: Observable<Params>' объекта ActivatedRoute позволяет отслеживать
+        //      изменения маршрута, благодаря этому конструктор не пропустит начальную навигацию,
+        //      которая привела к отображению компонента
+        activatedRoute.params.subscribe((params: Params) => {
+
+            console.log(`--- --- навигация наблюдатель`);
+            console.log(`--- --- --- параметры этого маршрута: ${JSON.stringify(params)}`)
+
+            // чтобы получить доступ к другим данным следует использовать свойство snapshot
+            console.log(`--- --- --- сегменты URL: ${activatedRoute.snapshot.url}`)
+            console.log(`--- --- --- параметры всех маршрутов: ${activatedRoute.snapshot.queryParams}`)
+            console.log(`--- --- --- фрагмент: ${activatedRoute.snapshot.fragment}`)
+
+            // функция-наблюдатель принимает объект Params при каждом изменении маршрута
+            this.isEditing = (params["mode"] == "edit");
+            let id = params["id"];
+            if (id != null) {
+                let product = this.productRepository.getProduct(id);
+                Object.assign(this.currentProduct, product || new RestProduct());
+            }
+        });
     }
 
     submitForm(form: NgForm) {
@@ -132,5 +175,25 @@ export class RoutingFormComponent {
     resetForm() {
         this.currentProduct = new RestProduct();
         this.isEditing = false;
+    }
+
+    getPrevious(): number {
+        if (this.currentProduct.id != undefined) {
+            let id = this.productRepository.getPreviousProductId(this.currentProduct.id);
+            if (id != undefined) {
+                return id;
+            }
+        }
+        return -1;
+    }
+
+    getNext(): number {
+        if (this.currentProduct.id != undefined) {
+            let id = this.productRepository.getNextProductId(this.currentProduct.id);
+            if (id != undefined) {
+                return id;
+            }
+        }
+        return -1;
     }
 }

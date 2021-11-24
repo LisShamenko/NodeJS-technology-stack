@@ -3,12 +3,15 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
-import { Subject } from "rxjs/internal/Subject";
+import { Subject } from "rxjs";
 import { AsyncHttpModule } from "../AsyncHttpModule/async_http.module";
 import { RestProductsSource } from "../AsyncHttpModule/models/rest.datasource";
 import { RestProductRepository } from "../AsyncHttpModule/models/rest.repository";
 import { Message } from "../ReactiveExtensionsModule/models/message.model";
 import { MessageService } from "../ReactiveExtensionsModule/services/message.service";
+import { CategoryCountComponent } from "./components/category_count.component";
+import { EmptyComponent } from "./components/empty.component";
+import { ProductCountComponent } from "./components/product_count.component";
 import { RoutingComponent } from "./components/routing.component";
 import { RoutingFormComponent } from "./components/routing_form.component";
 import { RoutingMessagePanelComponent } from "./components/routing_message_panel.component";
@@ -70,6 +73,28 @@ import { ROUTING_MESSAGE_SERVICE, ROUTING_PRODUCT_REPOSITORY, ROUTING_PRODUCT_SO
 //          ]">Edit</button>
 //      <button (click)="createProduct()" 
 //          routerLink="/form/create">
+
+// --------------- дочерине маршруты
+
+const childRoutes: Routes = [
+    {
+        path: "products",
+        component: ProductCountComponent
+    },
+    {
+        path: "categories",
+        component: CategoryCountComponent
+    },
+    // можно создать бескомпонентный маршрут если не задать свойство component, такой
+    //      маршрут может быть выбран, но компонент отображаться не будет, что избавляет
+    //      от создания компонента пустышки
+    {
+        path: "",
+        // ошибка если не выбрать компонент по умолчанию:
+        //      Unhandled Promise rejection: Invalid configuration of route 'table/:category/'. One of the following must be provided: component, redirectTo, children or loadChildren ; Zone: <root> ; Task: Promise.then ; Value: Error: Invalid configuration of route 'table/:category/'. One of the following must be provided: component, redirectTo, children or loadChildren
+        component: EmptyComponent
+    }
+];
 
 // --------------- Routes
 
@@ -139,21 +164,81 @@ const routes: Routes = [
         path: "form/:mode/:id",                 // http://localhost:3000/form/[edit | create]/[id]
         component: RoutingFormComponent
     },
+
+    // --------------- перенаправления
+
+    {
+        // маршрут соответствует любому пути, который начинается со строки:
+        //      'redirect/to/form/prefix'
+        path: "redirect/to/form/prefix",        // http://localhost:3000/redirect/to/form/prefix/other/segments
+        // если браузер переходит по URL-адресу с префиксом 'redirect/to/form/prefix', то
+        //      маршрут перенаправляет браузер на URL-адрес '/form/create'
+        redirectTo: "/form/create",
+        // маршрут соответствует URL-адресам, которые начинаются со значения в свойстве path,
+        //      последующие сегменты игнорируются
+        pathMatch: "prefix"
+    },
+    {
+        path: "redirect/to/form/full",          // http://localhost:3000/redirect/to/form/full
+        redirectTo: "/form/edit/1",
+        // маршрут соответствует URL-адресам, которые совпадают со свойством path
+        pathMatch: "full"
+    },
+
+    // --------------- дочерине маршруты
+
+    // - компоненты могут реагировать на часть URL-адреса создавая компоненты и размещая их в
+    //      в элементе router-outlet, это реализуется через дочерние маршруты
+
+    // - если используется полное сопоставление URL-адреса с дочерним маршрутом, то соответствие
+    //      будет найдено только если все родительские маршруты также соответствуют этому URL-адресу
+
+    /*
     {
         path: "table",                          // http://localhost:3000/table
-        component: RoutingTableComponent
+        component: RoutingTableComponent,
+    },
+    */
+    {
+        path: "table",                          // http://localhost:3000/table
+        component: RoutingTableComponent,
+        // свойство children задает дочерние маршруты
+        children: childRoutes
+    },
+    {
+        // category используется для фильтрации
+        path: "table/:category",
+        component: RoutingTableComponent,
+        children: childRoutes
+    },
+
+    // ---------------
+    {
+        path: "does/not/exist",
+        component: EmptyComponent
     },
     {
         path: "",                               // http://localhost:3000/
         component: TestRouterOutletComponent
     },
+
+    // --------------- универсальные маршруты
+
+    // - путь (**) соответствует любому URL, что дает возможность задать универсальный путь 
+    //      и избежать ошибки навигации, если же соответствия для URL не будет найдено, то
+    //      генерируется ошибка, которая перехватывается классом обработки ошибок
+
+    {
+        path: "**",
+        component: EmptyComponent
+    }
 ];
 
 // --------------- 
 
 @NgModule({
     imports: [
-        BrowserModule, FormsModule, 
+        BrowserModule, FormsModule,
         // в модуле AsyncHttpModule объявлены сервисы: 
         //      RestProductRepository, RestProductsSource
         AsyncHttpModule,
@@ -167,7 +252,10 @@ const routes: Routes = [
         // - второй вариант, разместить роутеры в отдельном файле app.routing.ts
         //      RouterModuleRouting
     ],
-    declarations: [RoutingFormComponent, RoutingTableComponent, RoutingMessagePanelComponent, RoutingComponent, TestRouterOutletComponent],
+    declarations: [
+        RoutingFormComponent, RoutingTableComponent, RoutingMessagePanelComponent, RoutingComponent, TestRouterOutletComponent,
+        ProductCountComponent, CategoryCountComponent, EmptyComponent
+    ],
     exports: [RoutingComponent],
     providers: [
         /*

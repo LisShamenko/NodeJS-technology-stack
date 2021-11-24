@@ -3,7 +3,8 @@ import { Inject, Injectable } from "@angular/core";
 import { Observable, of, throwError } from "rxjs";
 import { RestProduct } from "./rest.model";
 import { filter, map, distinctUntilChanged, skipWhile, takeWhile, catchError } from 'rxjs/operators';
-import { REST_URL } from "../tokens";
+import { REST_URL, REST_URL_PRODUCTS } from "../tokens";
+import { PaginationData } from "src/app/RoutingModule/models/pagination_data.model";
 
 // --------------- HTTP методы объекта HttpClient:
 
@@ -36,8 +37,9 @@ export class RestProductsSource {
     constructor(
         // HttpClient служба выполняет асинхронные запросы
         private _httpClient: HttpClient,
-        // URL адрес поставляется через маркер REST_URL
-        @Inject(REST_URL) private _url: string) { }
+        // URL адрес поставляется через маркер REST_URL_PRODUCTS
+        @Inject(REST_URL_PRODUCTS) private _url: string,
+        @Inject(REST_URL) private _baseURL: string) { }
 
 
 
@@ -243,6 +245,17 @@ export class RestProductsSource {
             );
     }
 
+    // --------------- 
+
+    getPagination(): Observable<PaginationData> {
+        return this._httpClient
+            .get(`${this._baseURL}/pagination`, { responseType: 'json' })
+            .pipe(
+                map((response: any) => {
+                    return (response as PaginationData);
+                })
+            );
+    }
 }
 
 /*

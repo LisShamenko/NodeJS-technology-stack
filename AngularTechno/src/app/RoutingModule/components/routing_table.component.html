@@ -1,63 +1,196 @@
-<table class="table table-sm table-bordered table-striped">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr><td colspan="9">Edit I - "/form/edit"</td></tr>
-    <tr><td colspan="9">Edit II - "['/form', 'edit', item.id]"</td></tr>
-    <tr><td colspan="9">Edit III - "['/form', 'edit', item.id, &#123; name: item.name, category: item.category, price: item.price &#125;]"</td></tr>
-    <tr><td colspan="9">Edit IV - "['/form', 'edit', item.id, &#123; name: item.name, category: item.category, price: item.price &#125;]"</td></tr>
-    <tr *ngFor="let item of getProducts()">
-        <td class="vertical-td">{{item.id}}</td>
-        <td class="vertical-td">{{item.name}}</td>
-        <td class="vertical-td">{{item.category}}</td>
-        <td class="vertical-td">{{item.price}}</td>
-        <td class="text-xs-center">
-            <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">Delete</button>
-        </td>
-        <td class="text-xs-center">
-            <button class="btn btn-warning btn-sm" (click)="editProduct(item.id)" routerLink="/form/edit">Edit I</button>
-        </td>
-        <td class="text-xs-center">
-            <button class="btn btn-warning btn-sm" (click)="editProduct(item.id)"
-                [routerLink]="['/form', 'edit', item.id]">Edit II</button>
-        </td>
-        <td class="text-xs-center">
-            <button class="btn btn-warning btn-sm" (click)="editProduct(item.id)"
-                [routerLink]="['/form', 'edit', item.id, {name: item.name, category: item.category, price: item.price}]">Edit III</button>
-        </td>
-        <td class="text-xs-center">
-            <button class="btn btn-warning btn-sm"
-                [routerLink]="['/form', 'edit', item.id, {name: item.name, category: item.category, price: item.price}]">Edit IV</button>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <button class="btn btn-primary" (click)="sendMessage()">
-                Отправить сообщение.
-            </button>
-        </td>        
-        <td colspan="4">
-            <button class="btn btn-primary" (click)="createProduct()" routerLink="/form/create">
-                Вызвать метод createProduct и перейти к форме.
-            </button>
-        </td>
-        <td colspan="2">
-            <button class="btn btn-primary" routerLink="/form/create">
-                Перейти к форме и создать.
-            </button>
-        </td>
-        <td colspan="1">
-            <button class="btn btn-primary" routerLink="/">
-                Вернуться.
-            </button>
-        </td>
-    </tr>
-</table>
+<div class="col-xs-12 p-t-1">
+
+    <hr color="green">
+    <h3>Маршруты для перехода к форме.</h3>
+
+    <table class="table table-sm table-bordered table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td colspan="9">Edit I - "/form/edit"</td>
+        </tr>
+        <tr>
+            <td colspan="9">Edit II - "['/form', 'edit', item.id]"</td>
+        </tr>
+        <tr>
+            <td colspan="9">Edit III - "['/form', 'edit', item.id, &#123; name: item.name, category: item.category,
+                price:
+                item.price &#125;]"</td>
+        </tr>
+        <tr>
+            <td colspan="9">Edit IV - "['/form', 'edit', item.id, &#123; name: item.name, category: item.category,
+                price:
+                item.price &#125;]"</td>
+        </tr>
+        <tr *ngFor="let item of getProductsByFilter()">
+            <td class="vertical-td">{{item.id}}</td>
+            <td class="vertical-td">{{item.name}}</td>
+            <td class="vertical-td">{{item.category}}</td>
+            <td class="vertical-td">{{item.price}}</td>
+            <td class="text-xs-center">
+                <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">Delete</button>
+            </td>
+            <td class="text-xs-center">
+                <button class="btn btn-warning btn-sm" (click)="editProduct(item.id)" routerLink="/form/edit">
+                    Edit I
+                </button>
+            </td>
+            <td class="text-xs-center">
+                <button class="btn btn-warning btn-sm" (click)="editProduct(item.id)"
+                    [routerLink]="['/form', 'edit', item.id]">Edit II</button>
+            </td>
+            <td class="text-xs-center">
+                <button class="btn btn-warning btn-sm" (click)="editProduct(item.id)"
+                    [routerLink]="['/form', 'edit', item.id, {name: item.name, category: item.category, price: item.price}]">
+                    Edit III
+                </button>
+            </td>
+            <td class="text-xs-center">
+                <button class="btn btn-warning btn-sm"
+                    [routerLink]="['/form', 'edit', item.id, {name: item.name, category: item.category, price: item.price}]">
+                    Edit IV
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button class="btn btn-primary" (click)="sendMessage()">
+                    Отправить сообщение.
+                </button>
+            </td>
+            <td colspan="4">
+                <button class="btn btn-primary" (click)="createProduct()" routerLink="/form/create">
+                    Вызвать метод createProduct и перейти к форме.
+                </button>
+            </td>
+            <td colspan="2">
+                <button class="btn btn-primary" routerLink="/form/create">
+                    Перейти к форме и создать.
+                </button>
+            </td>
+            <td colspan="1">
+                <button class="btn btn-primary" routerLink="/">
+                    Вернуться.
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button class="btn btn-danger" routerLink="/does/not/exist">
+                    Генерировать ошибку.
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-xs-3">
+
+    <hr color="green">
+    <h3>Стили ссылок активных маршрутов.</h3>
+
+    <table>
+        <tr>
+            <td>
+                <button class="btn btn-secondary btn-block" routerLink="/table" routerLinkActive="active">
+                    Все категории (без routerLinkActiveOptions кнопка остается активной всегда).
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-secondary btn-block" routerLink="/table" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">
+                    Все категории (routerLinkActiveOptions).
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <p>Текущая категория: {{ category }}</p>
+
+    <p>Выбрать категорию:</p>
+
+    <button *ngFor="let category of getCategories()" class="btn btn-secondary" [routerLink]="['/table', category]"
+        routerLinkActive="active">
+        {{category}}
+    </button>
+</div>
+
+<div class="col-xs-9">
+
+    <hr color="green">
+    <h3>Дочерние маршруты.</h3>
+
+    <table>
+        <tr>
+            <td colspan="3">
+                <button class="btn btn-info" routerLink="products">
+                    Относительный URL-адрес: Count Products.
+                </button>
+            </td>
+            <td colspan="3">
+                <button class="btn btn-primary" routerLink="categories">
+                    Относительный URL-адрес: Count Categories.
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="btn btn-info" routerLink="/table/products">
+                    Маршрут: /table/products.
+                </button>
+            </td>
+            <td colspan="3">
+                <button class="btn btn-primary" routerLink="/table/categories">
+                    Маршрут: /table/categories.
+                </button>
+            </td>
+            <td colspan="3">
+                <button class="btn btn-secondary" routerLink="/table">
+                    Маршрут: /table.
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <hr color="green">
+    <h3>Эдемент router-outlet.</h3>
+
+    <div class="m-t-1">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<div class="col-xs-9">
+
+    <hr color="green">
+    <h3>Перенаправления.</h3>
+
+    <table>
+        <tr>
+            <td colspan="3">
+                <button class="btn btn-info" routerLink="../redirect/to/form/prefix/other/segments">
+                    <p>Ссылка prefix: "redirect/to/form/prefix/other/segments"</p>
+                    <p>Перенаправить на адрес: "/form/create"</p>
+                </button>
+            </td>
+            <td colspan="3">
+                <button class="btn btn-primary" routerLink="../redirect/to/form/full">
+                    <p>Ссылка full: "redirect/to/form/full"</p>
+                    <p>Перенаправить на адрес: "/form/edit/1"</p>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+
+
+</div>

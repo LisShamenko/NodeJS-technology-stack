@@ -42,14 +42,26 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/products', (req, res) => {
-    console.log(`url = '/products' --- time = ${Date.now()}`);
+app.get('/pagination', (req, res) => {
+    console.log(`GET --- url = '/pagination' --- time = ${Date.now()}`);
 
+    let categories = data.products
+        .map(p => p.category ? p.category : '')
+        .filter((category, index, array) => array.indexOf(category) == index);
+
+    res.json({
+        countPtoducts: data.products.length,
+        countCategories: categories.length,
+    });
+});
+
+app.get('/products', (req, res) => {
+    console.log(`GET --- url = '/products' --- time = ${Date.now()}`);
     res.json(data);
 });
 
 app.get('/products/:id', (req, res) => {
-    console.log(`url = '/products/:id' --- time = ${Date.now()}`);
+    console.log(`GET --- url = '/products/:id' --- time = ${Date.now()}`);
     console.log('req.params.id = ' + req.params.id);
     console.log('req.body.id = ' + req.body.id);
 
@@ -63,6 +75,8 @@ app.get('/products/:id', (req, res) => {
 });
 
 app.post('/products', (req, res) => {
+    console.log(`POST --- url = '/products' --- time = ${Date.now()}`);
+
     if (req.body.name && req.body.category && req.body.price) {
         let product = {
             id: getLastId(),
@@ -79,6 +93,8 @@ app.post('/products', (req, res) => {
 });
 
 app.put('/products/:id', (req, res) => {
+    console.log(`PUT --- url = '/products' --- time = ${Date.now()}`);
+
     let product = data.products.find(item => item.id == req.params.id);
     if (product) {
         product.name = req.body.name;
@@ -92,6 +108,8 @@ app.put('/products/:id', (req, res) => {
 });
 
 app.delete('/products/:id', (req, res) => {
+    console.log(`DELETE --- url = '/products' --- time = ${Date.now()}`);
+
     console.log(`url --- delete --- '/products/:id' --- time = ${Date.now()}`);
     let index = data.products.findIndex(item => item.id == req.params.id);
     if (index >= 0) {

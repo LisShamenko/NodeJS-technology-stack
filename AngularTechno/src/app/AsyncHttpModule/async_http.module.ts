@@ -2,7 +2,7 @@ import { ErrorHandler, NgModule } from "@angular/core";
 import { HttpClientJsonpModule, HttpClientModule } from "@angular/common/http"
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { MESSAGE_SERVICE, REST_URL, SUBJECT_INSTANCE } from "./tokens";
+import { MESSAGE_SERVICE, REST_URL, REST_URL_PRODUCTS, SUBJECT_INSTANCE } from "./tokens";
 import { MessageErrorHandler } from "./service/errorHandler";
 import { Subject } from "rxjs";
 import { MessageService } from "../ReactiveExtensionsModule/services/message.service";
@@ -21,10 +21,14 @@ import { RestProductsSource } from "./models/rest.datasource";
     providers: [
         RestProductRepository,
         RestProductsSource,
-        // маркер REST_URL для настройки URL веб-службы
+        // маркер REST_URL_PRODUCTS для настройки URL веб-службы
+        {
+            provide: REST_URL_PRODUCTS,
+            useValue: `http://${location.hostname}:3000/products`
+        },
         {
             provide: REST_URL,
-            useValue: `http://${location.hostname}:3000/products`
+            useValue: `http://${location.hostname}:3000`
         },
         // заменяет ErrorHandler (обработчик ошибок по умолчанию)
         {
