@@ -1,0 +1,40 @@
+<form novalidate [formGroup]="moduleForm" (ngSubmit)="submitForm(moduleForm)">
+
+    <div class="bg-danger p-a-1 m-b-1" *ngIf="isFormSubmit && moduleForm.invalid">
+        <ul>
+            <li *ngFor="let error of moduleForm.getFormMessages()"> {{error}} </li>
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" [(ngModel)]="currentProduct.name" formControlName="name" />
+        <ul class="text-danger list-unstyled"
+            *ngIf="(isFormSubmit || moduleForm.controls['name'].dirty) && moduleForm.controls['name'].invalid">
+            <li *ngFor="let error of getControlMessages(moduleForm, 'name')"> {{error}} </li>
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <input class="form-control" name="category" [(ngModel)]="currentProduct.category" formControlName="category" />
+        <ul class="text-danger list-unstyled"
+            *ngIf="(isFormSubmit || moduleForm.controls['category'].dirty) && moduleForm.controls['category'].invalid">
+            <li *ngFor="let error of getControlMessages(moduleForm, 'category')"> {{error}} </li>
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" name="price" [(ngModel)]="currentProduct.price" formControlName="price" />
+        <ul class="text-danger list-unstyled"
+            *ngIf="(isFormSubmit || moduleForm.controls['price'].dirty) && moduleForm.controls['price'].invalid">
+            <li *ngFor="let error of getControlMessages(moduleForm, 'price')"> {{error}} </li>
+        </ul>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="isFormSubmit && moduleForm.invalid"
+        [class.btn-secondary]="isFormSubmit && moduleForm.invalid">
+        Create
+    </button>
+</form>

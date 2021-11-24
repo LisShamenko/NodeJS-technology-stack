@@ -1,0 +1,22 @@
+<table class="table table-sm table-bordered table-striped" [module_parent]="isEnableModuleParent">
+    <caption>Директива ModuleDifferDirective.</caption>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th></th>
+        <th>Pipe</th>
+    </tr>
+    <tr *moduleDifferFor="let item of getModuleProducts(); let i = index; let odd = odd; let even = even"
+        [class.bg-info]="odd" [class.bg-warning]="even">
+        <td class="vertical-td" module_child="">{{ i + 1 }}</td>
+        <td class="vertical-td" module_child="">{{ item.name }}</td>
+        <td class="vertical-td" module_child="">{{ item.category }}</td>
+        <td class="vertical-td" module_child="">{{ item.price }}</td>
+        <td class="text-xs-center" module_child="">
+            <button class="btn btn-danger btn-sm" (click)="deleteModuleProduct(item.id)">Delete</button>
+        </td>
+        <td class="vertical-td" module_child="">{{ item.price | module_plus_pipe:100 | currency:"USD":true }}</td>
+    </tr>
+</table>

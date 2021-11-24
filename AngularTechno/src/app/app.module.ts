@@ -22,6 +22,7 @@ import { SecondDisplayComponent } from "./../components/ServiceComponent/secondD
 import { FirstEditComponent } from "./../components/ServiceComponent/firstEdit.component";
 import { SecondEditComponent } from "./../components/ServiceComponent/secondEdit.component";
 import { LocalProviderComponent } from "./../components/ProviderComponent/local_provider.component";
+import { ModuleRootComponent } from "./ComponentsModule/components/root/module_root.component";
 
 // директивы
 import { DirectiveSimple } from "../directives/directive.simple";
@@ -54,6 +55,9 @@ import { PROVIDER_ALIAS, PROVIDER_BASE_SERVICE, PROVIDER_BOTH_SERVICES, PROVIDER
 import { ProviderSubclassService } from "./../services/provider_subclass.service";
 import { FourthService } from "./../services/fourth.service";
 
+// модули
+import { ModulesModule } from "./modules.module";
+
 // --------------- @NdModule
 
 // @NdModule - корневой модуль, который отвечает за описание приложения для Angular:
@@ -64,7 +68,11 @@ import { FourthService } from "./../services/fourth.service";
 //      а не в шаблоне, что дает лучшую масштабируемость
 @NgModule({
     // задает зависимости, используемые приложением
-    imports: [BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],
+    imports: [
+        BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
+        // кастомный модуль, содержит несколько подходов по использованию модулей
+        ModulesModule
+    ],
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
     declarations: [
         // компоненты
@@ -87,7 +95,8 @@ import { FourthService } from "./../services/fourth.service";
     bootstrap: [
         ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent,
         RootComponent, PipeFormComponent, ServiceComponent,
-        LocalProviderComponent
+        LocalProviderComponent,
+        ModuleRootComponent
     ],
     // провайдеры
     providers: [
