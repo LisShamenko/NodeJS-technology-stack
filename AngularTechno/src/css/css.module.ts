@@ -10,28 +10,31 @@ import { CSSGridComponent } from "./components/css_grid/css_grid.component";
 import { PositionOverlayComponent } from "./components/position_overlay/position_overlay.component";
 import { AdaptiveDesignComponent } from "./components/adaptive_design/adaptive_design.component";
 import { ModularCSSComponent } from "./components/modular_css/modular_css.component";
+import { BackgroundComponent } from "./components/background/background.component";
 
 @NgModule({
     imports: [
         BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     ],
     declarations: [
-        CSSBaseComponent, RelativeUnitsComponent, 
+        CSSBaseComponent, RelativeUnitsComponent,
         FloatElementsComponent,
         FlexboxLayoutsComponent,
         CSSGridComponent,
         PositionOverlayComponent,
         AdaptiveDesignComponent,
-        ModularCSSComponent
+        ModularCSSComponent,
+        BackgroundComponent
     ],
     bootstrap: [
-        CSSBaseComponent, RelativeUnitsComponent, 
+        CSSBaseComponent, RelativeUnitsComponent,
         FloatElementsComponent,
         FlexboxLayoutsComponent,
         CSSGridComponent,
         PositionOverlayComponent,
         AdaptiveDesignComponent,
-        ModularCSSComponent
+        ModularCSSComponent,
+        BackgroundComponent
     ],
 
 })
