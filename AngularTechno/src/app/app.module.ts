@@ -8,8 +8,15 @@ import { AppComponent } from "./../components/AppComponent/app.component";
 import { ProductComponent } from "./../components/ProductComponent/product.component";
 import { FormComponent } from "./../components/FormComponent/form.component";
 import { DirectiveComponent } from "./../components/DirectiveComponent/directive.component";
+import { StructuralDirectiveComponent } from "./../components/StructuralDirectiveComponent/structural_directive.component";
+// директивы
 import { DirectiveSimple } from "../directives/directive.simple";
 import { DirectiveTwowayBinding } from "../directives/directive.twoway_binding";
+import { DirectiveStructure } from "../directives/directive.structure";
+import { DirectiveIterator } from "../directives/directive.iterator";
+import { DirectiveDiffer } from "../directives/directive.differ";
+import { DirectiveParent } from "../directives/directive.parent";
+import { DirectiveChild } from "../directives/directive.child";
 
 // @NdModule - корневой модуль, который отвечает за описание приложения для Angular:
 //      используемые зависимости, компоненты, точки входа
@@ -22,10 +29,11 @@ import { DirectiveTwowayBinding } from "../directives/directive.twoway_binding";
     // задает зависимости, используемые приложением
     imports: [BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
-    declarations: [ProductComponent, AppComponent, FormComponent, DirectiveComponent,
-        DirectiveSimple, DirectiveTwowayBinding
+    declarations: [
+        ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent,
+        DirectiveSimple, DirectiveTwowayBinding, DirectiveStructure, DirectiveIterator, DirectiveDiffer, DirectiveParent, DirectiveChild
     ],
     // определяет точку входа приложения
-    bootstrap: [ProductComponent, AppComponent, FormComponent, DirectiveComponent]
+    bootstrap: [ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent]
 })
 export class AppModule { }

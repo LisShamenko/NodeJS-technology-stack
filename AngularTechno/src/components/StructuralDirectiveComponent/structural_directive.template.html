@@ -1,0 +1,192 @@
+<div class="form-group m-t-1">
+
+    <h2>Структурные директивы.</h2>
+
+    <hr color="green">
+    <h3>1. Структурная директива if - полный синтаксис шаблона.</h3>
+
+    <div class="checkbox">
+        <label>Выполнить директиву 1: </label><input type="checkbox" [(ngModel)]="isDirectiveWork_1" />
+    </div>
+
+    <ng-template [structureDirectiveOf]="isDirectiveWork_1">
+        <table class="table table-sm table-bordered table-striped">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+            <tr *ngFor="let item of getProducts(); let i = index; let odd = odd; let last = last"
+                [is-console-log]="last" [ng-on-changes]="'change'"
+                [simple-directive]="odd ? 'bg-success' : 'bg-warning'" [product-property]="item"
+                (category-event)="currentProduct.category=$event">
+                <td>{{i + 1}}</td>
+                <td>{{item.name}}</td>
+                <td [simple-directive]="item.category == 'еда' ? 'bg-info' : null">{{item.category}}</td>
+                <td [simple-directive]="'bg-info'">{{item.price}}</td>
+            </tr>
+        </table>
+    </ng-template>
+
+    <hr color="green">
+    <h3>2. Структурная директива if - компактный синтаксис.</h3>
+
+    <div class="checkbox">
+        <label>Выполнить директиву 2: </label><input type="checkbox" [(ngModel)]="isDirectiveWork_2" />
+    </div>
+
+    <table *structureDirectiveOf="isDirectiveWork_2" class="table table-sm table-bordered table-striped">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        <ng-template [iteratorDirectiveOf]="getProducts()" let-item [is-console-log]="false">
+            <tr>
+                <td colspan="4">{{item.name}}</td>
+            </tr>
+        </ng-template>
+    </table>
+
+    <hr color="green">
+    <h3>3. Структурная директива for - контекстные значения и переменные шаблонов (let-<имя>) - изменения данных объекта
+            контекста.</h3>
+
+    <div class="checkbox">
+        <label>Выполнить директиву 3: </label><input type="checkbox" [(ngModel)]="isDirectiveWork_3" />
+    </div>
+
+    <table *structureDirectiveOf="isDirectiveWork_3" class="table table-sm table-bordered table-striped">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        <ng-template [iteratorDirectiveOf]="getProducts()" let-item let-i="index" let-odd="odd" let-even="even">
+            <tr [class.bg-info]="odd" [class.bg-warning]="even">
+                <td>{{i + 1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+        </ng-template>
+    </table>
+
+    <hr color="green">
+    <h3>4. Структурная директива for - компактный синтаксис.</h3>
+
+    <div class="checkbox">
+        <label>Выполнить директиву 4: </label><input type="checkbox" [(ngModel)]="isDirectiveWork_4" />
+    </div>
+
+    <table *structureDirectiveOf="isDirectiveWork_4" class="table table-sm table-bordered table-striped">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        <tr *iteratorDirective="let item of getProducts(); let i = index; let odd = odd; let even = even"
+            [class.bg-info]="odd" [class.bg-warning]="even">
+            <td>{{i + 1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.price}}</td>
+        </tr>
+    </table>
+
+    <hr color="green">
+    <h3>Исследование метода ngDoCheck.</h3>
+
+    <style>
+        input.ng-dirty.ng-invalid {
+            border: 2px solid #ff0000
+        }
+
+        input.ng-dirty.ng-valid {
+            border: 2px solid #6bc502
+        }
+    </style>
+
+    <div class="col-xs-4">
+        <form novalidate #ngFormRef="ngForm" (ngSubmit)="submitForm(ngFormRef)">
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" name="name" [(ngModel)]="currentProduct.name" #ngModelRef="ngModel" required
+                    minlength="5" pattern="^[a-z]+$" />
+            </div>
+            <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+    </div>
+
+    <hr color="green">
+    <h3>Отслеживание представлений - кнопка удаления.</h3>
+
+    <div class="checkbox">
+        <label>Выполнить директиву 5: </label><input type="checkbox" [(ngModel)]="isDirectiveWork_5" />
+    </div>
+
+    <style>
+        .vertical-td {
+            vertical-align: middle
+        }
+    </style>
+
+    <table *structureDirectiveOf="isDirectiveWork_5" class="table table-sm table-bordered table-striped">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr *differDirective="let item of getProducts(); let i = index; let odd = odd; let even = even"
+            [class.bg-info]="odd" [class.bg-warning]="even">
+            <td class="vertical-td">{{i + 1}}</td>
+            <td class="vertical-td">{{item.name}}</td>
+            <td class="vertical-td">{{item.category}}</td>
+            <td class="vertical-td">{{item.price}}</td>
+            <td class="text-xs-center">
+                <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">Delete</button>
+            </td>
+        </tr>
+    </table>
+
+    <hr color="green">
+    <h3>Запрос контента управляющего элемента.</h3>
+
+    <div class="checkbox">
+        <label>Выполнить директиву 6: </label><input type="checkbox" [(ngModel)]="isDirectiveWork_6" />
+    </div>
+
+    <div class="checkbox">
+        <label>Смена класса для одной дочерней директивы:</label><input type="checkbox" [(ngModel)]="isSetChildDirective" />
+    </div>
+
+    <div class="checkbox">
+        <label>Смена класса для всех дочерних директив:</label><input type="checkbox" [(ngModel)]="isSetChildrenDirective" />
+    </div>
+    
+    <table *structureDirectiveOf="isDirectiveWork_6" [isSetChild]="isSetChildDirective"
+        [isSetChildren]="isSetChildrenDirective" class="table table-sm table-bordered table-striped">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr *differDirective="let item of getProducts(); let i = index; let odd = odd; let even = even">
+            <td class="vertical-td" child="">{{i + 1}}</td>
+            <td class="vertical-td" child="">{{item.name}}</td>
+            <td class="vertical-td" child="">{{item.category}}</td>
+            <td class="vertical-td" child="">{{item.price}}</td>
+            <td class="text-xs-center">
+                <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
