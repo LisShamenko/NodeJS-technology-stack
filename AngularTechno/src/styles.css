@@ -16,7 +16,12 @@
  *      The exact path and router configuration depends on how you have setup your project and the framework you are using.
  */
 
-@import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+/* 
+ * подключение bootstrap:
+ *      @import './../../node_modules/bootstrap/dist/css/bootstrap.min.css'; 
+ * вырезал из 'angular.json' -> ... -> "build" -> "options" -> "styles"
+ *      "./../node_modules/bootstrap/dist/css/bootstrap.min.css",
+ */
 
 html, body { 
     height: 100%; 

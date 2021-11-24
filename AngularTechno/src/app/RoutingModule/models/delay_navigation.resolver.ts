@@ -1,4 +1,3 @@
-//Листинг 27.3. Содержимое файла model.resolver.ts в папке exampleApp/app/model
 import { Inject, Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { Observable } from "rxjs";
