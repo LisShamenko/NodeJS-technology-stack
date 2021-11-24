@@ -23,6 +23,7 @@ import { FirstEditComponent } from "./../components/ServiceComponent/firstEdit.c
 import { SecondEditComponent } from "./../components/ServiceComponent/secondEdit.component";
 import { LocalProviderComponent } from "./../components/ProviderComponent/local_provider.component";
 import { ModuleRootComponent } from "./ComponentsModule/components/root/module_root.component";
+import { ReactiveExtensionsComponent } from "./ReactiveExtensionsModule/components/reactive_extensions.component";
 
 // директивы
 import { DirectiveSimple } from "../directives/directive.simple";
@@ -57,6 +58,8 @@ import { FourthService } from "./../services/fourth.service";
 
 // модули
 import { ModulesModule } from "./modules.module";
+import { ReactiveExtensionsModule } from "./ReactiveExtensionsModule/re.module";
+
 
 // --------------- @NdModule
 
@@ -71,7 +74,9 @@ import { ModulesModule } from "./modules.module";
     imports: [
         BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
         // кастомный модуль, содержит несколько подходов по использованию модулей
-        ModulesModule
+        ModulesModule,
+        // модуль Reactive Extensions
+        ReactiveExtensionsModule
     ],
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
     declarations: [
@@ -96,7 +101,8 @@ import { ModulesModule } from "./modules.module";
         ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent,
         RootComponent, PipeFormComponent, ServiceComponent,
         LocalProviderComponent,
-        ModuleRootComponent
+        ModuleRootComponent,
+        ReactiveExtensionsComponent
     ],
     // провайдеры
     providers: [
