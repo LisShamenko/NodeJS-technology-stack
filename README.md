@@ -1,5 +1,8 @@
 # Стек технологий NodeJS
 
+- [Angular](#Angular)
+    - [Запуск проекта](#Запуск-проекта-Angular)
+    - [Основные файлы проекта](#Основные-файлы-проекта-Angular)
 - [Docker](#Docker)
 - [TypeScript](#TypeScript)
     - [Задачи по проекту](#Задачи-по-проекту-TypeScript)
@@ -23,6 +26,40 @@
     - [Запуск проекта](#Запуск-проекта-Postgres)
     - [Основные файлы проекта](#Основные-файлы-проекта-Postgres)
 ____
+
+
+
+## Angular
+
+Каталог проекта: [~/AngularTechno/](https://github.com/LisShamenko/technology_NodeJS/tree/master/AngularTechno).
+____
+
+### Запуск проекта Angular
+
+```javascript
+
+// запуск с помощью команды:
+//      npm run ng
+
+```
+
+### Основные файлы проекта Angular
+
+- **angular.json**
+    > Настройка проекта Angular.
+- **karma.conf.js**
+    > Настройка тестовой среды.
+- **tsconfig.json**
+    > Настройка компилятора.
+- **tsconfig.app.json**
+    > Настройка компилятора для Angular, без тестов.
+- **tsconfig.spec.json**
+    > Настройка компилятора для Angular, с тестами.
+- **src**
+    > Каталог, содержит компилируемый проект.
+
+[Наверх](#Стек-технологий-NodeJS)
+____ 
 
 
 
