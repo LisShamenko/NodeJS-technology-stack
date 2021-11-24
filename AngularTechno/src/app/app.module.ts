@@ -9,6 +9,10 @@ import { ProductComponent } from "./../components/ProductComponent/product.compo
 import { FormComponent } from "./../components/FormComponent/form.component";
 import { DirectiveComponent } from "./../components/DirectiveComponent/directive.component";
 import { StructuralDirectiveComponent } from "./../components/StructuralDirectiveComponent/structural_directive.component";
+import { RootComponent } from "src/components/Components/root.component";
+import { ProductFormComponent } from "src/components/Components/product_form.component";
+import { NgcontentComponent } from "src/components/Components/ngcontent.component";
+import { ProductTableComponent } from "src/components/Components/product_table.component";
 // директивы
 import { DirectiveSimple } from "../directives/directive.simple";
 import { DirectiveTwowayBinding } from "../directives/directive.twoway_binding";
@@ -31,9 +35,13 @@ import { DirectiveChild } from "../directives/directive.child";
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
     declarations: [
         ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent,
+        RootComponent, ProductFormComponent, NgcontentComponent, ProductTableComponent,
         DirectiveSimple, DirectiveTwowayBinding, DirectiveStructure, DirectiveIterator, DirectiveDiffer, DirectiveParent, DirectiveChild
     ],
     // определяет точку входа приложения
-    bootstrap: [ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent]
+    bootstrap: [
+        ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent,
+        RootComponent
+    ]
 })
 export class AppModule { }
