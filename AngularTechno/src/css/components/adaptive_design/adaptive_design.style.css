@@ -1,0 +1,427 @@
+.real-header {
+    color: red;
+    padding: 20px;
+    font-size: 20px;
+}
+
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+    --bg-color: darkgray;
+}
+
+/* --------------- Базовые стили на самостоятельной странице. */
+
+/* 
+ * свойства box-sizing:
+ * 
+ *      :root {
+ *          box-sizing: border-box;
+ *      }
+ * 
+ *      *, ::before, ::after {
+ *          box-sizing: inherit;
+ *      }
+ *
+ * фон и шрифт:
+ *
+ *      body {
+ *          background-color: #709b90;
+ *          font-family: Helvetica, Arial, sans-serif;
+ *      }
+ * 
+ * глобальные поля:
+ * 
+ *      body *+* {
+ *          margin-top: 1.5em;
+ *      }
+ * 
+ * двойной контейнер для центрирования контента:
+ * 
+ *      .container {
+ *          max-width: 1080px;
+ *          margin: 0 auto;
+ *      }
+ */
+
+/* --------------- Базовые стили. */
+
+/* свойства box-sizing */
+
+.body {
+    box-sizing: border-box;
+    /* базовый размер шрифта изменяется вместе с размером области просмотра */
+    font-size: calc(1vw + 0.6em);
+}
+
+.body *, .body ::before, .body ::after {
+    box-sizing: inherit;
+}
+
+/* фон и шрифт */
+
+.body {
+    background-color: #92c3b7;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+/* глобальные поля */
+
+.body *+* {
+    margin-top: 1.5em;
+}
+
+/* двойной контейнер для центрирования контента */
+
+.body .container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* --------------- Подход Mobile First. */
+
+/* ссылки */
+
+a:link {
+    color: #1476b8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #1430b8;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #b81414;
+}
+
+/* header */
+
+#example-1 .page-header, #example-2 .page-header, #example-3 .page-header {
+    padding: 0.4em 1em;
+    background-color: #fff;
+}
+
+#example-1 .title>h1, #example-2 .title>h1, #example-3 .title>h1 {
+    color: #333;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin: .2em 0;
+}
+
+#example-1 .slogan, #example-2 .slogan, #example-3 .slogan {
+    color: #888;
+    font-size: 0.875em;
+    margin: 0;
+}
+
+/* hero image */
+
+#example-1 .hero, #example-2 .hero, #example-3 .hero {
+    margin-top: 0px;
+    padding: 2em 1em;
+    text-align: center;
+    /* добавить на страницу самое маленькое изображение */
+    background-image: url("./../../../assets/adaptive_design/coffee-small.jpg");
+    background-size: 100%;
+    color: #fff;
+    /* 
+     * тень от текста обеспечивает читаемость светлого текста на сложном фоне:
+     *      - первые два значения определяют сдвиг относительно текста
+     *      - третье значение это степень размытия тени
+     *      - последнее значение определяет цвет тени
+     */
+    text-shadow: 0.1em 0.1em 0.3em #000;
+}
+
+/* main section */
+
+#example-1 main, #example-2 main, #example-3 main {
+    /* основной контент */
+    padding: 1em;
+}
+
+#example-1 .subtitle, #example-2 .subtitle, #example-3 .subtitle {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+}
+
+/* Menu */
+
+#example-1 .menu, #example-3 .menu {
+    /* относительное позиционирование создает блок-контейнер для кнопки и меню */
+    position: relative;
+    margin-top: 0px;
+}
+
+#example-1 .menu-toggle, #example-2 .menu-toggle, #example-3 .menu-toggle {
+    position: absolute;
+    /* перемещает кнопку вверх за пределы блока-контейнера */
+    top: -1em;
+    /* позиционирует кнопку в правой части экрана */
+    right: 0.1em;
+    /* переопределяет стили в браузере */
+    border: 0;
+    background-color: transparent;
+    font-size: 3em;
+    /* скрывает текстовое содержимое кнопки и задает ее фиксированный размер */
+    width: 1em;
+    height: 1em;
+    line-height: 0.4;
+    text-indent: 5em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#example-1 .menu-toggle::after, #example-2 .menu-toggle::after, #example-3 .menu-toggle::after {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    display: block;
+    /* накладывает поверх кнопки символ юникода 'гамбургер' */
+    content: "\2261";
+    text-indent: 0;
+}
+
+#example-1 .menu-dropdown, #example-2 .menu-dropdown, #example-3 .menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 10em;
+    left: 10em;
+    margin: 0;
+}
+
+#example-1 .menu.is-open .menu-dropdown, #example-2 .menu.is-open .menu-dropdown, #example-3 .menu.is-open .menu-dropdown {
+    /* отображает раскрывающееся меню при добавлении в меню класса is-open */
+    display: block;
+}
+
+/* nav-menu */
+
+#example-1 .nav-menu, #example-2 .nav-menu, #example-3 .nav-menu {
+    margin: 0;
+    padding-left: 0;
+    border: 1px solid #ccc;
+    list-style: none;
+    background-color: #000;
+    color: #fff;
+}
+
+#example-1 .nav-menu>li, #example-2 .nav-menu>li, #example-3 .nav-menu>li {
+    margin-top: 0;
+}
+
+#example-1 .nav-menu>li+li, #example-2 .nav-menu>li+li, #example-3 .nav-menu>li+li {
+    /* добавление границы между пунктами меню */
+    border-top: 1px solid #ccc;
+}
+
+#example-1 .nav-menu>li>a, #example-2 .nav-menu>li>a, #example-3 .nav-menu>li>a {
+    display: block;
+    /* добавление отступа, обеспечивающего достаточно места для совершения щелчка */
+    padding: 0.8em 1em;
+    color: #fff;
+    font-weight: normal;
+}
+
+/* --------------- Медиазапросы. */
+
+@media (min-width: 35em) {
+    #example-2 .page-header {
+        /* увеличивает отступ шапки */
+        padding: 1em;
+    }
+}
+
+/* 
+ * контрольная точка 35em, нацелена на ширину окна 560px и больше
+ * 560px получается из размера шрифта в 16px (по умолчанию): 560px / 16px = 35em
+ */
+
+@media (min-width: 35em) {
+    #example-2 .title>h1 {
+        /* переопределяет размер шрифта */
+        font-size: 2.25rem;
+    }
+}
+
+/* hero image */
+
+@media (min-width: 35em) {
+    #example-2 .hero, #example-3 .hero {
+        /* увеличивает отступ изображения и размер шрифта */
+        padding: 5em 3em;
+        font-size: 1.2rem;
+        /* более крупное изображение */
+        background-image: url("./../../../assets/adaptive_design/coffee-medium.jpg");
+    }
+}
+
+@media (min-width: 50em) {
+    #example-2 .hero, #example-3 .hero {
+        padding: 7em 6em;
+        /* лучшее изображение */
+        background-image: url("./../../../assets/adaptive_design/coffee-big.jpg");
+    }
+}
+
+/* main section */
+
+@media (min-width: 35em) {
+    #example-2 main {
+        /* увеличивает отступ основного контента */
+        padding: 2em 1em;
+    }
+}
+
+/* Menu */
+
+/* свойства [top, left, right] не переопределяются, так как не играют роли при статическом позиционировании */
+
+@media (min-width: 35em) {
+    #example-2 .menu-toggle {
+        /* скрывает кнопку меню */
+        display: none;
+    }
+    #example-2 .menu-dropdown {
+        /* отображает содержимое меню */
+        display: block;
+        /* переопределяет позиционирование */
+        position: static;
+    }
+}
+
+/* nav-menu */
+
+/* flex-контейнер используется для отображения пунктов меню, которые будут заполнять доступную ширину */
+
+@media (min-width: 35em) {
+    #example-2 .nav-menu {
+        /* преобразует меню во flex-контейнер */
+        display: flex;
+        border: 0;
+        padding: 0 1em;
+    }
+    #example-2 .nav-menu>li {
+        /* позволяет элементам увеличиваться в размере, заполняя ширину экрана */
+        flex: 1;
+    }
+    #example-2 .nav-menu>li+li {
+        border: 0;
+    }
+    #example-2 .nav-menu>li>a {
+        padding: 0.3em;
+        text-align: center;
+    }
+}
+
+/* Main columns */
+
+/*
+ * РЕКОМЕНДАЦИЯ:
+ * элементы распологающиеся рядом друг с другом следует размещать по горизонтале только 
+ * на больших экранах, а на малых экранах каждый элемент должен занимать отдельную строку
+ */
+
+/* значение 35em выбирается так, чтобы колонки не казались слишком узкими */
+
+@media (min-width: 35em) {
+    #example-2 .row {
+        /* flex-контейнер для создания колонок одинаковой ширины */
+        display: flex;
+        /* использует отрицательные значения полей для расширения строк и компенсации полей колонок */
+        margin-left: -.75em;
+        margin-right: -.75em;
+    }
+    #example-2 .column {
+        flex: 1;
+        /* задает величину зазора между колонками */
+        margin-top: 0;
+        margin-right: 0.75em;
+        margin-left: 0.75em;
+    }
+}
+
+/* --------------- Резиновые макеты. */
+
+/* увеличить левый и правый отступы по краям страницы */
+
+@media (min-width: 50em) {
+    #example-3 .page-header {
+        padding: 1em 4em;
+    }
+}
+
+@media (min-width: 50em) {
+    #example-3 .hero {
+        /* увеличить отступы для текста, что увеличит hero-изображение */
+        padding: 7em 6em;
+    }
+}
+
+@media (min-width: 50em) {
+    #example-3 main {
+        padding: 2em 4em;
+    }
+}
+
+@media (min-width: 50em) {
+    #example-3 .nav-menu {
+        padding: 0 4em;
+    }
+}
+
+@media (min-width: 50em) {
+    #example-3 .body {
+        /* фиксировать размер шрифта */
+        font-size: 1.125em;
+    }
+}
+
+/* --------------- Работа с таблицами. */
+
+#example-4 table {
+    border-collapse: collapse;
+}
+
+#example-4 th, #example-4 td {
+    border: 1px solid black;
+    padding: 0.3em 0.5em;
+}
+
+#example-4 table {
+    width: 100%;
+}
+
+@media (max-width: 100em) {
+    #example-4 table, #example-4 thead, #example-4 tbody, #example-4 tr, #example-4 th, #example-4 td {
+        /* превращает все элементы таблицы в блоки */
+        display: block;
+    }
+    #example-4 thead tr {
+        /* скрывает строку заголовка, сдвигая ее за край экрана */
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #example-4 tr {
+        /* добавляет небольшое пространство между строками */
+        margin-bottom: 1em;
+    }
+}
+
+/* --------------- Адаптивное изображение. */
+
+#example-5 img {
+    max-width: 100%;
+}

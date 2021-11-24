@@ -1,0 +1,162 @@
+<header>
+    <p class="real-header"></p>
+</header>
+
+<div id="example-1">
+    <div class="body">
+        <h3>example-1: Относительная единица em</h3>
+        <hr>
+        <span class="padding-em">example-1: Отступы со значениями в единицах em.</span>
+        <hr>
+        <span class="box box-small">example-1: 'box-small' задает размер шрифта 10px.</span>
+        <span class="box box-large">example-1: 'box-large' задает размер шрифта 18px.</span>
+    </div>
+</div>
+
+<div id="example-2">
+    <div class="body">
+        <h3>example-2: Относительная разметка font-size.</h3>
+        <hr>
+        <p>example-2: Обычный шрифт.</p>
+        <p class="box-inherit">example-2: Размер шрифта наследуется от элемента с классом body.</p>
+        <hr>
+        <h3>example-2: Переопределение родительского font-size.</h3>
+        <span class="box box-1">example-2: селектор '#example-2 .box.box-1'</span>
+        <span class="box box-2">example-2: селектор '#example-2 .body .box-2'</span>
+        <span class="box box-3">example-2: селектор '#example-2 span.box-3'</span>
+        <hr>
+        <h3>example-2: Применение единиц em для значений свойств font-size и padding.</h3>
+        <p class="box-double">example-2: Вычисление font-size и padding.</p>
+    </div>
+</div>
+
+<div id="example-3">
+    <div class="body">
+        <div class="wrong">
+            <h3>example-3: Сжатие шрифта в 0.8 раза на каждом уровне.</h3>
+            <hr>
+            <ul>
+                <li>
+                    <p>1-ый уровень.</p>
+                    <ul>
+                        <li>
+                            <p>2-ой уровень, наследует размер шрифта 1-ого уровня.</p>
+                            <ul>
+                                <li>
+                                    <p>3-ий уровень, наследует размер шрифта 2-ого уровня..</p>
+                                    <ul>
+                                        <li>
+                                            <p>4-ый уровень, наследует размер шрифта 3-ого уровня..</p>
+                                            <ul>
+                                                <li>
+                                                    <p>5-ый уровень, наследует размер шрифта 4-ого уровня..</p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <h3>example-3: Исправленный вариант.</h3>
+            <hr>
+            <ul>
+                <li>
+                    <p>1-ый уровень.</p>
+                    <ul>
+                        <li>
+                            <p>2-ой уровень, наследует размер шрифта 1-ого уровня.</p>
+                            <ul>
+                                <li>
+                                    <p>3-ий уровень, наследует размер шрифта 2-ого уровня..</p>
+                                    <ul>
+                                        <li>
+                                            <p>4-ый уровень, наследует размер шрифта 3-ого уровня..</p>
+                                            <ul>
+                                                <li>
+                                                    <p>5-ый уровень, наследует размер шрифта 4-ого уровня..</p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="example-4">
+    <div class="root">
+        <h3>example-4: Относительная единица rem.</h3>
+        <hr>
+        <div class="panel">
+            <h2>example-4: Дочерний элемент h2.</h2>
+            <p>Тело панели.</p>
+            <p>Правило ':root {{ '{ font-size: ...em; }' }} в файле "relative_units/styles.css".</p>
+        </div>
+    </div>
+</div>
+
+<div id="example-5">
+    <div class="root">
+        <h3>example-5: Адаптивная панель.</h3>
+        <hr>
+        <div class="panel large">
+            <h2>example-5: Дочерний элемент h2.</h2>
+            <p>Тело панели.</p>
+            <p>Правило ':root {{ '{ font-size: ...em; }' }} в файле "relative_units/styles.css".</p>
+        </div>
+    </div>
+</div>
+
+<div id="example-6">
+    <div class="panel-vmin">
+        <h3>example-6: Относительная единица vmin.</h3>
+    </div>
+    <div class="panel-vw">
+        <p>example-6: Относительная единица vw.</p>
+    </div>
+</div>
+
+<div id="example-7">
+    <h3>Свойство line-height.</h3>
+    <hr>
+    <div class="line-height-none">
+        <div class="box">
+            <p>example-7: С числовым значением без единиц измерения.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="line-height-em">
+        <div class="box">
+            <p>example-7: С числовым значением с единицами измерения.</p>
+        </div>
+    </div>
+</div>
+
+<div id="example-8">
+    <h3>CSS-переменные.</h3>
+    <hr>
+    <div class="panel first">
+        <p>example-8: Перменные --main-font и --main-color.</p>
+    </div>
+    <hr>
+    <div class="panel second">
+        <p>example-8: Перменная --secondary-color и значение по умолчанию.</p>
+    </div>
+    <hr>
+    <div id="dark_panel" class="panel dark">
+        <p>example-8: Контейнер dark.</p>
+    </div>
+    <hr>
+    <input class="form-control" [(ngModel)]="color" />
+    <button class="btn btn-primary" (click)="setCSSProperty()">example-8: Динамически изменить свойство элемента.</button>
+</div>

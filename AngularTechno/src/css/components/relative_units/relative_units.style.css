@@ -1,0 +1,291 @@
+.real-header {
+    color: red;
+    padding: 20px;
+    font-size: 20px;
+}
+
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* --------------- Относительная единица em. */
+
+/* 
+ * - вычисленные значения - это абсолютные значения, которые браузер вычисляет на основе относительных единиц 
+ * - для свойства font-size значение em определяется в зависимости от наследуемого размера шрифта
+ * - обычно размер шрифта по умолчанию составляет 16 пикселов, что соответствует значению medium
+ * - значение в единицах em равно делению желаемого размера шрифта на размер шрифта родительского элемента
+ * - сначала вычисляется размер шрифта, который потом используется для вычисления значений других свойств
+ */
+
+/* Отступы со значениями в единицах em. */
+
+#example-1 span {
+    margin: 10px;
+}
+
+#example-1 .padding-em {
+    /* 1em равен 16px, т.е. задается через font-size */
+    font-size: 16px;
+    /* отступы равны размеру шрифта: 1em * 16px (размер шрифта) = 16px */
+    padding: 1em;
+}
+
+/* Применение единиц em. */
+
+#example-1 .body {
+    margin: 1.5em;
+}
+
+#example-1 .box {
+    padding: 1em;
+    border-radius: 1em;
+    background-color: lightgray;
+}
+
+/* От различных размеров шрифта будет зависеть размер элементов. */
+
+#example-1 .box-small {
+    /* будет работать если корневому элементу '.body' не задать 'font-size: 16px;' */
+    font-size: 10px;
+}
+
+#example-1 .box-large {
+    font-size: 18px;
+}
+
+/* --------------- em для свойства font-size */
+
+#example-2 .body {
+    margin: 1.5em;
+    font-size: 16px;
+}
+
+/* Размер шрифта наследуется от родительского элемента. */
+
+#example-2 .box-inherit {
+    /* вычисленное значение: 16 * 1.2 (наследуемый размер шрифта) = 19.2 */
+    font-size: 1.2em;
+}
+
+/* 
+ * Переопределение наследуемого font-size: '#example-1 .box.box-small' и 
+ * '#example-1 .body .box-small' и 'span.box-small' 
+ */
+
+#example-2 .box {
+    padding: 1em;
+    border-radius: 1em;
+    background-color: lightgray;
+}
+
+#example-2 .box.box-1 {
+    font-size: 12px;
+}
+
+#example-2 .body .box-2 {
+    font-size: 14px;
+}
+
+#example-2 span.box-3 {
+    font-size: 16px;
+}
+
+/* Применение единиц em для значений свойств font-size и padding. */
+
+#example-2 .box-double {
+    /* наследуется шрифт 16px, font-size вычисляется в 19.2px */
+    font-size: 1.5em;
+    /* 
+     * 19.2px теперь локальное значение для em и оно используется для расчета 
+     * размера отступа, padding вычисляется в 23.04px 
+     */
+    padding: 1.5em;
+    background-color: #ccc;
+}
+
+/* --------------- сжатие шрифтов */
+
+#example-3 .body {
+    font-size: 16px;
+}
+
+/* Без учета вложенности списков. */
+
+#example-3 .wrong ul {
+    font-size: 0.8em;
+}
+
+/* Учитывая вложенность списков. */
+
+#example-3 .right ul {
+    font-size: 0.8em;
+}
+
+#example-3 .right ul ul {
+    /* списки внутри списков должны иметь такой же размер шрифта, как их родители */
+    font-size: 1em;
+}
+
+/* --------------- Относительная единица rem. */
+
+/* 
+ * РЕКОМЕНДАЦИЯ:
+ * при помощи селектора ':root' можно задать шрифт для всей странице сразу и его не нужно 
+ * будет специально указывать в других стилях, а только переопределять при необходимости
+ */
+
+/* Размера шрифта по умолчанию. */
+
+:root {
+    /* Псевдокласс ':root' равен селектору типа html. */
+    font-size: 0.875em;
+}
+
+/* 
+ * Angular не позволяет использовать селектор ':root' в компоненте, 
+ * селектор ':host' обращается к элементу, который содержит шаблон 
+ */
+
+:host {
+    /* Значение в единицах em: 14px (желаемый размер) / 16px (наследуемый размер) = 0.875em */
+    font-size: 0.875em;
+}
+
+/* Панель с относительными единицами rem. */
+
+#example-4 .panel {
+    /* использует единицы em для определения отступов и радиуса скругления границ */
+    padding: 1em;
+    border-radius: 0.5em;
+    /* использует 1 пиксел для создания тонкой границы */
+    border: 1px solid #999;
+}
+
+/* комбинатор дочерних элементов '>' находит дочерний элемент h2 */
+
+#example-4 .panel>h2 {
+    /* убирает лишнее пространство над панелью */
+    margin-top: 0;
+    /* задает стиль шрифта заголовка, использует единицы rem для размера шрифта */
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --------------- Панель. */
+
+#example-5 .panel {
+    /* устанавливает ожидаемый размер шрифта для компонента */
+    font-size: 1rem;
+    padding: 1em;
+    border: 1px solid #999;
+    border-radius: 0.5em;
+}
+
+#example-5 .panel>h2 {
+    margin-top: 0;
+    /* 
+     * использует единицы em для того, чтобы остальной шрифт стал относительным 
+     * к установленному родительскому размеру шрифта 
+     */
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#example-5 .panel.large {
+    /* составной селектор находит элементы с классами panel и large */
+    font-size: 1.2em;
+}
+
+/* --------------- Относительная единица vmin. */
+
+#example-6 .panel-vmin {
+    width: 90vmin;
+    height: 90vmin;
+    background-color: rgb(100, 180, 255);
+}
+
+/* --------------- Относительная единица vw и функция calc. */
+
+#example-6 .panel-vw {
+    /* 0.5em минимальный размер шрифта, 1vw переменная величина */
+    font-size: calc(0.5em + 2vw);
+}
+
+/* --------------- Свойство line-height. */
+
+#example-7 .line-height-none {
+    /* дочерние элементы наследуют значение без единиц измерения */
+    line-height: 1;
+}
+
+#example-7 .line-height-none .box {
+    /* размер шрифта 32px = 2em * 16px по умолчанию */
+    /* высота строки 38.4px = 32px * 1.2 наследуемое значение */
+    font-size: 4em;
+}
+
+/* Происходит наложение строк. */
+
+#example-7 .line-height-em {
+    /* дочерние элементы наследуют вычисленное значение 19.2px */
+    line-height: 1em;
+}
+
+#example-7 .line-height-em .box {
+    /* получается 32px, в этом случае есть вероятность, что строки будут наползать друг на друга */
+    font-size: 4em;
+}
+
+/* --------------- CSS-переменные. */
+
+#example-8 {
+    /* объявление переменной --main-font для всей странице */
+    --main-font: Helvetica, Arial, sans-serif;
+    /* объявление переменной --main-color */
+    --main-color: rgb(80, 150, 240);
+    --main-background-color: #fff;
+}
+
+#example-8 .panel {
+    font-size: 1rem;
+    padding: 1em;
+    border: 1px solid #999;
+    border-radius: 0.5em;
+    /* использует переменные в стилях панели */
+    background-color: var(--main-background-color);
+    /* если var не поддерживается браузером, то можно использовать резервное поведение */
+    color: black;
+    /* объявление с помощью функции var */
+    color: var(--main-color);
+}
+
+#example-8 .panel.first {
+    /* var позволяет использовать переменные */
+    font-family: var(--main-font);
+    color: var(--main-color);
+}
+
+#example-8 .panel.second {
+    /* добавление резервного значения sans-serif */
+    font-family: var(--main-font, sans-serif);
+    /* поскольку переменная --secondary-color не определена, используется резервное значение */
+    color: var(--secondary-color, rgb(100, 255, 100));
+}
+
+#example-8 .panel.dark {
+    /* устанавливает поле между контейнером dark и предыдущей панелью */
+    margin: 2em 10em;
+    padding: 1em;
+    /* применяет темно-серый фон к контейнеру dark */
+    background-color: #999;
+    background-color: var(--main-background-color);
+    /* переопределяет переменные --main-background-color и --main-color в области контейнера */
+    --main-background-color: #333;
+    --main-color: #fff;
+}

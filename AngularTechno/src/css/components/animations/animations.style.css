@@ -1,0 +1,519 @@
+.real-header {
+    color: red;
+    padding: 20px;
+    font-size: 20px;
+}
+
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* --------------- Базовые стили на самостоятельной странице. */
+
+/* 
+ * свойства box-sizing:
+ * 
+ *      :root {
+ *          box-sizing: border-box;
+ *      }
+ * 
+ *      *, ::before, ::after {
+ *          box-sizing: inherit;
+ *      }
+ *
+ * фон и шрифт:
+ *
+ *      body {
+ *          background-color: #709b90;
+ *          font-family: Helvetica, Arial, sans-serif;
+ *      }
+ * 
+ * глобальные поля:
+ * 
+ *      body *+* {
+ *          margin-top: 1.5em;
+ *      }
+ * 
+ * двойной контейнер для центрирования контента:
+ * 
+ *      .container {
+ *          max-width: 1080px;
+ *          margin: 0 auto;
+ *      }
+ */
+
+/* --------------- Базовые стили. */
+
+/* свойства box-sizing */
+
+.body {
+    box-sizing: border-box;
+}
+
+.body *, .body ::before, .body ::after {
+    box-sizing: inherit;
+}
+
+/* фон и шрифт */
+
+.body {
+    background-color: hsl(210, 80%, 20%);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* глобальные поля */
+
+.body *+* {
+    margin-top: 1.5em;
+}
+
+/* двойной контейнер для центрирования контента */
+
+.body .container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* --------------- Ключевые кадры. */
+
+#example-1 .box {
+    /* установка высоты и ширины элемента в целях демонстрации */
+    width: 100px;
+    height: 100px;
+    background-color: rgb(172, 199, 172);
+    /* применение анимации к элементу, 'over-and-back' - имя применяемой анимации */
+    animation: over-and-back 1.5s linear infinite;
+    /*
+     * не зацикленная анимация:
+     *      animation: over-and-back 1.5s linear 3;
+     */
+}
+
+/*
+ * 'over-and-back' является идентификатором (именем) анимации, с помощью которого она будет применяться
+ * в блоке keyframes задаются ключевые кадры анимации с указанием в процентах места кадра в анимации: 
+ *      0% - в начале анимации, 50% - в середине анимации, 100% - в конце анимации
+ */
+
+@keyframes over-and-back {
+    /* первый ключевой кадр, начало анимации */
+    0% {
+        background-color: hsl(0, 50%, 50%);
+        transform: translate(0);
+    }
+    /* второй ключевой кадр, середина анимации */
+    50% {
+        transform: translate(50px);
+    }
+    /* последний ключевой кадр, конец анимации */
+    100% {
+        background-color: hsl(270, 50%, 90%);
+        transform: translate(0);
+    }
+}
+
+/* --------------- Анимация 3D-трансформаций. */
+
+.body {
+    background-color: hsl(200, 80%, 30%);
+    background-image: radial-gradient(hsl(200, 80%, 30%), hsl(210, 80%, 20%));
+    color: white;
+    font-family: Raleway, Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+    margin: 0;
+    min-height: 100vh;
+}
+
+#example-2 h1, #example-2 h2, #example-2 h3 {
+    font-family: Alfa Slab One, serif;
+    font-weight: 400;
+}
+
+#example-2 main {
+    display: block;
+}
+
+#example-2 img {
+    max-width: 100%;
+}
+
+#example-2 .page-header {
+    margin: 0;
+    padding: 1rem;
+}
+
+@media (min-width: 30em) {
+    #example-2 .page-header {
+        padding: 2rem 2rem 3rem;
+    }
+}
+
+@media (min-width: 30em) {
+    #example-2 .main-nav {
+        position: fixed;
+        left: 20.0rem;
+        top: 10.0rem;
+        z-index: 10;
+        background-color: transparent;
+        transition: background-color .5s linear;
+        border-top-right-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+    }
+    #example-2 .main-nav:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+#example-2 .nav-links {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    list-style: none;
+    justify-content: space-between;
+}
+
+#example-2 .nav-links>li+li {
+    margin-left: 0.8em;
+}
+
+#example-2 .nav-links>li>a {
+    display: block;
+    padding: 0.8em 0;
+    color: white;
+    font-size: 0.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+#example-2 .nav-links__icon {
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: -0.2em;
+}
+
+#example-2 .nav-links>li>a:hover {
+    color: hsl(40, 100%, 70%);
+}
+
+@media (min-width: 30em) {
+    #example-2 .nav-links {
+        display: block;
+        padding: 1em;
+        margin-bottom: 0;
+    }
+    #example-2 .nav-links>li+li {
+        margin-left: 0;
+    }
+    #example-2 .nav-links__label {
+        display: inline-block;
+        margin-left: 1em;
+        padding-right: 1em;
+        opacity: 0;
+        transform: translate(-1em);
+        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.3), opacity 0.4s linear;
+    }
+    #example-2 .nav-links:hover .nav-links__label, #example-2 .nav-links a:focus>.nav-links__label {
+        opacity: 1;
+        transform: translate(0);
+    }
+    #example-2 .nav-links>li:nth-child(2) .nav-links__label {
+        transition-delay: 0.1s;
+    }
+    #example-2 .nav-links>li:nth-child(3) .nav-links__label {
+        transition-delay: 0.2s;
+    }
+    #example-2 .nav-links>li:nth-child(4) .nav-links__label {
+        transition-delay: 0.3s;
+    }
+    #example-2 .nav-links>li:nth-child(5) .nav-links__label {
+        transition-delay: 0.4s;
+    }
+    #example-2 .nav-links__icon {
+        transition: transform 0.2s ease-out;
+    }
+    #example-2 .nav-links a:hover>.nav-links__icon, #example-2 .nav-links a:focus>.nav-links__icon {
+        transform: scale(1.3);
+    }
+}
+
+/* --------------- Мобильные стили для карточек. */
+
+/*
+ * страница состоит из двух модулей:
+ * - внешний модуль Flyin-Grid обеспечивает компоновку элементов в сетке, элементами 
+ *      являются экземпляры внутреннего модуля Card
+ * - модуль Card отвечает за оформление карточек: белый фон, отступы и цвет шрифта
+ * - слеудет подумать о мобильном макете и резервном flexbox-макете для старых браузеров
+ *      сначала разрабатывается макет для мобильных, затем стили для flex-контейнеров, потом стили сетки
+*/
+
+#example-2 .flyin-grid {
+    /* добавление небольших полей слева и справа от контейнера */
+    margin: 0 1rem;
+}
+
+/* --------------- Создание резервного flexbox-макета. */
+
+/*
+ * - свойство 'flex-wrap:wrap' обеспечивает перенос flex-элементов на следующую строку, 
+ *      когда они перестают умещаться на одной
+ * - есть два варианта доработки flexbox-макета:
+ *      - определить несколько контрольных точек для более точного управления шириной flex-элементов
+ *      - использовать макет в качестве резервного и переопределить его для поддерживающих браузеров
+ */
+
+/* адаптивная контрольная точка */
+
+@media (min-width: 30em) {
+    #example-2 .flyin-grid {
+        /* создание flex-контейнера с обертыванием */
+        display: flex;
+        flex-wrap: wrap;
+        /* увеличение отступа по бокам */
+        margin: 0 5rem;
+    }
+    #example-2 .flyin-grid__item {
+        /* активизация свойства flex-grow и установка значения 300px для свойства flex-basis */
+        flex: 1 1 300px;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        max-width: 600px;
+    }
+    /* --------------- Добавление сетки для поддерживающих ее браузеров. */
+    /*
+     * запросы для проверки поддержки сетки в блоке медиазапроса:
+     * - последние версии браузеров будут использовать идеальный макет, колонки гарантируют 
+     *      одинаковую ширину элементов, repeat и auto-fit позволяют определить оптимальное 
+     *      количество колонок, умещающихся в области просмотра
+     * - старые браузеры будут применять flexbox-макет
+     * - на маленьких экранах отобразится мобильный макет
+     */
+    @supports (display: grid) {
+        #example-2 .flyin-grid {
+            display: grid;
+            /* установка ширины колонок */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2em;
+        }
+        #example-2 .flyin-grid__item {
+            max-width: initial;
+            /* удаление полей, примененных резервным макетом */
+            margin: 0;
+        }
+    }
+}
+
+/* --------------- Модуль Card. */
+
+#example-2 .card {
+    margin-bottom: 1em;
+    /* установка свойств карточки */
+    padding: 0.5em;
+    background-color: white;
+    color: hsl(210, 15%, 20%);
+    box-shadow: 0.2em 0.5em 1em rgba(0, 0, 0, 0.3);
+}
+
+#example-2 .card>img {
+    /* изображение заполняет всю ширину карточки */
+    width: 100%;
+}
+
+/* --------------- Добавление анимации. */
+
+#example-2 .flyin-grid {
+    margin: 0 1rem;
+    /* применение эффекта перспективы к контейнеру */
+    perspective: 500px;
+}
+
+#example-2 .flyin-grid__item {
+    /* применение анимационного эффекта к каждому элементу */
+    animation: fly-in 600ms ease-in;
+}
+
+/*
+ * применение перспективы к контейнеру с элементами
+ * для каждого элемента задается анимационный эффект
+ */
+
+@keyframes fly-in {
+    0% {
+        /* начальное положение элемента, удаленное и повернутое */
+        transform: translateZ(-800px) rotateY(90deg);
+        opacity: 0;
+    }
+    56% {
+        /* приближенное положение элемента, повернутое */
+        transform: translateZ(-160px) rotateY(87deg);
+        opacity: 1;
+    }
+    100% {
+        /* конечное положение элемента */
+        transform: translateZ(0) rotateY(0);
+    }
+}
+
+/* --------------- Задержка запуска анимации. */
+
+/*
+ * transform и opacity работают только во время анимации, до запуска элементы сетки 
+ *      отображаются в конечном положении, в начале анимации они перемещаются в 
+ *      начальный кадр
+ * свойство 'animation-fill-mode' позволяет приостановить анимацию на первом кадре до ее запуска:
+ *      none - по умолчанию, стили анимации не применяются к элементу до и после ее воспроизведения
+ *      backwards - применяются знчаения из первого ключевого кадра перед воспроизведением
+ *      forwards - значения последнего кадра применяться после завершения анимации
+ *      both - backwards и forwards
+ */
+
+ #example-2 .flyin-grid__item {
+    animation: fly-in 600ms ease-in;
+}
+
+/* --------------- Применение режима обратного заполнения. */
+
+/*
+ * - этот код приостанавливает воспроизведение анимации на первом кадре до момента запуска
+ * - при завершении анимации элемент оказывается в начальном положении, поэтому не нужно 
+ *      использовать 'animation-fill-mode:forwards'
+ */
+
+ #example-2 .flyin-grid__item {
+    animation: fly-in 600ms ease-in;
+    /* применяет стили первого кадра перед запуском анимации */
+    animation-fill-mode: backwards;
+}
+
+/* последовательно возрастающая задержка анимации */
+
+#example-2 .flyin-grid__item:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+#example-2 .flyin-grid__item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+#example-2 .flyin-grid__item:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+/* --------------- . */
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#example-6 form {
+    /* ограничение ширины формы */
+    max-width: 500px;
+}
+
+#example-6 label, #example-6 textarea {
+    display: block;
+    margin-bottom: 1em;
+}
+
+#example-6 textarea {
+    width: 100%;
+    font-size: inherit;
+}
+
+#example-6 button {
+    padding: 0.6em 1em;
+    border: 0;
+    /* синяя кнопка с белым текстом */
+    background-color: hsl(220, 50%, 50%);
+    color: white;
+    font: inherit;
+    transition: background-color 0.3s linear;
+}
+
+#example-6 button:hover {
+    /* затемнение кнопки */
+    background-color: hsl(220, 45%, 40%);
+}
+
+/* --------------- Добавление эффекта вращения. */
+
+/*
+ * 'is-loading' делает текст на кнопке невидимым, псевдоэлемент помещается в центр кнопки
+ * ключевое слово infinite зацикливает анимацию 
+ */
+
+ #example-6 button.is-loading {
+    position: relative;
+    /* скрытие текста на кнопке */
+    color: transparent;
+}
+
+#example-6 button.is-loading::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 1.4em;
+    height: 1.4em;
+    /* 
+     * позиционирование псевдоэлемента в центре кнопки 
+     * - свойства [top,left,margin-left,margin-top] центрируют псевдоэлемент внутри кнопки
+     * - top и left смещают псевдоэлемент вниз на половину высоты кнопки и вправо на половину ее ширины
+     *      в центре кнопки располагается верхний левый угол псевдоэлемента
+     */
+    top: 50%;
+    left: 50%;
+    /* 
+     * - отрицательные значения передвигают псевдоэлемент вверх и влево на половину его высоты и ширины 
+     */
+    margin-left: -0.7em;
+    margin-top: -0.7em;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    /* обеспечение циклического воспроизведения анимации вращения */
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        /* установка одного полного оборота за итерацию */
+        transform: rotate(360deg);
+    }
+}
+
+/* --------------- Создание анимационного эффекта тряски. */
+
+#example-6 .shake {
+    animation: shake 0.7s linear;
+}
+
+/* значения одного и того же ключевого кадра в нескольких точках анимации */
+
+@keyframes shake {
+    /* положение по умолчанию */
+    0%, 100% {
+        transform: translateX(0);
+    }
+    /* смещение элемента влево */
+    10%, 30%, 50%, 70% {
+        transform: translateX(-0.4em);
+    }
+    /* смещение элемента вправо */
+    20%, 40%, 60% {
+        transform: translateX(0.4em);
+    }
+    /* уменьшение амплитуды последнего движения */
+    80% {
+        transform: translateX(0.3em);
+    }
+    90% {
+        transform: translateX(-0.3em);
+    }
+}
