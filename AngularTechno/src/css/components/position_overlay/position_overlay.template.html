@@ -1,0 +1,97 @@
+<header>
+    <p class="real-header">Контексты позиционирования и наложения.</p>
+</header>
+
+<div class="body">
+    <div id="example-1">
+        <div id="position_overlay">
+            <header class="top-banner">
+                <div class="top-banner-inner">
+                    <button id="open">Открыть модальное окно.</button>
+                </div>
+            </header>
+
+            <div id="example-2">
+                <div class="container">
+                    <nav>
+                        <div class="dropdown">
+                            <div class="dropdown-label">Меню</div>
+                            <div class="dropdown-menu">
+                                <ul class="submenu">
+                                    <li><a href="/not_define">Ссылка 1.</a></li>
+                                    <li><a href="/not_define">Ссылка 2.</a></li>
+                                    <li><a href="/not_define">Ссылка 3.</a></li>
+                                    <li><a href="/not_define">Ссылка 4.</a></li>
+                                    <li><a href="/not_define">Ссылка 5.</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <h1>Отображание поверх прочего контента на странице.</h1>
+                </div>
+            </div>
+
+            <div id="example-4">
+                <div class="container">
+                    <main class="col-main">
+                        <nav>
+                            <div class="dropdown">
+                                <div class="dropdown-label">Меню</div>
+                                <div class="dropdown-menu">
+                                    <ul class="submenu">
+                                        <li><a href="/not_define">Ссылка 1.</a></li>
+                                        <li><a href="/not_define">Ссылка 2.</a></li>
+                                        <li><a href="/not_define">Ссылка 3.</a></li>
+                                        <li><a href="/not_define">Ссылка 4.</a></li>
+                                        <li><a href="/not_define">Ссылка 5.</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        <h1>Высота элемента увеличена для тестирования липкого позиционирования.</h1>
+                    </main>
+                    <aside class="col-sidebar">
+                        <div class="affix">
+                            <ul class="submenu">
+                                <li><a href="/not_define">Ссылка 1.</a></li>
+                                <li><a href="/not_define">Ссылка 2.</a></li>
+                                <li><a href="/not_define">Ссылка 3.</a></li>
+                                <li><a href="/not_define">Ссылка 4.</a></li>
+                                <li><a href="/not_define">Ссылка 5.</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <div class="modal" id="modal">
+                <div class="modal-backdrop"></div>
+                <div class="modal-body">
+                    <button class="modal-close" id="close">close</button>
+                    <h2>Модальное окно.</h2>
+                    <p>Контент.</p>
+                    <form>
+                        <p>
+                            <label for="email">Email address:</label>
+                            <input type="text" name="email" />
+                        </p>
+                        <p><button type="submit">Submit</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="example-3">
+        <h2>Контекст наложения.</h2>
+        <div class="box one positioned">
+            <p>One - one.</p>
+            <div class="absolute">
+                <p>One - two.</p>
+            </div>
+        </div>
+        <div class="box two positioned">Two.</div>
+        <div class="box three">Three.</div>
+    </div>
+
+</div>

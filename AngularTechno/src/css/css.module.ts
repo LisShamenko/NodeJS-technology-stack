@@ -7,6 +7,7 @@ import { RelativeUnitsComponent } from "./components/relative_units/relative_uni
 import { FloatElementsComponent } from "./components/float_elements/float_elements.component";
 import { FlexboxLayoutsComponent } from "./components/flexbox_layouts/flexbox_layouts.component";
 import { CSSGridComponent } from "./components/css_grid/css_grid.component";
+import { PositionOverlayComponent } from "./components/position_overlay/position_overlay.component";
 
 @NgModule({
     imports: [
@@ -16,13 +17,15 @@ import { CSSGridComponent } from "./components/css_grid/css_grid.component";
         CSSBaseComponent, RelativeUnitsComponent, 
         FloatElementsComponent,
         FlexboxLayoutsComponent,
-        CSSGridComponent
+        CSSGridComponent,
+        PositionOverlayComponent
     ],
     bootstrap: [
         CSSBaseComponent, RelativeUnitsComponent, 
         FloatElementsComponent,
         FlexboxLayoutsComponent,
-        CSSGridComponent
+        CSSGridComponent,
+        PositionOverlayComponent
     ],
 
 })
