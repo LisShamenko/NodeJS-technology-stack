@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CSSBaseComponent } from "./components/css_base/css_base.component";
 import { RelativeUnitsComponent } from "./components/relative_units/relative_units.component";
 import { FloatElementsComponent } from "./components/float_elements/float_elements.component";
+import { FlexboxLayoutsComponent } from "./components/flexbox_layouts/flexbox_layouts.component";
 
 @NgModule({
     imports: [
@@ -12,11 +13,13 @@ import { FloatElementsComponent } from "./components/float_elements/float_elemen
     ],
     declarations: [
         CSSBaseComponent, RelativeUnitsComponent, 
-        FloatElementsComponent
+        FloatElementsComponent,
+        FlexboxLayoutsComponent
     ],
     bootstrap: [
         CSSBaseComponent, RelativeUnitsComponent, 
-        FloatElementsComponent
+        FloatElementsComponent,
+        FlexboxLayoutsComponent
     ],
 
 })
