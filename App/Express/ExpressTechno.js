@@ -40,8 +40,12 @@ app.set('etag', function (body, encoding) {
     return etag(body);
 });
 
+// --------------- fresh
+
 // fresh используется express
 //      https://www.npmjs.com/package/fresh
+
+const fresh = require('fresh');
 
 function freshTest(req, res, next) {
     // perform server logic
@@ -439,7 +443,7 @@ JSON.stringify({ uno: 1, dos: 2 }, null, '\t');
 
 //      https://stackoverflow.com/questions/6912584/how-to-get-get-query-string-variables-in-express-js-on-node-js
 
-const querystring = require("querystring");
+const querystring = require('querystring');
 // if asArray=false only the first item with the same name will be returned
 // if asArray=true all items will be returned as an array (even if they are a single item)
 const asArray = false;
