@@ -27,7 +27,7 @@ import { ReactiveExtensionsComponent } from "./components/reactive_extensions.co
 @NgModule({
     imports: [BrowserModule, FormsModule],
     declarations: [RETableComponent, REFormComponent, MessagePanelComponent, ReactiveExtensionsComponent, FormStatePipe],
-    exports: [ReactiveExtensionsComponent],
+    exports: [ReactiveExtensionsComponent, MessagePanelComponent],
     providers: [
         {
             provide: PRODUCT_REPOSITORY,
