@@ -12,10 +12,11 @@ import { AdaptiveDesignComponent } from "./components/adaptive_design/adaptive_d
 import { ModularCSSComponent } from "./components/modular_css/modular_css.component";
 import { BackgroundComponent } from "./components/background/background.component";
 import { ColorsComponent } from "./components/colors/colors.component";
+import { FontsComponent } from "./components/fonts/fonts.component";
 
 @NgModule({
     imports: [
-        BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
+        BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule
     ],
     declarations: [
         CSSBaseComponent, RelativeUnitsComponent,
@@ -26,7 +27,8 @@ import { ColorsComponent } from "./components/colors/colors.component";
         AdaptiveDesignComponent,
         ModularCSSComponent,
         BackgroundComponent,
-        ColorsComponent
+        ColorsComponent,
+        FontsComponent
     ],
     bootstrap: [
         CSSBaseComponent, RelativeUnitsComponent,
@@ -37,7 +39,8 @@ import { ColorsComponent } from "./components/colors/colors.component";
         AdaptiveDesignComponent,
         ModularCSSComponent,
         BackgroundComponent,
-        ColorsComponent
+        ColorsComponent,
+        FontsComponent
     ],
 
 })
