@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CSSBaseComponent } from "./components/css_base/css_base.component";
 import { RelativeUnitsComponent } from "./components/relative_units/relative_units.component";
+import { BlockModelComponent } from "./components/block_model/block_model.component";
 import { FloatElementsComponent } from "./components/float_elements/float_elements.component";
 import { FlexboxLayoutsComponent } from "./components/flexbox_layouts/flexbox_layouts.component";
 import { CSSGridComponent } from "./components/css_grid/css_grid.component";
@@ -17,12 +18,15 @@ import { TransitionsComponent } from "./components/transitions/transitions.compo
 import { TransformationsComponent } from "./components/transformations/transformations.component";
 import { AnimationsComponent } from "./components/animations/animations.component";
 
+
 @NgModule({
     imports: [
         BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule
     ],
     declarations: [
-        CSSBaseComponent, RelativeUnitsComponent,
+        CSSBaseComponent,
+        RelativeUnitsComponent,
+        BlockModelComponent,
         FloatElementsComponent,
         FlexboxLayoutsComponent,
         CSSGridComponent,
@@ -37,7 +41,9 @@ import { AnimationsComponent } from "./components/animations/animations.componen
         AnimationsComponent
     ],
     bootstrap: [
-        CSSBaseComponent, RelativeUnitsComponent,
+        CSSBaseComponent,
+        RelativeUnitsComponent,
+        BlockModelComponent,
         FloatElementsComponent,
         FlexboxLayoutsComponent,
         CSSGridComponent,
