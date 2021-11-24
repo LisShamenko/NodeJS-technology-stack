@@ -6,6 +6,7 @@ import { CSSBaseComponent } from "./components/css_base/css_base.component";
 import { RelativeUnitsComponent } from "./components/relative_units/relative_units.component";
 import { FloatElementsComponent } from "./components/float_elements/float_elements.component";
 import { FlexboxLayoutsComponent } from "./components/flexbox_layouts/flexbox_layouts.component";
+import { CSSGridComponent } from "./components/css_grid/css_grid.component";
 
 @NgModule({
     imports: [
@@ -14,12 +15,14 @@ import { FlexboxLayoutsComponent } from "./components/flexbox_layouts/flexbox_la
     declarations: [
         CSSBaseComponent, RelativeUnitsComponent, 
         FloatElementsComponent,
-        FlexboxLayoutsComponent
+        FlexboxLayoutsComponent,
+        CSSGridComponent
     ],
     bootstrap: [
         CSSBaseComponent, RelativeUnitsComponent, 
         FloatElementsComponent,
-        FlexboxLayoutsComponent
+        FlexboxLayoutsComponent,
+        CSSGridComponent
     ],
 
 })
