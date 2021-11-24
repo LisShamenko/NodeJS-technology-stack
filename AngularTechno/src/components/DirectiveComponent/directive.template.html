@@ -68,7 +68,7 @@
                 (category-event)="currentProduct.category=$event">
                 <td>{{i + 1}}</td>
                 <td>{{item.name}}</td>
-                <td [simple-directive]="item.category == 'еда' ? 'bg-info' : null">{{item.category}}</td>
+                <td [simple-directive]="item.category == 'category_2' ? 'bg-info' : null">{{item.category}}</td>
                 <td [simple-directive]="'bg-info'">{{item.price}}</td>
             </tr>
         </table>

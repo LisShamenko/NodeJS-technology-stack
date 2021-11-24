@@ -21,6 +21,8 @@ import { DirectiveIterator } from "../directives/directive.iterator";
 import { DirectiveDiffer } from "../directives/directive.differ";
 import { DirectiveParent } from "../directives/directive.parent";
 import { DirectiveChild } from "../directives/directive.child";
+// локаль
+import { LOCALE_ID } from "@angular/core";
 
 // @NdModule - корневой модуль, который отвечает за описание приложения для Angular:
 //      используемые зависимости, компоненты, точки входа
@@ -42,6 +44,8 @@ import { DirectiveChild } from "../directives/directive.child";
     bootstrap: [
         ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent,
         RootComponent
-    ]
+    ],
+    // настройка локали
+    providers: [{ provide: LOCALE_ID, useValue: "en-US" }],
 })
 export class AppModule { }

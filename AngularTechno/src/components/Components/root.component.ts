@@ -5,7 +5,7 @@ import { ProductRepository } from "src/models/Product/product.repository";
 @Component({
     selector: "app-components",
     templateUrl: "./root.template.html",
-    styles: ["/deep/ div { border: 2px black solid; font-style:italic }"]
+    //styles: ["/deep/ div { border: 2px black solid; font-style:italic }"]
 })
 export class RootComponent {
     rootProductRepository: ProductRepository = new ProductRepository();

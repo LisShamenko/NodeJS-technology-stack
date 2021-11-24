@@ -2,6 +2,7 @@ div {
     background-color: lightcoral;
 }
 
+/*
 :host:hover {
     font-size: 25px;
 }
@@ -9,3 +10,4 @@ div {
 :host-context(.angularApp) input {
     background-color: lightgray;
 }
+*/
