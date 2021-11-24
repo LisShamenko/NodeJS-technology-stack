@@ -54,7 +54,7 @@ export class RestProductRepository {
     }
 
     getProduct(id: number): RestProduct | undefined {
-        return this._products.find(p => p.id === id);
+        return this._products.find(p => p.id == id);
     }
 
     addProduct(product: RestProduct): void {
@@ -71,7 +71,7 @@ export class RestProductRepository {
             .updateProduct(product)
             .subscribe(p => {
                 console.log(`--- --- updateProduct --- ---`);
-                let index = this._products.findIndex(p => p.id === product.id);
+                let index = this._products.findIndex(p => p.id == product.id);
                 this._products.splice(index, 1, p);
             });
     }
@@ -81,7 +81,7 @@ export class RestProductRepository {
             .deleteProduct(id)
             .subscribe(() => {
                 console.log(`--- --- deleteProduct --- ---`);
-                let index = this._products.findIndex(p => p.id === id);
+                let index = this._products.findIndex(p => p.id == id);
                 if (index > -1) {
                     this._products.splice(index, 1);
                 }

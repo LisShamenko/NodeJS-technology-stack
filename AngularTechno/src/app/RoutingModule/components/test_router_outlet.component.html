@@ -1,0 +1,10 @@
+<div class="form-group m-t-1">
+    <p>TEST ROUTER OUTLET!</p>
+    <button class="btn btn-primary" routerLink="/table">/table</button>
+    <button class="btn btn-primary" routerLink="/form/edit">/form/edit</button>
+    <button class="btn btn-primary" routerLink="/form/create">/form/create</button>
+    <button class="btn btn-primary" [routerLink]="['/form', 'edit', 1]">/form/edit/1</button>
+    <button class="btn btn-primary" [routerLink]="['/form', 'edit', 1, { name: 'product_1', category: 'category_1', price: 10 }]">
+        /form/edit/1;name=product_1;category=category_1;price=10
+    </button>
+</div>

@@ -61,6 +61,8 @@ import { FourthService } from "./../services/fourth.service";
 import { ModulesModule } from "./modules.module";
 import { ReactiveExtensionsModule } from "./ReactiveExtensionsModule/re.module";
 import { AsyncHttpModule } from "./AsyncHttpModule/async_http.module";
+import { RoutingModule } from "./RoutingModule/routing.module";
+import { RoutingComponent } from "./RoutingModule/components/routing.component";
 
 
 // --------------- @NdModule
@@ -80,7 +82,9 @@ import { AsyncHttpModule } from "./AsyncHttpModule/async_http.module";
         // модуль Reactive Extensions
         ReactiveExtensionsModule,
         // 
-        AsyncHttpModule
+        AsyncHttpModule,
+        //
+        RoutingModule
     ],
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
     declarations: [
@@ -107,7 +111,8 @@ import { AsyncHttpModule } from "./AsyncHttpModule/async_http.module";
         LocalProviderComponent,
         ModuleRootComponent,
         ReactiveExtensionsComponent,
-        AsyncHTTPComponent
+        AsyncHTTPComponent,
+        RoutingComponent
     ],
     // провайдеры
     providers: [

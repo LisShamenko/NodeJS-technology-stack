@@ -1,0 +1,44 @@
+<div class="checkbox">
+    <label>Редактировать: </label><input type="checkbox" [(ngModel)]="isEditing" />
+</div>
+
+<form novalidate #ngFormRef="ngForm">
+    <table>
+        <tr>
+            <td>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" name="name" [(ngModel)]="currentProduct.name" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input class="form-control" name="category" [(ngModel)]="currentProduct.category" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input class="form-control" name="price" [(ngModel)]="currentProduct.price" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-primary" (click)="submitForm(ngFormRef)">
+                    {{ (isEditing) ? 'Изменить' : 'Создать'}}
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="resetForm()">Сброс формы.</button><br>
+            </td>
+            <td>
+                <button class="btn btn-primary" routerLink="/table">Таблица.</button><br>
+            </td>
+            <td>
+                <button class="btn btn-primary" routerLink="/">Вернуться.</button><br>
+            </td>
+        </tr>
+    </table>
+</form>
