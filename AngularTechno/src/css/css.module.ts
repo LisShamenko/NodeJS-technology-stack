@@ -15,6 +15,7 @@ import { ColorsComponent } from "./components/colors/colors.component";
 import { FontsComponent } from "./components/fonts/fonts.component";
 import { TransitionsComponent } from "./components/transitions/transitions.component";
 import { TransformationsComponent } from "./components/transformations/transformations.component";
+import { AnimationsComponent } from "./components/animations/animations.component";
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { TransformationsComponent } from "./components/transformations/transform
         ColorsComponent,
         FontsComponent,
         TransitionsComponent,
-        TransformationsComponent
+        TransformationsComponent,
+        AnimationsComponent
     ],
     bootstrap: [
         CSSBaseComponent, RelativeUnitsComponent,
@@ -46,7 +48,8 @@ import { TransformationsComponent } from "./components/transformations/transform
         ColorsComponent,
         FontsComponent,
         TransitionsComponent,
-        TransformationsComponent
+        TransformationsComponent,
+        AnimationsComponent
     ],
 
 })
