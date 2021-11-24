@@ -167,7 +167,7 @@
 
             <div class="form-group">
                 <label>Category</label>
-                <input class="form-control" name="name" [(ngModel)]="currentProduct.category" formControlName="category" />
+                <input class="form-control" name="category" [(ngModel)]="currentProduct.category" formControlName="category" />
                 <ul class="text-danger list-unstyled"
                     *ngIf="(isFormSubmit || productForm.controls['category'].dirty) && productForm.controls['category'].invalid">
                     <li *ngFor="let error of getControlValidationMessages(productForm, 'category')"> {{error}} </li>
