@@ -25,6 +25,7 @@ import { LocalProviderComponent } from "./../components/ProviderComponent/local_
 import { ModuleRootComponent } from "./ComponentsModule/components/root/module_root.component";
 import { ReactiveExtensionsComponent } from "./ReactiveExtensionsModule/components/reactive_extensions.component";
 import { AsyncHTTPComponent } from "./AsyncHttpModule/components/async_http.component";
+import { TriggerComponent } from "./AnimationsModule/components/trigger.component";
 
 // директивы
 import { DirectiveSimple } from "../directives/directive.simple";
@@ -64,6 +65,7 @@ import { AsyncHttpModule } from "./AsyncHttpModule/async_http.module";
 import { RoutingModule } from "./RoutingModule/routing.module";
 import { RoutingComponent } from "./RoutingModule/components/routing.component";
 import { LazyLoadingModule } from "./LazyLoadingModule/lazy_loading.module";
+import { TriggerModule } from "./AnimationsModule/trigger.module";
 
 
 // --------------- @NdModule
@@ -72,6 +74,8 @@ import { LazyLoadingModule } from "./LazyLoadingModule/lazy_loading.module";
 //      используемые зависимости, компоненты, точки входа
 // BrowserModule - обеспечивает встроенные функции шаблонов, такие как последовательности '{{' и '}}'
 // FormsModule - позволяет использовать формы
+//      ошибка двойной привязки, если не импортировать этот модуль: 
+//          Can't bind to 'ngModel' since it isn't a known property of '...'
 // ReactiveFormsModule - поддержка форм на базе моделей, критерии валидации форм задаются в коде,
 //      а не в шаблоне, что дает лучшую масштабируемость
 @NgModule({
@@ -85,7 +89,9 @@ import { LazyLoadingModule } from "./LazyLoadingModule/lazy_loading.module";
         // 
         AsyncHttpModule,
         //
-        RoutingModule, LazyLoadingModule
+        RoutingModule, LazyLoadingModule,
+        // 
+        TriggerModule
     ],
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
     declarations: [
@@ -113,7 +119,8 @@ import { LazyLoadingModule } from "./LazyLoadingModule/lazy_loading.module";
         ModuleRootComponent,
         ReactiveExtensionsComponent,
         AsyncHTTPComponent,
-        RoutingComponent
+        RoutingComponent,
+        TriggerComponent
     ],
     // провайдеры
     providers: [
