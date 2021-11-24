@@ -9,10 +9,12 @@ import { ProductComponent } from "./../components/ProductComponent/product.compo
 import { FormComponent } from "./../components/FormComponent/form.component";
 import { DirectiveComponent } from "./../components/DirectiveComponent/directive.component";
 import { StructuralDirectiveComponent } from "./../components/StructuralDirectiveComponent/structural_directive.component";
-import { RootComponent } from "src/components/Components/root.component";
-import { ProductFormComponent } from "src/components/Components/product_form.component";
-import { NgcontentComponent } from "src/components/Components/ngcontent.component";
-import { ProductTableComponent } from "src/components/Components/product_table.component";
+import { RootComponent } from "./../components/Components/root.component";
+import { ProductFormComponent } from "./../components/Components/product_form.component";
+import { NgcontentComponent } from "./../components/Components/ngcontent.component";
+import { ProductTableComponent } from "./../components/Components/product_table.component";
+import { PipeFormComponent } from "./../components/Pipes/pipe_form.component";
+
 // директивы
 import { DirectiveSimple } from "../directives/directive.simple";
 import { DirectiveTwowayBinding } from "../directives/directive.twoway_binding";
@@ -21,6 +23,9 @@ import { DirectiveIterator } from "../directives/directive.iterator";
 import { DirectiveDiffer } from "../directives/directive.differ";
 import { DirectiveParent } from "../directives/directive.parent";
 import { DirectiveChild } from "../directives/directive.child";
+// каналы
+import { AddNumberPipe } from "../pipes/addNumber.pipe";
+import { CategoryFilterPipe } from "../pipes/categoryFilter.pipe";
 // локаль
 import { LOCALE_ID } from "@angular/core";
 
@@ -36,16 +41,22 @@ import { LOCALE_ID } from "@angular/core";
     imports: [BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
     declarations: [
+        // компоненты
         ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent,
         RootComponent, ProductFormComponent, NgcontentComponent, ProductTableComponent,
-        DirectiveSimple, DirectiveTwowayBinding, DirectiveStructure, DirectiveIterator, DirectiveDiffer, DirectiveParent, DirectiveChild
+        PipeFormComponent,
+        // директивы
+        DirectiveSimple, DirectiveTwowayBinding, DirectiveStructure, DirectiveIterator, DirectiveDiffer, DirectiveParent, DirectiveChild,
+        // каналы
+        AddNumberPipe, CategoryFilterPipe
     ],
     // определяет точку входа приложения
     bootstrap: [
         ProductComponent, AppComponent, FormComponent, DirectiveComponent, StructuralDirectiveComponent,
-        RootComponent
+        RootComponent, PipeFormComponent
     ],
     // настройка локали
     providers: [{ provide: LOCALE_ID, useValue: "en-US" }],
+
 })
 export class AppModule { }

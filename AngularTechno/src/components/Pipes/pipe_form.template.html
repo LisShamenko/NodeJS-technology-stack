@@ -1,0 +1,148 @@
+<div class="form-group m-t-1">
+
+    <h2>Каналы.</h2>
+
+    <hr color="green">
+    <h3>Форма.</h3>
+
+    <form novalidate [formGroup]="productForm" (ngSubmit)="submitForm(productForm)">
+
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" name="name" [(ngModel)]="currentProduct.name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <input class="form-control" name="category" [(ngModel)]="currentProduct.category"
+                formControlName="category" />
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input class="form-control" name="price" [(ngModel)]="currentProduct.price" formControlName="price" />
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="isFormSubmit && productForm.invalid"
+            [class.btn-secondary]="isFormSubmit && productForm.invalid">
+            Create
+        </button>
+    </form>
+
+    <hr color="green">
+    <h3>Применение каналов.</h3>
+
+    <div>
+        <label>Выбор числа:</label>
+        <select [value]="selectNumber || 0" (change)="setSelectNumber($event)">
+            <option value="0">0</option>
+            <option value="10">10</option>
+            <option value="100">100</option>
+            <option value="1000">1000</option>
+        </select>
+    </div>
+
+    <hr color="green">
+    <h3>Нестандартный канал:</h3>
+
+    <div>
+        <p>Исходное значение: {{ selectNumber }}</p>
+        <p>Применение канала 'addNumberPipe': {{ currentProduct.price | addNumberPipe:(selectNumber || 0) }}</p>
+    </div>
+
+    <hr color="green">
+    <h3>Объединение каналов:</h3>
+
+    <div>
+        <p>Исходное значение: {{ selectNumber }}</p>
+        <p>Результат объединения: {{ currentProduct.price | addNumberPipe:(selectNumber || 0) | currency:"USD":true }}
+        </p>
+    </div>
+
+    <hr color="green">
+    <h3>Не чистый канал:</h3>
+
+    <div>
+        <label>Категория фильтрации:</label>
+        <select [(ngModel)]="categoryFilter">
+            <option value="category_1">category_1</option>
+            <option value="category_2">category_2</option>
+            <option value="category_3">category_3</option>
+        </select>
+    </div>
+
+    <table class="table table-sm table-bordered table-striped">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+            <th>1</th>
+            <th>2</th>
+        </tr>
+        <tr *differDirective="let item of getProducts() | filterPipe:categoryFilter; let i = index; let odd = odd; let even = even"
+            [class.bg-info]="odd" [class.bg-warning]="even">
+            <td class="vertical-td" child="">{{i + 1}}</td>
+            <td class="vertical-td" child="">{{item.name}}</td>
+            <td class="vertical-td" child="">{{item.category}}</td>
+            <td class="vertical-td" child="">{{item.price}}</td>
+            <td class="text-xs-center">
+                <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">Delete</button>
+            </td>
+            <td class="vertical-td">{{ item.price | currency:"USD":true }}</td>
+            <td class="vertical-td">{{ item.price | addNumberPipe:(selectNumber * i) }}</td>
+        </tr>
+    </table>
+
+    <hr color="green">
+    <h3>Встроенные каналы</h3>
+
+    <div>
+        <label>Число от 0 до 1:</label>
+        <select [(ngModel)]="percentNumber">
+            <option value="0">0</option>
+            <option value="0.1">{{ 0.1 }}</option>
+            <option value="0.5">{{ 0.5 }}</option>
+            <option value="1">{{ 1 }}</option>
+            <option value="1.5">{{ 1.5 }}</option>
+        </select>
+    </div>
+    <div>
+        <p>форматирование чисел: {{ currentProduct.price | number:"3.2-2" }}</p>
+        <p>форматирование денежных единиц: {{ currentProduct.price | currency:"USD":true:"2.2-2" }}</p>
+        <p>форматирование процентов: {{ percentNumber | percent }}</p>
+        <p>Верхний регистр: {{ currentProduct.name | uppercase }}</p>
+        <p>Нижний регистр: {{ currentProduct.category | lowercase }}</p>
+    </div>
+
+    <hr color="green">
+
+    <div>
+        <p>форматирование дат: </p>
+        <p>Объект --- {{ dateObject }} --- : {{ dateObject | date }}</p>
+        <p>Строка --- {{ dateString }} --- : {{ dateString | date }}</p>
+        <p>Число --- {{ dateNumber }} --- : {{ dateNumber | date }}</p>
+        <p>Предопределенные форматы дат: </p>
+        <p>short: {{ dateObject | date:'short' }} </p>
+        <p>medium: {{ dateObject | date:'medium' }} </p>
+        <p>shortDate: {{ dateObject | date:'shortDate' }} </p>
+        <p>mediumDate: {{ dateObject | date:'mediumDate' }} </p>
+        <p>longDate: {{ dateObject | date:'longDate' }} </p>
+        <p>fullDate: {{ dateObject | date:'fullDate' }} </p>
+        <p>shortTime: {{ dateObject | date:'shortTime' }} </p>
+        <p>mediumTime: {{ dateObject | date:'mediumTime' }} </p>
+    </div>
+
+    <hr color="green">
+
+    <div>
+        <label>Количество элементов в срезе:</label>
+        <select [(ngModel)]="sliceCount">
+            <option *ngFor="let item of getProducts(); let i = index" [value]="i + 1">{{i + 1}}</option>
+        </select>
+    </div>
+    <div>
+        <p>форматирование в JSON + срез массива: {{ getProducts() | slice:0:sliceCount | json }}</p>
+    </div>
+</div>
