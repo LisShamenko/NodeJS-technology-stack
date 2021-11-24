@@ -63,6 +63,7 @@ import { ReactiveExtensionsModule } from "./ReactiveExtensionsModule/re.module";
 import { AsyncHttpModule } from "./AsyncHttpModule/async_http.module";
 import { RoutingModule } from "./RoutingModule/routing.module";
 import { RoutingComponent } from "./RoutingModule/components/routing.component";
+import { LazyLoadingModule } from "./LazyLoadingModule/lazy_loading.module";
 
 
 // --------------- @NdModule
@@ -84,7 +85,7 @@ import { RoutingComponent } from "./RoutingModule/components/routing.component";
         // 
         AsyncHttpModule,
         //
-        RoutingModule
+        RoutingModule, LazyLoadingModule
     ],
     // описывает функции, предоставляемые приложением для внешнего доступа, регистрирует компоненты и директивы
     declarations: [

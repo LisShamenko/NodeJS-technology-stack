@@ -7,4 +7,6 @@
     <button class="btn btn-primary" [routerLink]="['/form', 'edit', 1, { name: 'product_1', category: 'category_1', price: 10 }]">
         /form/edit/1;name=product_1;category=category_1;price=10
     </button>
+    <button class="btn btn-danger" routerLink="/lazy_loading">Отложенная загрузка.</button>
+    <button class="btn btn-danger" (click)="sendMessage()">Отправка сообщения.</button>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, Input } from "@angular/core";
 import { NavigationCancel, NavigationEnd, Router, RouterEvent, Event as BaseEvent } from "@angular/router";
 import { Message } from "src/app/ReactiveExtensionsModule/models/message.model";
 import { MessageService } from "src/app/ReactiveExtensionsModule/services/message.service";
@@ -21,6 +21,7 @@ import { filter, map, distinctUntilChanged, skipWhile, takeWhile } from 'rxjs/op
 export class RoutingMessagePanelComponent {
 
     lastMessage: string = '';
+    currentMessage: Message | null = null;
 
     constructor(
         @Inject(ROUTING_MESSAGE_SERVICE) messageService: MessageService,
@@ -30,6 +31,7 @@ export class RoutingMessagePanelComponent {
         let observable = messageService.getObservable();
         observable.subscribe((message: Message) => {
             this.lastMessage = message.message;
+            this.currentMessage = message;
         });
 
         // - компонент не учавствует в навигации, но обращается к классу Router, чтобы получить 
@@ -69,6 +71,7 @@ export class RoutingMessagePanelComponent {
             // очистка поля сообщения
             .subscribe((e: RouterEvent) => {
                 this.lastMessage = '';
+                this.currentMessage = null;
             });
     }
 }

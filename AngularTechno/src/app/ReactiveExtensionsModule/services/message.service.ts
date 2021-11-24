@@ -17,6 +17,8 @@ export class MessageService {
     }
 
     sendMessage(message: Message) {
+        console.log(`--- --- --- --- send message = `);
+        console.log(message);
         this.subject.next(message);
     }
 }

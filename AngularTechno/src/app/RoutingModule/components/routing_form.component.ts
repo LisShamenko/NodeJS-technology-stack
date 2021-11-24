@@ -14,9 +14,12 @@ import { ROUTING_PRODUCT_REPOSITORY } from "../tokens/routing.tokens";
 })
 export class RoutingFormComponent {
 
+    originalProduct: RestProduct = new RestProduct();
     currentProduct: RestProduct = new RestProduct();
     isEditing: boolean = false;
     isNavigateByUrl: boolean = false;
+
+
 
     constructor(
         //@Inject(ROUTING_PRODUCT_REPOSITORY) 
@@ -125,12 +128,24 @@ export class RoutingFormComponent {
             if (id != null) {
                 let product = this.productRepository.getProduct(id);
                 Object.assign(this.currentProduct, product || new RestProduct());
+                Object.assign(this.originalProduct, this.currentProduct);
             }
         });
     }
 
+
+
+    isChangesExist(): boolean {
+        return this.currentProduct.name != this.originalProduct.name ||
+            this.currentProduct.category != this.originalProduct.category ||
+            this.currentProduct.price != this.originalProduct.price;
+    }
+
     submitForm(form: NgForm) {
 
+        this.originalProduct = this.currentProduct;
+
+        // 
         if (this.isEditing) {
 
             // проверка

@@ -17,7 +17,11 @@ import { RoutingFormComponent } from "./components/routing_form.component";
 import { RoutingMessagePanelComponent } from "./components/routing_message_panel.component";
 import { RoutingTableComponent } from "./components/routing_table.component";
 import { TestRouterOutletComponent } from "./components/test_router_outlet.component";
-import { ROUTING_MESSAGE_SERVICE, ROUTING_PRODUCT_REPOSITORY, ROUTING_PRODUCT_SOURCE, ROUTING_REST_URL, ROUTING_SUBJECT_INSTANCE } from "./tokens/routing.tokens";
+import { LoadGuard } from "./guards/load.guard";
+import { ActivateGuard } from "./guards/activate.guard";
+import { DeactivateGuard } from "./guards/deactivate.guard";
+import { DelayNavigationResolver } from "./models/delay_navigation.resolver";
+import { ROUTING_MESSAGE_SERVICE, ROUTING_PRODUCT_REPOSITORY, ROUTING_PRODUCT_SOURCE, ROUTING_REFRESH, ROUTING_REST_URL, ROUTING_SUBJECT_INSTANCE } from "./tokens/routing.tokens";
 
 // --------------- маршрутизация
 
@@ -77,14 +81,28 @@ import { ROUTING_MESSAGE_SERVICE, ROUTING_PRODUCT_REPOSITORY, ROUTING_PRODUCT_SO
 // --------------- дочерине маршруты
 
 const childRoutes: Routes = [
+
+    // --------------- отложенная навигация
+
     {
-        path: "products",
-        component: ProductCountComponent
+        path: "",
+        // метод canActivateChild будет вызван перед активацией любых потомков маршрута
+        canActivateChild: [ActivateGuard],
+        // дочерние маршруты
+        children: [
+            { path: "products", component: ProductCountComponent },
+            { path: "categories", component: CategoryCountComponent },
+            { path: "", component: EmptyComponent }
+        ],
+        // свойство resolve получает экземпляр Map свойства которого это резольверы 
+        //      применяемые к маршруту, имена свойств значения не имеют
+        resolve: {
+            model: DelayNavigationResolver
+        },
     },
-    {
-        path: "categories",
-        component: CategoryCountComponent
-    },
+
+    // --------------- 
+
     // можно создать бескомпонентный маршрут если не задать свойство component, такой
     //      маршрут может быть выбран, но компонент отображаться не будет, что избавляет
     //      от создания компонента пустышки
@@ -157,12 +175,21 @@ const routes: Routes = [
     {
         // один динамический сегмент: ':mode'
         path: "form/:mode",                     // http://localhost:3000/form/[edit | create]
-        component: RoutingFormComponent
+        component: RoutingFormComponent,
+        resolve: {
+            model: DelayNavigationResolver
+        },
+        canActivate: [ActivateGuard]
     },
     {
         // два динамических сегмента: ':mode', ':id'
         path: "form/:mode/:id",                 // http://localhost:3000/form/[edit | create]/[id]
-        component: RoutingFormComponent
+        component: RoutingFormComponent,
+        resolve: {
+            model: DelayNavigationResolver
+        },
+        canActivate: [ActivateGuard],
+        canDeactivate: [DeactivateGuard]
     },
 
     // --------------- перенаправления
@@ -202,6 +229,7 @@ const routes: Routes = [
     {
         path: "table",                          // http://localhost:3000/table
         component: RoutingTableComponent,
+        canActivate: [ActivateGuard],
         // свойство children задает дочерние маршруты
         children: childRoutes
     },
@@ -209,9 +237,22 @@ const routes: Routes = [
         // category используется для фильтрации
         path: "table/:category",
         component: RoutingTableComponent,
+        canActivate: [ActivateGuard],
         children: childRoutes
     },
+    {
+        // --------------- динамическая загрузка модулей
 
+        path: "lazy_loading",
+        // loadChildren передает Angular информацию о местонахождении модуля:
+        //      путь к файлу модуля и класс модуля
+        loadChildren: "./../LazyLoadingModule/lazy_loading.module#LazyLoadingModule",
+
+        // --------------- защитник динамической загрузки 
+
+        // свойству canLoad передается массив защитников
+        canLoad: [LoadGuard]
+    },
     // ---------------
     {
         path: "does/not/exist",
@@ -288,12 +329,18 @@ const routes: Routes = [
             useValue: new Subject<Message>()
         },
         {
+            provide: ROUTING_REFRESH,
+            useValue: true
+        },
+        {
             provide: ROUTING_MESSAGE_SERVICE,
             deps: [ROUTING_SUBJECT_INSTANCE],
             useFactory: (subject: Subject<Message>) => {
                 return new MessageService(subject);
             },
-        }
+        },
+        // защитники маршрутов
+        DelayNavigationResolver, ActivateGuard, DeactivateGuard, LoadGuard
     ]
 })
 export class RoutingModule { }

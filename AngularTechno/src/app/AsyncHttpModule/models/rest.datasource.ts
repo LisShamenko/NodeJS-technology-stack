@@ -3,6 +3,7 @@ import { Inject, Injectable } from "@angular/core";
 import { Observable, of, throwError } from "rxjs";
 import { RestProduct } from "./rest.model";
 import { filter, map, distinctUntilChanged, skipWhile, takeWhile, catchError } from 'rxjs/operators';
+import { delay } from 'rxjs/operators';
 import { REST_URL, REST_URL_PRODUCTS } from "../tokens";
 import { PaginationData } from "src/app/RoutingModule/models/pagination_data.model";
 
@@ -53,11 +54,25 @@ export class RestProductsSource {
         //          params: params
         //      }
 
+        // заголовки в запросе:
+        //      let headers = new HttpHeaders();
+        //      headers.set("Access-Key", "<secret>");
+        //      headers.set("Application-Names", ["exampleApp", "proAngular"]);
+
         // метод get возвращает объект типа Observable<Response[]>, который отправляет событие 
         //      при получении ответа от сервера
         return this._httpClient
             // HttpClient выполняет запрос HTTP GET
-            .get(this._url, { responseType: 'json' })
+            .get(this._url, {
+                responseType: 'json',
+                //headers: headers
+            })
+            .pipe(
+                // задерживает отправку элементов из источника Observable на заданный 
+                //      тайм-аут или до указанной даты, что дает паузу для загрузки 
+                //      компонентов
+                delay(1000)
+            )
             //
             .pipe(
                 map((response: any) => {
@@ -279,5 +294,29 @@ export class RestProductsSource {
  * // b
  * // c
  * // Twos are bad
+ * ```
+ */
+
+/*
+ * ## Examples delay
+ * Delay each click by one second
+ * ```ts
+ * import { fromEvent } from 'rxjs';
+ * import { delay } from 'rxjs/operators';
+ *
+ * const clicks = fromEvent(document, 'click');
+ * const delayedClicks = clicks.pipe(delay(1000)); // each click emitted after 1 second
+ * delayedClicks.subscribe(x => console.log(x));
+ * ```
+ *
+ * Delay all clicks until a future date happens
+ * ```ts
+ * import { fromEvent } from 'rxjs';
+ * import { delay } from 'rxjs/operators';
+ *
+ * const clicks = fromEvent(document, 'click');
+ * const date = new Date('March 15, 2050 12:00:00'); // in the future
+ * const delayedClicks = clicks.pipe(delay(date)); // click emitted only after that date
+ * delayedClicks.subscribe(x => console.log(x));
  * ```
  */
