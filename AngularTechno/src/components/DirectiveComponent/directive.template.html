@@ -63,7 +63,7 @@
                 </td>
             </tr>
             <tr *ngFor="let item of getProducts(); let i = index; let odd = odd; let last = last"
-                [is-console-log]="last" [ng-on-changes]="'change'"
+                [is-console-log]="false" [ng-on-changes]="'change'"
                 [simple-directive]="odd ? 'bg-success' : 'bg-warning'" [product-property]="item"
                 (category-event)="currentProduct.category=$event">
                 <td>{{i + 1}}</td>

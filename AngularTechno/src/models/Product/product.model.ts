@@ -5,4 +5,8 @@ export class Product {
         public name?: string,
         public category?: string,
         public price?: number) { }
+
+    getChangeString(): string {
+        return `${this.id} - ${this.name} - ${this.category} - ${this.price}`;
+    }
 }

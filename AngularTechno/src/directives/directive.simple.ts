@@ -97,7 +97,7 @@ export class DirectiveSimple {
         if (this.isConsoleLog) console.log('--- --- ngOnChanges --- ---');
 
         // именами свойств объекта changes являются изменившиеся входные свойства
-        let change = changes["ng-on-changes"];
+        let change = changes["ngOnChangesProperty"]; // let change = changes["ng-on-changes"];
         if (change) {
             console.log(`Объект SimpleChange для свойства 'ng-on-changes': ${JSON.stringify(change)}`);
             let classList = this.element.nativeElement.classList;
