@@ -1,0 +1,36 @@
+<div class="form-group m-t-1">
+
+    <h2>Сервисы.</h2>
+
+    <hr color="green">
+    <h3>Передача экземпляра сервиса через входные свойства.</h3>
+
+    <first-display-component [first-service]="firstService"></first-display-component>
+    <first-edit-component [first-service]="firstService"></first-edit-component>
+
+    <hr color="green">
+    <h3>Передача экземпляра сервиса через внедрение зависимостей.</h3>
+
+    <second-display-component></second-display-component>
+    <second-edit-component></second-edit-component>
+
+    <hr color="green">
+    <h3>Таблица.</h3>
+
+    <table class="table table-sm table-bordered table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Директива</th>
+            <th>Канал</th>
+        </tr>
+        <tr *ngFor="let item of getProducts();">
+            <td class="vertical-td" child="">{{item.name}}</td>
+            <td class="vertical-td" child="">{{item.price}}</td>
+            <td class="vertical-td" [service-directive]="item.price" #serviceDirective="serviceDirective">
+                {{ serviceDirective.newValue | currency:"USD": true }}
+            </td>
+            <td class="vertical-td" child="">{{ item.price | pipeService }}</td>
+        </tr>
+    </table>
+</div>

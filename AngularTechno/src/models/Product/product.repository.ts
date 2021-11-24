@@ -1,7 +1,9 @@
 import { Product } from "./product.model";
 import { ProductsSource } from "./product.datasource";
+import { Injectable } from "@angular/core";
 
 // класс репозитория данных, предоставляет доступ к данным из источника данных
+@Injectable()
 export class ProductRepository {
 
     // источник данных

@@ -1,6 +1,8 @@
 import { Product } from "./product.model";
+import { Injectable } from "@angular/core";
 
 // класс источника данных предоставляет данные приложению
+@Injectable()
 export class ProductsSource {
 
     private _data: Product[];
