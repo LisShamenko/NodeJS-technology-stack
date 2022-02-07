@@ -20,7 +20,8 @@
     "tests": "cd ./AngularTechno && ng test",
     "kss": "kss --config ./AngularTechno/src/css/components/modular_css/kss-config.json",
     "react-1": "webpack --config ./ReactTechno/webpack-1-simple.config.js",
-    "react-2": "webpack --config ./ReactTechno/webpack-2-jsx.config.js"
+    "react-2": "webpack --config ./ReactTechno/webpack-2-jsx.config.js",
+    "react-3": "webpack --config ./ReactTechno/webpack-3-data.config.js"
   },
   "repository": {
     "type": "git",
@@ -74,6 +75,7 @@
     "prop-types": "^15.8.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-redux": "^7.2.6",
     "react-router": "^6.0.2",
     "react-router-dom": "^6.0.2",
@@ -86,6 +88,7 @@
     "swagger-ui-express": "^4.1.6",
     "systemjs": "^6.8.3",
     "tslib": "^2.0.0",
+    "uuid": "^8.3.2",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.11.3"
   },
