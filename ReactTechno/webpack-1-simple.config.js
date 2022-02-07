@@ -13,10 +13,11 @@ module.exports = {
         rules: [
             {
                 test: path.join(__dirname, "Chapters", "Simple"),
-                loader: 'babel-loader',
-                options: {
-                    cacheDirectory: 'babel_cache',
-                    presets: ['es2015', 'react']
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', "@babel/preset-react"]
+                    }
                 }
             }
         ]
