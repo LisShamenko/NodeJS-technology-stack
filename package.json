@@ -22,7 +22,8 @@
     "react-1": "webpack --config ./ReactTechno/webpack-1-simple.config.js",
     "react-2": "webpack --config ./ReactTechno/webpack-2-jsx.config.js",
     "react-3": "webpack --config ./ReactTechno/webpack-3-data.config.js",
-    "react-4": "webpack --config ./ReactTechno/webpack-4-context.config.js"
+    "react-4": "webpack --config ./ReactTechno/webpack-4-context.config.js",
+    "react-5": "webpack --config ./ReactTechno/webpack-5-rendering.config.js"
   },
   "repository": {
     "type": "git",
