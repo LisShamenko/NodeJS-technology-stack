@@ -23,7 +23,8 @@
     "react-2": "webpack --config ./ReactTechno/webpack-2-jsx.config.js",
     "react-3": "webpack --config ./ReactTechno/webpack-3-data.config.js",
     "react-4": "webpack --config ./ReactTechno/webpack-4-context.config.js",
-    "react-5": "webpack --config ./ReactTechno/webpack-5-rendering.config.js"
+    "react-5": "webpack --config ./ReactTechno/webpack-5-rendering.config.js",
+    "react-6": "webpack --config ./ReactTechno/webpack-6-hooks.config.js"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "@angular/platform-browser": "~11.2.5",
     "@angular/platform-browser-dynamic": "~11.2.5",
     "@angular/router": "~11.2.5",
+    "@babel/runtime": "^7.17.2",
     "@types/cookie-parser": "^1.4.2",
     "@types/core-js": "^2.5.4",
     "@types/express": "^4.17.12",
@@ -101,6 +103,8 @@
     "@babel/core": "^7.17.0",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
+    "@babel/plugin-transform-regenerator": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@types/jasmine": "~3.6.0",
