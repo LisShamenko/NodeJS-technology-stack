@@ -1,0 +1,93 @@
+{
+    "users": [
+        {
+            "id": "c4410771-0698-47d0-aebb-8934d673b496",
+            "name": "General Crix Madine",
+            "image": "/static/images/users/3.jpeg"
+        }
+    ],
+    "posts": [
+        {
+            "id": "cd15e9f2-8fa6-4fc7-af78-0d9280d7026f",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496",
+            "comments": [
+                "2e26704e-c76e-4612-ae16-327490098fd9",
+                "89b73e07-f876-4424-9857-b9f7832b3f86"
+            ],
+            "content": "I can only protect you, I cannot fight a war for you.",
+            "date": 1644445859122,
+            "image": "/static/images/posts/2.jpeg",
+            "likes": [
+                "ae7f7816-c526-4d58-9ca7-4140ea613aad",
+                "e629657e-a1bf-4c90-9fa5-f1a738590fe4",
+                "150d4e04-da55-456d-b177-18effbcb8f2e"
+            ]
+        },
+        {
+            "id": "569ea0bb-81fa-423a-92de-f56537372b21",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496",
+            "comments": [
+                "2298f389-2244-46c8-8aed-0aacbceb4391",
+                "13780648-654f-4668-8529-03edacf2eaa9"
+            ],
+            "content": "I'm a person, and my name is Anakin!",
+            "date": 1644477546498,
+            "image": "/static/images/posts/0.jpeg",
+            "likes": [
+                "4462b670-80aa-4769-b36d-a49b8b4cc1d3"
+            ]
+        }
+    ],
+    "comments": [
+        {
+            "id": "2e26704e-c76e-4612-ae16-327490098fd9",
+            "postId": "cd15e9f2-8fa6-4fc7-af78-0d9280d7026f",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496",
+            "content": "Stand by, Chewie, here we go. Cut in the sublight engines. What the...? Aw, we've come out of hyperspace into a meteor shower. Some kind of asteroid collision. It's not on any of the charts. What's going on? Our position is correct, except...no, Alderaan! What do you mean? Where is it? Thats what I'm trying to tell you, kid. It ain't there. It's been totally blown away. What? How? Destroyed...by the Empire!",
+            "date": "2022-02-10T02:02:33.512Z"
+        },
+        {
+            "id": "89b73e07-f876-4424-9857-b9f7832b3f86",
+            "postId": "cd15e9f2-8fa6-4fc7-af78-0d9280d7026f",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496",
+            "content": "He says he's found the main computer to power the tractor beam that's holding the ship here. He'll try to make the precise location appear on the monitor. The tractor beam is coupled to the main reactor in seven locations. A power loss at one of the terminals will allow the ship to leave. I don't think you boys can help. I must go alone. Whatever you say. I've done more that I bargained for on this trip already. Be patient, Luke. Stay and watch over the droids. But he can...",
+            "date": "2022-02-07T02:30:37.936Z"
+        },
+        {
+            "id": "2298f389-2244-46c8-8aed-0aacbceb4391",
+            "postId": "569ea0bb-81fa-423a-92de-f56537372b21",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496",
+            "content": "Lord Vader, the fleet has moved out of light-speed, and we're preparing to...Aaagh! You have failed me for the last time, Admiral. Captain Piett. Yes, my lord. Make ready to land out troops beyond the energy shield and deploy the fleet so that nothing gets off that system. You are in command now, Admiral Piett. Thank you, Lord Vader.",
+            "date": "2022-02-05T04:56:05.010Z"
+        },
+        {
+            "id": "13780648-654f-4668-8529-03edacf2eaa9",
+            "postId": "569ea0bb-81fa-423a-92de-f56537372b21",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496",
+            "content": "General, I've got to leave. I can't stay anymore. I'm sorry to hear that. Well, there's a price on my head. If I don't pay off Jabba the Hut, I'm a dead man.  A death mark's not an easy thing to live with. You're a good fighter, Solo. I hate to lose you. Thank you, General.",
+            "date": "2022-02-10T01:34:27.931Z"
+        }
+    ],
+    "likes": [
+        {
+            "id": "ae7f7816-c526-4d58-9ca7-4140ea613aad",
+            "postId": "cd15e9f2-8fa6-4fc7-af78-0d9280d7026f",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496"
+        },
+        {
+            "id": "e629657e-a1bf-4c90-9fa5-f1a738590fe4",
+            "postId": "cd15e9f2-8fa6-4fc7-af78-0d9280d7026f",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496"
+        },
+        {
+            "id": "150d4e04-da55-456d-b177-18effbcb8f2e",
+            "postId": "cd15e9f2-8fa6-4fc7-af78-0d9280d7026f",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496"
+        },
+        {
+            "id": "4462b670-80aa-4769-b36d-a49b8b4cc1d3",
+            "postId": "569ea0bb-81fa-423a-92de-f56537372b21",
+            "userId": "c4410771-0698-47d0-aebb-8934d673b496"
+        }
+    ]
+}
