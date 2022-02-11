@@ -56,7 +56,7 @@ const ejs = require('ejs');
 const { next } = require('cheerio/lib/api/traversing');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-const chapters = [];
+const chapters = ['TestProject'];
 
 // 
 app.get('/', function (req, res) {
@@ -84,7 +84,90 @@ app.post((req, res, next) => {
     return next();
 });
 
-// --- маршурты api
+// --- маршурты api: post
+
+// REST:
+//      - get list      вернуть список элементов    /posts
+//      - get item      вернуть элемент             /posts/:id
+//      - post item     создать элемент             /posts + body
+//      - put item      обновить элемент            /posts/:id + body
+//      - delete item   удалить элемент             /posts/:id
+
+// 
+app.get('/api/posts', async (req, res, next) => {
+    return res.json({ posts: dbJson.posts });
+});
+
+// 
+app.get('/api/posts/:postId', async (req, res, next) => {
+    const { postId } = req.params;
+
+    // 
+    let post = dbJson.posts.find((item) => item.id === postId);
+    let user = dbJson.users.find((item) => item.id === post.userId);
+    let comments = dbJson.comments.filter((item) => item.postId === postId);
+    let likes = dbJson.likes.filter((item) => item.postId === postId);
+
+    // 
+    comments.forEach(comment => {
+        comment.user = dbJson.users.find((item) => item.id === comment.userId);
+    });
+
+    //
+    return res.json({
+        post: post,
+        user: user,
+        comments: comments,
+        likes: likes,
+    });
+});
+
+//
+app.post('/api/posts', async (req, res, next) => {
+    const post = req.body;
+
+    //
+    let newPost = {
+        "id": v4(),
+        "userId": post.userId,
+        "comments": [],
+        "content": post.content,
+        "date": Date.now(),
+        "image": `/static/images/posts/${lodash.random(0, 2)}.jpg`,
+        "likes": [],
+    };
+
+    // 
+    dbJson.posts.push(newPost)
+    return res.json({
+        post: newPost
+    });
+});
+
+//
+app.put('/api/posts/:postId', async (req, res, next) => {
+    const { postId } = req.params;
+    const { content } = req.body;
+
+    //
+    let oldPost = dbJson.posts.find((item) => item.id === postId);
+    oldPost.content = content;
+    return res.sendStatus(200);
+});
+
+// 
+app.delete('/api/posts/:postId', async (req, res) => {
+    const { postId, userId } = req.params;
+
+    // 
+    let removePosts = lodash.remove(dbJson.posts,
+        (item) => item.id === postId && item.userId === userId);
+
+    // 
+    return res.json({
+        length: removePosts.length
+    });
+});
 
 // --- обработка ошибок
 

@@ -110,8 +110,8 @@ function generateTime() {
 // 
 function getPictures(count, base) {
     const pics = [];
-    for (let i = 0; i <= count; i++) {
-        pics.push(`${base}/${i}.jpeg`);
+    for (let i = 0; i < count; i++) {
+        pics.push(`${base}/${i}.jpg`);
     }
     return pics;
 }

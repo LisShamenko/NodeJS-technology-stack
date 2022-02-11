@@ -23,10 +23,18 @@
 
 // --------------- sequelize
 
-//console.log(`\n\n\n--- SequelizeApp ---\n\n\n`);
 //const SequelizeApp = require('./Database/Sequelize/SequelizeApp');
+//console.log('--- SequelizeApp = ' + SequelizeApp);
 
 // --------------- typescript app
 
-console.log(`\n\n\n--- TypescriptApp ---\n\n\n`);
-const TypescriptApp = require('./TypeScriptTechno/app/dist/app');
+//const TypescriptApp = require('./TypeScriptTechno/app/dist/app');
+//console.log('--- TypescriptApp = ' + TypescriptApp);
+
+// --------------- react
+
+// запуск только сервиса баз данных
+//      http://localhost:3500/
+//
+const server = require('./ReactTechno/server/server');
+console.log('--- server = ' + server);

@@ -3,7 +3,7 @@
         {
             "id": "c4410771-0698-47d0-aebb-8934d673b496",
             "name": "General Crix Madine",
-            "image": "/static/images/users/3.jpeg"
+            "image": "/static/images/users/1.jpg"
         }
     ],
     "posts": [
@@ -16,7 +16,7 @@
             ],
             "content": "I can only protect you, I cannot fight a war for you.",
             "date": 1644445859122,
-            "image": "/static/images/posts/2.jpeg",
+            "image": "/static/images/posts/2.jpg",
             "likes": [
                 "ae7f7816-c526-4d58-9ca7-4140ea613aad",
                 "e629657e-a1bf-4c90-9fa5-f1a738590fe4",
@@ -32,7 +32,7 @@
             ],
             "content": "I'm a person, and my name is Anakin!",
             "date": 1644477546498,
-            "image": "/static/images/posts/0.jpeg",
+            "image": "/static/images/posts/0.jpg",
             "likes": [
                 "4462b670-80aa-4769-b36d-a49b8b4cc1d3"
             ]

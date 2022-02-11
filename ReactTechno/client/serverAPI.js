@@ -20,3 +20,21 @@ function getOptions(method, body = null) {
     }
     return config;
 }
+
+// --- Test Project
+
+// 
+export function fetchPosts() {
+    return fetch(
+        `${process.env.ENDPOINT}/api/posts`,
+        getOptions('GET')
+    );
+}
+
+// 
+export function fetchPost(id) {
+    return fetch(
+        `${process.env.ENDPOINT}/api/posts/${id}`,
+        getOptions('GET')
+    );
+}
