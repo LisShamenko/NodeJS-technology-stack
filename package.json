@@ -25,7 +25,8 @@
     "react-4": "webpack --config ./ReactTechno/webpack-4-context.config.js",
     "react-5": "webpack --config ./ReactTechno/webpack-5-rendering.config.js",
     "react-6": "webpack --config ./ReactTechno/webpack-6-hooks.config.js",
-    "react-7": "webpack --config ./ReactTechno/webpack-7-test-project.config.js"
+    "react-7": "webpack --config ./ReactTechno/webpack-7-test-project.config.js",
+    "react-8": "webpack --config ./ReactTechno/webpack-8-forms.config.js"
   },
   "repository": {
     "type": "git",

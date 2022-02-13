@@ -56,7 +56,7 @@ const ejs = require('ejs');
 const { next } = require('cheerio/lib/api/traversing');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-const chapters = ['TestProject'];
+const chapters = ['TestProject', 'Forms'];
 
 // 
 app.get('/', function (req, res) {
@@ -167,6 +167,13 @@ app.delete('/api/posts/:postId', async (req, res) => {
     return res.json({
         length: removePosts.length
     });
+});
+
+// --- маршурты api: user
+
+// 
+app.get('/api/users', (req, res, next) => {
+    return res.json({ users: dbJson.users });
 });
 
 // --- обработка ошибок

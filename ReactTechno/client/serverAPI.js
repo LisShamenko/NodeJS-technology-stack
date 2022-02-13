@@ -38,3 +38,20 @@ export function fetchPost(id) {
         getOptions('GET')
     );
 }
+
+// --- Forms
+
+//
+export function fetchUsers() {
+    return fetch(
+        `${process.env.ENDPOINT}/api/users`,
+        getOptions('GET')
+    );
+}
+
+//
+export function createPost(post) {
+    return fetch(
+        `${process.env.ENDPOINT}/api/posts`,
+        getOptions('POST', post));
+}
