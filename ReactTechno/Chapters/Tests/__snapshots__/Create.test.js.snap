@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component PostForm snapshot 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Create Post.
+  </button>
+  <textarea
+    onChange={[Function]}
+    value=""
+  />
+</div>
+`;
