@@ -56,7 +56,7 @@ const ejs = require('ejs');
 const { next } = require('cheerio/lib/api/traversing');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-const chapters = ['TestProject', 'Forms'];
+const chapters = ['TestProject', 'Forms', 'FetchAPI'];
 
 // 
 app.get('/', function (req, res) {
