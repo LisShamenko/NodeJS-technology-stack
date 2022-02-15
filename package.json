@@ -28,7 +28,9 @@
     "react-7": "webpack --config ./ReactTechno/webpack-7-test-project.config.js",
     "react-8": "webpack --config ./ReactTechno/webpack-8-forms.config.js",
     "react-9": "webpack --config ./ReactTechno/webpack-9-fetch-api.config.js",
-    "react-10": "jest ./ReactTechno/Chapters/Tests/ --setupFilesAfterEnv ./ReactTechno/Chapters/Tests/setup.js"
+    "react-10": "jest ./ReactTechno/Chapters/Tests/ --setupFilesAfterEnv ./ReactTechno/Chapters/Tests/setup.js",
+    "react-11": "webpack --config ./ReactTechno/webpack-11-custom-router.config.js",
+    "react-12": "webpack --config ./ReactTechno/webpack-12-react-router.config.js"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -77,6 +79,7 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "ejs-loader": "^0.5.0",
+    "enroute": "^1.0.1",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "faker": "^5.5.3",
@@ -86,6 +89,7 @@
     "fresh": "^0.5.2",
     "hbs": "^4.1.2",
     "intl": "^1.2.5",
+    "invariant": "^2.2.4",
     "isomorphic-fetch": "^3.0.0",
     "joi": "^17.4.0",
     "joi-to-swagger": "^5.2.0",
