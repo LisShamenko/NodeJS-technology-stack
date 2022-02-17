@@ -30,7 +30,8 @@
     "react-9": "webpack --config ./ReactTechno/webpack-9-fetch-api.config.js",
     "react-10": "jest ./ReactTechno/Chapters/Tests/ --setupFilesAfterEnv ./ReactTechno/Chapters/Tests/setup.js",
     "react-11": "webpack --config ./ReactTechno/webpack-11-custom-router.config.js",
-    "react-12": "webpack --config ./ReactTechno/webpack-12-react-router.config.js"
+    "react-12": "webpack --config ./ReactTechno/webpack-12-react-router.config.js",
+    "react-13": "webpack --config ./ReactTechno/webpack-13-flux.config.js"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -83,6 +84,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "faker": "^5.5.3",
+    "flux": "^4.0.3",
     "font-awesome": "^4.7.0",
     "fontfaceobserver": "^2.1.0",
     "forcem-ipsum": "^1.7.3",
