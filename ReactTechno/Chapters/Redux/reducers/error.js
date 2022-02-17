@@ -1,0 +1,13 @@
+// --- Error 'Reducer'
+
+import initialState from './../constants/initialState';
+import types from './../constants/types';
+
+export function error(state = initialState.error, action) {
+    switch (action.type) {
+        case types.CREATE_ERROR:
+            return action.error;
+        default:
+            return state;
+    }
+}
