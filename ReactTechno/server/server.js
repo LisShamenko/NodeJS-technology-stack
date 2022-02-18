@@ -57,8 +57,8 @@ const { next } = require('cheerio/lib/api/traversing');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 const chapters = [
-    'TestProject', 'Forms', 'FetchAPI', 'CustomRouter', 'ReactRouter', 
-    'Redux/Flux', 'Redux/App'];
+    'TestProject', 'Forms', 'FetchAPI', 'CustomRouter', 'ReactRouter',
+    'Redux/Flux', 'Redux/App', 'Redux/ReactRedux'];
 
 // 
 app.get('/', function (req, res) {

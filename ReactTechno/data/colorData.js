@@ -18,5 +18,6 @@ export default {
             "color": "#7FFFD4",
             "rating": 0
         }
-    ]
+    ],
+    "sort": "TITLE"
 };

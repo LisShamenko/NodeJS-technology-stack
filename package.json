@@ -32,7 +32,8 @@
     "react-11": "webpack --config ./ReactTechno/webpack-11-custom-router.config.js",
     "react-12": "webpack --config ./ReactTechno/webpack-12-react-router.config.js",
     "react-13": "webpack --config ./ReactTechno/webpack-13-flux.config.js",
-    "react-14": "webpack --config ./ReactTechno/webpack-14-redux-app.config.js"
+    "react-14": "webpack --config ./ReactTechno/webpack-14-redux-app.config.js",
+    "react-15": "webpack --config ./ReactTechno/webpack-15-react-redux.config.js"
   },
   "jest": {
     "testEnvironment": "jsdom",
