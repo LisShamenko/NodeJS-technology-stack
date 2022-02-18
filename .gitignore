@@ -1,3 +1,6 @@
 node_modules/
 *.отладка
 AngularTechno/отладка/
+отладка/
+babel_cache/
+ReactTechno/dist/

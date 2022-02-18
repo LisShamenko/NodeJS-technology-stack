@@ -3,8 +3,13 @@ import { render } from "react-dom";
 
 import colorData from "./../../data/colorData";
 import ColorList from "./components/ColorList";
-import AddColorForm from "./components/AddColorForm";
+import ColorForm from "./components/ColorForm";
 import CustomProvider from "./providers/CustomProvider";
+
+
+
+// Legacy Context
+//      https://ru.reactjs.org/docs/legacy-context.html
 
 
 
@@ -135,7 +140,7 @@ function App_Provider() {
     return (
         <>
             <h1>Пользовательский поставщик.</h1>
-            <AddColorForm />
+            <ColorForm />
             <ColorList />
         </>
     );
@@ -154,7 +159,7 @@ render(
 
 // Компоненты:
 //  ./components/
-//      AddColorForm
+//      ColorForm
 //      ColorList
 //       ↓ - use
 //      Color

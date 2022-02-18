@@ -2,11 +2,11 @@ import React from "react";
 import { useCustomContext } from "./../providers/CustomProvider";
 import useInput from "./../../../hooks/useInput";
 
-// компонент AddColorForm, метод onNewColor заменяется на использование 
+// компонент ColorForm, метод onNewColor заменяется на использование 
 //      хука useCustomContext
 // 
-//      AddColorForm({ onNewColor = f => f })
-export default function AddColorForm() {
+//      ColorForm({ onNewColor = f => f })
+export default function ColorForm() {
 
     // 
     const { addColor } = useCustomContext();
@@ -31,7 +31,7 @@ export default function AddColorForm() {
         <form onSubmit={submit}>
             <input {...titleProps} type="text" placeholder="..." required />
             <input {...colorProps} type="color" required />
-            <button>ADD</button>
+            <button>submit</button>
         </form>
     );
 }
