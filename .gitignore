@@ -1,6 +1,7 @@
-node_modules/
+﻿node_modules/
 *.отладка
 AngularTechno/отладка/
 отладка/
 babel_cache/
 ReactTechno/dist/
+NodeJSTechno/Patterns/dist/
