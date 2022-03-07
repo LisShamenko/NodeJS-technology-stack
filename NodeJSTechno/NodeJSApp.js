@@ -98,4 +98,16 @@ module.exports = (chapters) => {
         // 36. Дочерние процессы.
         require('./Patterns/AsynchronousPatternsAdditional/cpuBound');
     }
+
+    // --------------- Шаблоны масштабирования и организации архитектуры.
+    if (isChapter(7)) {
+        let examples = [38.1, 38.2, 38.3, 38.8, 38.9];
+
+        // 37. Масштабирование приложений.
+        // 38. Клонирование и распределение нагрузки.
+        //      38.3 Запуск в linux.
+        const cloningLoadBalancing = require('./Patterns/OrganizationPatterns/cloningLoadBalancing');
+        examples.forEach(e => cloningLoadBalancing(e));
+        // 39. Декомпозиция сложных приложений.
+    }
 };
