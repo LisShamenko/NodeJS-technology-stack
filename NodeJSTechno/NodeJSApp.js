@@ -30,4 +30,16 @@ module.exports = (chapters) => {
         require('./Patterns/WоrkflоwPatterns/useAsyncAwait');
         // 10. Сравнение методов выполнения асинхронных задач.
     }
+
+    // --------------- Потоки.
+    if (isChapter(3)) {
+        // 11. Потоки данных (streams).
+        require('./Patterns/DataStreams/beginningStreams');
+        // 12. Работа с потоками данных.
+        require('./Patterns/DataStreams/streams');
+        // 13. Управление асинхронным выполнением с помощью потоков. 
+        require('./Patterns/DataStreams/asyncStreams');
+        // 14. Шаблоны конвейерной обработки.
+        require('./Patterns/DataStreams/pipelineTemplates');
+    }
 };
