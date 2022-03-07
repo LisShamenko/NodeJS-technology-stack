@@ -66,4 +66,26 @@ module.exports = (chapters) => {
         // 24. Команда (command).
         require('./Patterns/GoF/command');
     }
+
+    // --------------- Связывание модулей
+    if (isChapter(5)) {
+        // 25. Жесткие зависимости.
+        require('./Patterns/LinkingModules/PureTemplates/hard_coded_dependency/app');
+        // 26. Инверсия зависимостей.
+        require('./Patterns/LinkingModules/PureTemplates/dependency_injection/app');
+        // 27. DI-контейнер.
+        require('./Patterns/LinkingModules/PureTemplates/di_container/app');
+        // 28. Локатор служб.
+        require('./Patterns/LinkingModules/PureTemplates/service_locator/app');
+        // 29. Локатор служб Express.
+        require('./Patterns/LinkingModules/PureTemplates/service_locator_express/app');
+        // 30. Плагин: доступ к службам через жесткие зависимости.
+        require('./Patterns/LinkingModules/PluginTemplates/hard_coded_dependency/app');
+        // 31. Плагин: инверсия зависимостей.
+        require('./Patterns/LinkingModules/PluginTemplates/dependency_injection/app');
+        // 32. Плагин: DI-контейнер
+        require('./Patterns/LinkingModules/PluginTemplates/di_container/app');
+        // 33. Плагин: локатор служб.
+        require('./Patterns/LinkingModules/PluginTemplates/service_locator/app');
+    }
 };
