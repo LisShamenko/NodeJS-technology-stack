@@ -42,4 +42,28 @@ module.exports = (chapters) => {
         // 14. Шаблоны конвейерной обработки.
         require('./Patterns/DataStreams/pipelineTemplates');
     }
+
+    // --------------- Шаблоны проектирования.
+    if (isChapter(4)) {
+        // 15. Фабрика (Factory).
+        require('./Patterns/GoF/factory');
+        // 16. Открытый конструктор (Revealing Constructor).
+        require('./Patterns/GoF/revealingConstructor');
+        // 17. Прокси (proxy).
+        require('./Patterns/GoF/proxy');
+        // 18. Декоратор (decorator).
+        require('./Patterns/GoF/decorator');
+        // 19. Адаптер (adapter).
+        require('./Patterns/GoF/adapter');
+        // 20. Стратегия (strategy).
+        require('./Patterns/GoF/strategy');
+        // 21. Состояние (state).
+        require('./Patterns/GoF/state');
+        // 22. Макет (template).
+        require('./Patterns/GoF/template');
+        // 23. Промежуточное программное обеспечение (middleware).
+        require('./Patterns/GoF/middleware_koa');
+        // 24. Команда (command).
+        require('./Patterns/GoF/command');
+    }
 };
