@@ -110,4 +110,21 @@ module.exports = (chapters) => {
         examples.forEach(e => cloningLoadBalancing(e));
         // 39. Декомпозиция сложных приложений.
     }
+
+    // --------------- Шаблоны обмена сообщениями и интеграции.
+    if (isChapter(8)) {
+        let examples = [41.1, 41.2, 41.3, 41.6, 42.1, 42.2, 43.1, 43.2, 43.2];
+
+        // 40. Системы обмена сообщениями.
+        //      ./Patterns/IntegrationPatterns/messagingSystems
+        // 41. Шаблон "Публикация/подписка".
+        const patternPublishSubscribe = require('./Patterns/IntegrationPatterns/patternPublishSubscribe');
+        examples.forEach(e => patternPublishSubscribe(e));
+        // 42. Шаблоны конвейеров и распределения заданий.
+        const patternsPipeline = require('./Patterns/IntegrationPatterns/patternsPipeline');
+        examples.forEach(e => patternsPipeline(e));
+        // 43. Шаблоны конвейеров и распределения заданий.
+        const patternsRequestResponse = require('./Patterns/IntegrationPatterns/patternsRequestResponse');
+        examples.forEach(e => patternsRequestResponse(e));
+    }
 };

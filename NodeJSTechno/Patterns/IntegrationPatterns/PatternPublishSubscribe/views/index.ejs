@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        // 
+        let host = window.document.location.host && ('localhost:' + <%= serverPort %>);
+        console.log('--- host = ' + host);
+        const ws = new WebSocket('ws://' + host);
+
+        // 
+        ws.onmessage = function (message) {
+            if (typeof message.data === 'string') {
+                receiveMessage(message.data);
+            }
+            else {
+                const mesPro = message.data.text();
+                mesPro.then((result) => {
+                    receiveMessage(result);
+                });
+            }
+        };
+
+        // 
+        function receiveMessage(message) {
+            console.log('--- message = ' + message);
+            let msgDiv = document.createElement('div');
+            msgDiv.innerHTML = message;
+            document.getElementById('messages').appendChild(msgDiv);
+        }
+
+        // 
+        function sendMessage() {
+            let message = document.getElementById('msgBox').value;
+            ws.send(<%= clientPort %> + `:${message}`);
+        }
+    </script>
+</head>
+
+<body>
+    Messages:
+    <div id='messages'></div>
+    <input type='text' placeholder='Send a message' id='msgBox'>
+    <input type='button' onclick='sendMessage()' value='Send'>
+</body>
+
+</html>
