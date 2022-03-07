@@ -36,5 +36,11 @@
 // запуск только сервиса баз данных
 //      http://localhost:3500/
 //
-const server = require('./ReactTechno/server/server');
-console.log('--- server = ' + server);
+//      const server = require('./ReactTechno/server/server');
+//      console.log('--- server = ' + server);
+
+// --------------- nodejs app
+
+const NodeJSApp = require('./NodeJSTechno/NodeJSApp');
+console.log('--- NodeJSApp');
+NodeJSApp([]);
