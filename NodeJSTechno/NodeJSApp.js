@@ -88,4 +88,14 @@ module.exports = (chapters) => {
         // 33. Плагин: локатор служб.
         require('./Patterns/LinkingModules/PluginTemplates/service_locator/app');
     }
+
+    // --------------- Асинхронная обработка модулей.
+    if (isChapter(6)) {
+        // 34. Асинхронная инициализаия модулей.
+        require('./Patterns/AsynchronousPatternsAdditional/asyncInit');
+        // 35. Группировка и кэширование асинхронных операций.
+        require('./Patterns/AsynchronousPatternsAdditional/batchingCaching');
+        // 36. Дочерние процессы.
+        require('./Patterns/AsynchronousPatternsAdditional/cpuBound');
+    }
 };
