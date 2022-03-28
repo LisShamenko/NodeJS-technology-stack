@@ -24,5 +24,9 @@ module.exports = (chapters, examples) => {
 
     // --------------- Programming with Redis.
     if (isChapter(1)) {
+
+        // --- 1. Data types.
+        if (isExample(1))
+            require('./Documentation/dataTypes');
     }
 }
