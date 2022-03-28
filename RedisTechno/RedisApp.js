@@ -44,5 +44,9 @@ module.exports = (chapters, examples) => {
         //          последний пункт
         if (isExample(4))
             require('./Documentation/expires');
+
+        // --- 5. Streams.
+        if (isExample(5))
+            require('./Documentation/streams');
     }
 }
