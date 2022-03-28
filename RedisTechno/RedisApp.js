@@ -52,5 +52,9 @@ module.exports = (chapters, examples) => {
         // --- 6. Scan Iterator.
         if (isExample(6))
             require('./Documentation/scanIterator');
+
+        // --- 7. Lua Scripts.
+        if (isExample(7))
+            require('./Documentation/lua_scripts');
     }
 }
