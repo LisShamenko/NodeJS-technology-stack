@@ -32,5 +32,11 @@ module.exports = (chapters, examples) => {
         // --- 2. Pipelining.
         if (isExample(2))
             require('./Documentation/pipeline');
+
+        // --- 3. Redis Pub/Sub.
+        //      https://redis.io/topics/pubsub
+        //          про кластеры
+        if (isExample(3))
+            require('./Documentation/pubsub');
     }
 }
