@@ -28,5 +28,9 @@ module.exports = (chapters, examples) => {
         // --- 1. Data types.
         if (isExample(1))
             require('./Documentation/dataTypes');
+
+        // --- 2. Pipelining.
+        if (isExample(2))
+            require('./Documentation/pipeline');
     }
 }
