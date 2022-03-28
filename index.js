@@ -41,6 +41,12 @@
 
 // --------------- nodejs app
 
-const NodeJSApp = require('./NodeJSTechno/NodeJSApp');
-console.log('--- NodeJSApp');
-NodeJSApp([]);
+//      const NodeJSApp = require('./NodeJSTechno/NodeJSApp');
+//      console.log('--- NodeJSApp');
+//      NodeJSApp([]);
+
+// --------------- redis
+
+const RedisApp = require('./RedisTechno/RedisApp');
+console.log('--- RedisApp');
+RedisApp([], []);
