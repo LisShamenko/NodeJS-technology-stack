@@ -38,5 +38,11 @@ module.exports = (chapters, examples) => {
         //          про кластеры
         if (isExample(3))
             require('./Documentation/pubsub');
+
+        // --- 4. Expires.
+        //      https://redis.io/commands/expire
+        //          последний пункт
+        if (isExample(4))
+            require('./Documentation/expires');
     }
 }
