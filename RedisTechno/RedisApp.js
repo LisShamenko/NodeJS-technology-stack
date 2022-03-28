@@ -48,5 +48,9 @@ module.exports = (chapters, examples) => {
         // --- 5. Streams.
         if (isExample(5))
             require('./Documentation/streams');
+
+        // --- 6. Scan Iterator.
+        if (isExample(6))
+            require('./Documentation/scanIterator');
     }
 }
