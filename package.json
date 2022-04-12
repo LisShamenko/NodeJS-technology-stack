@@ -126,6 +126,7 @@
     "level-sublevel": "^6.6.5",
     "loaders.css": "^0.1.2",
     "minimist": "^1.2.5",
+    "mongodb": "^4.4.1",
     "monotonic-timestamp": "0.0.9",
     "multipipe": "^4.0.0",
     "mustache": "^4.2.0",
