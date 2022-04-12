@@ -30,5 +30,9 @@ module.exports = (chapters, examples) => {
         // --------------- 5. BSON Types.
         if (isExample(5))
             require('./Documentation/bsonTypes');
+
+        // --------------- 6. Indexes.
+        if (isExample(6))
+            require('./Documentation/Indexes/indexes');
     }
 }
