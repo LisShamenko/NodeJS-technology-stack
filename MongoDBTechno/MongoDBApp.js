@@ -34,5 +34,9 @@ module.exports = (chapters, examples) => {
         // --------------- 6. Indexes.
         if (isExample(6))
             require('./Documentation/Indexes/indexes');
+
+        // --------------- 7. Aggregation.
+        if (isExample(7))
+            require('./Documentation/Aggregation/aggregation');
     }
 }
