@@ -14,5 +14,9 @@ module.exports = (chapters, examples) => {
         // --------------- 1. Connect.
         if (isExample(1))
             require('./Documentation/connect');
+
+        // --------------- 2. Authentication.
+        if (isExample(2))
+            require('./Documentation/authentication');
     }
 }
