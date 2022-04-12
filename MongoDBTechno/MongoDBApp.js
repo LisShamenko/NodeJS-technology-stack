@@ -18,5 +18,9 @@ module.exports = (chapters, examples) => {
         // --------------- 2. Authentication.
         if (isExample(2))
             require('./Documentation/authentication');
+
+        // --------------- 3. CRUD.
+        if (isExample(3))
+            require('./Documentation/CRUD/crud');
     }
 }
