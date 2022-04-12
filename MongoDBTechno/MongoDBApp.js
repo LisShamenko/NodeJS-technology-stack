@@ -26,5 +26,9 @@ module.exports = (chapters, examples) => {
         // --------------- 4. Transactions.
         if (isExample(4))
             require('./Documentation/transactions');
+
+        // --------------- 5. BSON Types.
+        if (isExample(5))
+            require('./Documentation/bsonTypes');
     }
 }
