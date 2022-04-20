@@ -30,5 +30,9 @@ module.exports = (chapters, examples) => {
         // --------------- 5. Topics.
         if (isExample(5))
             require('./Tutorials/topics');
+
+        // --------------- 6. RPC.
+        if (isExample(6))
+            require('./Tutorials/rpc');
     }
 }
