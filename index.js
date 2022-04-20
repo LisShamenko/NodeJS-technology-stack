@@ -52,6 +52,12 @@
 
 // --------------- mongodb
 
-const MongoDBApp = require('./MongoDBTechno/MongoDBApp');
-console.log('--- MongoDBApp');
-MongoDBApp([], []);
+//      const MongoDBApp = require('./MongoDBTechno/MongoDBApp');
+//      console.log('--- MongoDBApp');
+//      MongoDBApp([], []);
+
+// --------------- rabbitmq
+
+const RabbitMQApp = require('./RabbitMQTechno/RabbitMQApp');
+console.log('--- RabbitMQApp');
+RabbitMQApp([], []);
