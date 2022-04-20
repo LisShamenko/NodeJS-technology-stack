@@ -14,5 +14,9 @@ module.exports = (chapters, examples) => {
         // --------------- 1. "Hello World!".
         if (isExample(1))
             require('./Tutorials/helloWorld');
+
+        // --------------- 2. Work queues.
+        if (isExample(2))
+            require('./Tutorials/workQueues');
     }
 }
