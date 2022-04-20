@@ -22,5 +22,9 @@ module.exports = (chapters, examples) => {
         // --------------- 3. Publish/Subscribe.
         if (isExample(3))
             require('./Tutorials/publishSubscribe');
+
+        // --------------- 4. Routing.
+        if (isExample(4))
+            require('./Tutorials/routing');
     }
 }
