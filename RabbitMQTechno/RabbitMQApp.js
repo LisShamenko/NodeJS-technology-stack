@@ -18,5 +18,9 @@ module.exports = (chapters, examples) => {
         // --------------- 2. Work queues.
         if (isExample(2))
             require('./Tutorials/workQueues');
+
+        // --------------- 3. Publish/Subscribe.
+        if (isExample(3))
+            require('./Tutorials/publishSubscribe');
     }
 }
