@@ -26,5 +26,9 @@ module.exports = (chapters, examples) => {
         // --------------- 4. Routing.
         if (isExample(4))
             require('./Tutorials/routing');
+
+        // --------------- 5. Topics.
+        if (isExample(5))
+            require('./Tutorials/topics');
     }
 }
