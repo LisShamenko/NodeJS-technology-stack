@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: flexbox.</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./../styles.css" type="text/css">
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <header>
+        <p class="real-header">flexbox-верстка.</p>
+    </header>
+
+    <div class="body">
+        <div id="example-1" class="container">
+            <header>
+                <h1>flexbox-верстка</h1>
+            </header>
+            <nav>
+                <ul class="site-nav">
+                    <li><a href="/not_define">Ссылка 1.</a></li>
+                    <li><a href="/not_define">Ссылка 2.</a></li>
+                    <li><a href="/not_define">Ссылка 3.</a></li>
+                    <li><a href="/not_define">Ссылка 4.</a></li>
+                    <li class="nav-right">
+                        <a href="/not_define">Панель навигации.</a>
+                    </li>
+                </ul>
+            </nav>
+            <main class="flex">
+                <div class="column-main tile">
+                    <h2>Основной блок контента.</h2>
+                    <h3>flexbox-верстка:</h3>
+                    <ul>
+                        <li>задать контейнер с элементами применив свойство 'display: flex'</li>
+                        <li>установить для flex-контейнера свойство flex-direction</li>
+                        <li>установить для flex-элементов свойство flex и поля</li>
+                    </ul>
+                    <h3>Flexbugs (github.com/pholipwalton/flexbugs)</h3>
+                </div>
+                <div class="column-sidebar">
+                    <p>Боковая панель содержит два блока по вертикале</p>
+                    <p>Высота контейнера задается внешним flex-блоком</p>
+                    <p>Flex-элементы внутреннего flex-блока полностью заполняют высоту.</p>
+                    <div class="tile">
+                        <form class="login-form">
+                            <h3>Login</h3>
+                            <p>
+                                <label for="username">Username</label>
+                                <input id="username" type="text" name="username" />
+                            </p>
+                            <p>
+                                <label for="password">Password</label>
+                                <input id="password" type="password" name="password" />
+                            </p>
+                            <button type="submit">Login</button>
+                        </form>
+                    </div>
+                    <div class="tile centered">
+                        <small>Starting at</small>
+                        <div class="cost">
+                            <span class="cost-currency">$</span>
+                            <span class="cost-dollars">20</span>
+                            <span class="cost-cents">.00</span>
+                        </div>
+                        <a class="cta-button" href="/not_define">Sign up</a>
+                    </div>
+                </div>
+            </main>
+            <main class="flex">
+                <div class="column-33 tile">
+                    <p>flex: 0 1 66.67%</p>
+                </div>
+                <div class="column-66 tile">
+                    <p>flex: 0 10 33.33%</p>
+                </div>
+            </main>
+            <main class="flex">
+                <div class="column-3 tile">
+                    <p>flex: 0 3 100%</p>
+                </div>
+                <div class="column-7 tile">
+                    <p>flex: 0 7 100%</p>
+                </div>
+            </main>
+        </div>
+
+        <div id="example-2">
+            <div class="center-me">Hello, I'm centered with Flexbox!</div>
+        </div>
+
+        <div id="example-3">
+            <div class="menu-wrap">
+                <a href="#" class="list-item">Home</a>
+                <a href="#" class="list-item">About Us</a>
+                <a href="#" class="list-item">Products</a>
+                <a href="#" class="list-item">Policy</a>
+                <a href="#" class="last-item">Contact Us</a>
+            </div>
+        </div>
+
+        <div id="example-4">
+            <div class="menu-wrap">
+                <a href="#" class="list-item">Home</a>
+                <a href="#" class="list-item">About Us</a>
+                <a href="#" class="list-item">Products</a>
+                <a href="#" class="list-item">Policy</a>
+                <a href="#" class="last-item">Contact Us</a>
+            </div>
+        </div>
+
+        <div id="example-5">
+            <div class="menu-wrap">
+                <a href="#" class="list-item">Home</a>
+                <a href="#" class="list-item">About Us</a>
+                <a href="#" class="list-item">Products</a>
+                <a href="#" class="list-item">Policy</a>
+                <a href="#" class="last-item">Contact Us</a>
+            </div>
+        </div>
+
+        <div id="example-6">
+            <div class="menu-wrap">
+                <a href="#" class="list-item">Home</a>
+                <a href="#" class="list-item">About Us</a>
+                <a href="#" class="list-item">Products</a>
+                <a href="#" class="list-item">Policy</a>
+                <a href="#" class="last-item">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="flex-body">
+
+            <div id="example-7">
+                <p>
+                    Here is a sentence with a
+                    <a href="http://www.w3.org/TR/css-flexbox-1/#flex-containers" class="inline-flex-link">
+                        inline-flex link
+                    </a>.
+                </p>
+            </div>
+
+            <div id="example-8">
+                <div class="flex-wrapper">
+                    <div class="flex-item">базовая разметка</div>
+                </div>
+            </div>
+
+            <div id="example-9">
+                <div class="flex-wrapper">
+                    <div class="flex-item">свойство align-items</div>
+                </div>
+            </div>
+
+            <div id="example-10">
+                <div class="flex-wrapper">
+                    <div class="flex-item">свойство align-self 1</div>
+                    <div class="flex-item align-self">свойство align-self 2</div>
+                    <div class="flex-item">свойство align-self 3</div>
+                </div>
+            </div>
+
+            <div id="example-11">
+                <div class="flex-wrapper">
+                    <div class="flex-item">свойство justify-content 1</div>
+                    <div class="flex-item">свойство justify-content 2</div>
+                    <div class="flex-item">свойство justify-content 3</div>
+                </div>
+            </div>
+
+            <div id="example-12">
+                <div class="flex-wrapper">
+                    <div class="flex-item">свойство flex 1</div>
+                    <div class="flex-item">свойство flex 2</div>
+                    <div class="flex-item">свойство flex 3</div>
+                </div>
+            </div>
+
+            <div id="example-13">
+                <div class="flex-wrapper">
+                    <div class="flex-item flex-one">составляет 1 часть</div>
+                    <div class="flex-item flex-two">составляет 5 частей</div>
+                    <div class="flex-item flex-three">составляет 10 частей</div>
+                </div>
+            </div>
+
+            <div id="example-14">
+                <div class="body-flex">
+                    <div class="main-content">
+                        <p>
+                            Свойство flex настроено на увеличение при наличии доступного пространства. Поскольку тело
+                            является flex-контейнером со 100% минимальной высотой, то основное содержимое может
+                            увеличиваться на все доступное пространство.
+                        </p>
+                    </div>
+                    <div class="footer">
+                        Подвал!
+                    </div>
+                </div>
+            </div>
+
+            <div id="example-15">
+                <div class="flex-wrapper">
+                    <div class="flex-item flex-header">порядок следования исходных элементов - Header</div>
+                    <div class="flex-item flex-sideOne">порядок следования исходных элементов - SideOne</div>
+                    <div class="flex-item flex-content">
+                        <p>
+                            Третий элемент внутри общего контейнера имеет HTML-класс FlexContent, внутри
+                            которого должно располагаться основное содержимое страницы. Чтобы изменить
+                            порядок и сделать FlexContent первым элементом без изменения разметки
+                            следует использовать следующие объявление: 'order: -1'.
+                        </p>
+                    </div>
+                    <div class="flex-item flex-sideTwo">порядок следования исходных элементов - SideTwo</div>
+                    <div class="flex-item flex-footer">порядок следования исходных элементов - Footer</div>
+                </div>
+            </div>
+
+            <div id="example-16">
+                <div class="flex-wrapper">
+                    <div class="flex-item flex-content">
+                        <p>Чтобы изменить порядок без изменения разметки следует использовать свойство 'order'.</p>
+                    </div>
+                    <div class="flex-item flex-sideOne">
+                        <p>Чтобы изменить порядок без изменения разметки следует использовать свойство 'order'.</p>
+                    </div>
+                    <div class="flex-item flex-sideTwo">
+                        <p>Чтобы изменить порядок без изменения разметки следует использовать свойство 'order'.</p>
+                    </div>
+                    <div class="flex-item flex-header">
+                        <p>Чтобы изменить порядок без изменения разметки следует использовать свойство 'order'.</p>
+                    </div>
+                    <div class="flex-item flex-footer">
+                        <p>Чтобы изменить порядок без изменения разметки следует использовать свойство 'order'.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="example-17">
+                <div class="container">
+                    <div class="items">Item 1</div>
+                    <div class="items">Item 2</div>
+                    <div class="items">Item 3</div>
+                    <div class="items">Item 4</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
