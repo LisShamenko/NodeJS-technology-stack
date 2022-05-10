@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: каскадность.</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./../styles.css" type="text/css">
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <header>
+        <p class="real-header">Количество элементов header, main, footer и порядок их следования в данном примере
+            значения не имеют.</p>
+    </header>
+
+    <header id="example-1" class="page-header">
+        <h1 id="page-title" class="title">
+            example-1: Конфликтующие объявления - элемент h1 - идентификатор 'page-title' - класс 'title'.
+        </h1>
+    </header>
+
+    <header id="example-2" class="page-header">
+        <h1 id="page-title" class="title">
+            example-2: Переопределение браузерных стилей - идентификатор 'page-title' - класс 'title'.
+        </h1>
+        <nav>
+            <ul id="main-nav" class="nav">
+                <li><a href="./../not_define">Ссылка 1.</a></li>
+                <li><a href="./../not_define">Ссылка 2.</a></li>
+                <li><a href="./../not_define" class="featured">Ссылка 3 - класс 'featured'.</a></li>
+                <li>
+                    <a href="./../not_define" class="featured" style="background-color: orange;">
+                        Встроенный стиль, применяемый с помощью атрибута style.
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <header id="example-4-1" class="page-header">
+        <h1>example-4: Переопределение стилей.</h1>
+        <nav>
+            <ul id="main-nav">
+                <li>
+                    <a href="/" class="featured-important">
+                        example-4: Использовать !important.
+                    </a>
+                </li>
+                <li>
+                    <a href="/" class="featured-identifier">
+                        example-4: Использовать идентификатор с повышением специфичности.
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <header id="example-4-2">
+        <h1>example-4: Переопределение стилей.</h1>
+        <nav>
+            <ul class="nav">
+                <li>
+                    <a href="/" class="featured">
+                        example-4: Использовать класс с понижением специфичности.
+                    </a>
+                </li>
+                <li>
+                    <a href="/" class="featured-order">
+                        example-4: Использовать исходный порядок.
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="example-4-3">
+        <h1>example-4: Переопределение стилей.</h1>
+        <ul class="nav">
+            <li>
+                <a href="/" class="featured-order">
+                    example-4: Ссылка featured за пределами nav.
+                </a>
+            </li>
+        </ul>
+    </main>
+
+    <main id="example-5">
+        <h1>example-5: Стили ссылок.</h1>
+        <a href="/">example-4: Стили ссылок.</a>
+    </main>
+
+    <footer id="example-6">
+        <div class="footer-inherit">
+            <p>example-6: Специальное значение: inherit.</p>
+            <a href="/">example-6: Специальное значение: inherit.</a>
+        </div>
+        <hr />
+        <div class="footer-initial">
+            <p>example-6: Специальное значение: initial.</p>
+            <a href="/">example-6: Специальное значение: initial.</a>
+        </div>
+    </footer>
+
+    <header id="example-8">
+        <h1 class="short">example-8: Сокращенная запись свойства.</h1>
+        <h1 class="long">example-8: Эквивалент сокращенной записи.</h1>
+        <hr />
+        <p class="padding-4">example-8: Свойство padding: 20px 30px 0 50px;</p>
+        <hr />
+        <p class="padding-3">example-8: Свойство padding: 10px 15px 20px;</p>
+        <hr />
+        <p class="padding-2">example-8: Свойство padding: 5px 15px;</p>
+        <hr />
+        <a class="box-shadow" href="/">example-8: Свойство box-shadow.</a>
+        <hr />
+    </header>
+
+</body>
+
+</html>
