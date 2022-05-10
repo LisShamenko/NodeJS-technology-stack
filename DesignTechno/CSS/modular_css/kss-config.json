@@ -1,0 +1,13 @@
+{
+    "title": "My pattern library",
+    "source": [
+        "."
+    ],
+    "destination": "./docs/",
+    "css": [
+        "../pattern_library/css/styles.css"
+    ],
+    "js": [
+        "../pattern_library/js/docs.js"
+    ]
+}
