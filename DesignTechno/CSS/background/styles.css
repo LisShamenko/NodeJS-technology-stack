@@ -1,0 +1,522 @@
+.real-header {
+    color: red;
+    padding: 20px;
+    font-size: 20px;
+}
+
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* --------------- Базовые стили на самостоятельной странице. */
+
+/* 
+ * свойства box-sizing:
+ * 
+ *      :root {
+ *          box-sizing: border-box;
+ *      }
+ * 
+ *      *, ::before, ::after {
+ *          box-sizing: inherit;
+ *      }
+ *
+ * фон и шрифт:
+ *
+ *      body {
+ *          background-color: #709b90;
+ *          font-family: Helvetica, Arial, sans-serif;
+ *      }
+ * 
+ * глобальные поля:
+ * 
+ *      body *+* {
+ *          margin-top: 1.5em;
+ *      }
+ * 
+ * двойной контейнер для центрирования контента:
+ * 
+ *      .container {
+ *          max-width: 1080px;
+ *          margin: 0 auto;
+ *      }
+ */
+
+/* --------------- Базовые стили. */
+
+/* свойства box-sizing */
+
+.body {
+    box-sizing: border-box;
+}
+
+.body *, .body ::before, .body ::after {
+    box-sizing: inherit;
+}
+
+/* фон и шрифт */
+
+.body {
+    background-color: #92c3b7;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* глобальные поля */
+
+.body *+* {
+    margin-top: 1.5em;
+}
+
+/* двойной контейнер для центрирования контента */
+
+.body .container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* --------------- Градиенты. */
+
+.fade-1 {
+    height: 200px;
+    width: 400px;
+    /*
+     * градиент создается функцией linear-gradient()
+     *      - первое значение указывает направление градиента: 
+     *          'to right', 'to top', 'to bottom', 'to bottom right'
+     *      - далее указывается произвольное количество градиентных узлов 
+     */
+    background-image: linear-gradient(to right, white, blue);
+}
+
+.fade-2 {
+    height: 200px;
+    width: 400px;
+    /*
+     * - направление градиента можно определять в градусах: 0deg эквивалентно 
+     *      'to top', 90deg указывает направо, 180deg указывает вниз
+     * - другие способы задания направления:
+     *      rad     радианы, полный круг равен примерно 6.2832rad
+     *      turn    количество полных оборотов вокруг своей оси, 1turn = 360deg
+     *      grad    метрические минуты (грады), полный круг равен примерно 400grad, 
+     *              100grad = 90deg
+     */
+    background-image: linear-gradient(90deg, white, blue);
+}
+
+.fade-3 {
+    height: 200px;
+    width: 400px;
+    /*
+     * функция linear-gradient с несколькими цветовыми узлами,
+     *      цвета автоматически и равномерно распределяются по элементу 
+     */
+    background-image: linear-gradient(90deg, red, white, blue);
+}
+
+.fade-4 {
+    height: 200px;
+    width: 400px;
+    /* размещение цветовых узлов в одной позиции создает иллюзию полос */
+    background-image: linear-gradient(90deg, red 40%, white 40%, white 60%, blue 60%);
+}
+
+/* 
+ * функция repeating-linear-gradient() позволяет создавать повторяющийся градиент
+ *      https://css-tricks.com/stripes-css/
+ */
+
+.fade-5 {
+    height: 1em;
+    width: 400px;
+    /* чередующиеся голубые и темно-синие полосы */
+    background-image: repeating-linear-gradient(-45deg, #57b, #57b 10px, #148 10px, #148 20px);
+    border-radius: 0.3em;
+}
+
+/*
+ * функция radial-gradient позвоялет создавать градиент от центра к краям элемента,
+ *      https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient()
+ */
+
+.fade-6 {
+    height: 200px;
+    width: 400px;
+    /* плавно переходит от белого центра к синим краям */
+    background-image: radial-gradient(white, blue);
+}
+
+/* примеры градиентов */
+
+.fade-7 {
+    height: 200px;
+    width: 400px;
+    /* стандартный градиент (эллипс) */
+    background-image: radial-gradient(white, midnightblue)
+}
+
+.fade-8 {
+    height: 200px;
+    width: 400px;
+    /* круговой градиент */
+    background-image: radial-gradient(circle, white, midnightblue)
+}
+
+.fade-9 {
+    height: 200px;
+    width: 400px;
+    /* градиент, расположенный на расстоянии 25% от верхнего и левого краев, размеров 3em */
+    background-image: radial-gradient(3em at 25% 25%, white, midnightblue)
+}
+
+.fade-10 {
+    height: 200px;
+    width: 400px;
+    /* радиальный градиент с явно заданными цветовыми узлами */
+    background-image: radial-gradient(circle, midnightblue 0%, white 75%, red 100%)
+}
+
+.fade-11 {
+    height: 200px;
+    width: 400px;
+    /* повторяющийся радиальный градиент с эффектом полос */
+    background-image: repeating-radial-gradient(circle, midnightblue 0, midnightblue 1em, white 1em, white 2em)
+}
+
+/* линейный градиент */
+
+.linear-gradient {
+    margin: 1rem;
+    width: 400px;
+    height: 200px;
+    background: linear-gradient(#f90 0, #f90 2%, #555 2%, #eee 50%, #555 98%, #f90 98%, #f90 100%);
+}
+
+/* радиальный градиент */
+
+.radial-gradient {
+    margin: 1rem;
+    width: 400px;
+    height: 200px;
+    background: radial-gradient(12rem circle at bottom, yellow, orange, red);
+}
+
+/* градиенты с медиа запросами */
+
+.carbon-fibre {
+    margin: 1rem;
+    width: 400px;
+    height: 200px;
+    background:
+        radial-gradient(black 15%, transparent 16%) 0 0,
+        radial-gradient(black 15%, transparent 16%) 8px 8px,
+        radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+        radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+    background-color: #282828;
+    background-size: 16px 16px;
+}
+
+@media (min-width: 45rem) {
+    .carbon-fibre {
+        background: #333;
+    }
+}
+
+/* --------------- Свойство box-shadow. */
+
+/*
+ * подход скевоморфизм - это представление элементов страницы в виде реальных объектов
+ * при нажатии кнопки тень исчезает, вместо этого появляется внутренняя тень, 
+ *      что создает эффект нажатия на кнопку
+ */
+
+.button-1 {
+    padding: 1em;
+    border: 0;
+    font-size: 0.8rem;
+    color: white;
+    border-radius: 0.5em;
+    /* градиент от светло-синего к синему */
+    background-image: linear-gradient(to bottom, #57b, #148);
+    /* темно-синяя тень с размытием 0.5em */
+    box-shadow: 0.1em 0.1em 0.5em #124;
+}
+
+/*
+ * - функция box-shadow позволяет отображать несколько теней через запятую
+ * - при применении inset тень отображается внутри элемента
+ */
+
+.button-1:active {
+    /*
+     * - первая тень добавляет легкое затемнение по периметру элемента
+     * - вторая тень создает дополнительный эффект
+     */
+    box-shadow: inset 0 0 0.5em #124, inset 0 0.5em 1em rgba(0, 0, 0, 0.4);
+}
+
+/*
+ * плоский дизайн делает акцент на ярких однородных цветах и упрощенном внешнем виде,
+ *      использует меньшее количество градиентов, теней и закругленных углов
+ */
+
+.button-2 {
+    padding: 1em;
+    border: 0;
+    color: white;
+    background-color: #57b;
+    font-size: 1rem;
+    padding: 0.8em;
+    box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.15);
+}
+
+.button-2:hover {
+    background-color: #456ab6;
+}
+
+.button-2:active {
+    background-color: #148;
+}
+
+/*
+ * сочетание плоского дизайна и скевоморфизма
+ */
+
+.button-3 {
+    padding: 0.8em;
+    border: 0;
+    font-size: 1rem;
+    color: white;
+    /* добавляются закругленные края */
+    border-radius: 0.5em;
+    background-color: #57b;
+    /* создается сплошная тень без размытия под кнопкой */
+    box-shadow: 0 0.4em #148;
+    /* добавляется легкая тень от текста, без inset и радиуса распространения */
+    text-shadow: 1px 1px #148;
+}
+
+.button-3:active {
+    background-color: #456ab5;
+    /* кнопка смещается вниз при нажатии */
+    transform: translateY(0.1em);
+    /* уменьшается размер тени для компенсации трансформации */
+    box-shadow: 0 0.3em #148;
+}
+
+.button-3:focus {
+    outline: none;
+}
+
+/* тень внутри и снаружи блока */
+
+#example-2 .box-shadow,
+#example-2 .inner-box-shadow {
+    height: 10vmin;
+    width: 20vmin;
+    border: 1px solid #111;
+    margin: 1em;
+    display: inline-flex;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+#example-2 .box-shadow {
+    box-shadow: 0 0 15px blue;
+}
+
+#example-2 .inner-box-shadow {
+    box-shadow: inset 0 0 15px violet;
+}
+
+/* тень вне блока и под блоком  */
+
+#example-2 .no-spread,
+#example-2 .spread {
+    height: 10vmin;
+    width: 20vmin;
+    border: 1px solid #111;
+    margin: 1em;
+    display: inline-flex;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+#example-2 .no-spread {
+    box-shadow: 0 10px 10px;
+}
+
+#example-2 .spread {
+    box-shadow: 0 10px 10px -10px;
+}
+
+/*--------------- CSS-фильтры. */
+
+#example-3 [class^="filter"] {
+    background-image: url('./../assets/filters.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 330px;
+    height: 380px;
+    margin-top: 0px;
+}
+
+#example-3 .filter-blur {
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+}
+
+#example-3 .filter-brightness {
+    -webkit-filter: brightness(2);
+    filter: brightness(2);
+}
+
+#example-3 .filter-contrast {
+    -webkit-filter: contrast(2);
+    filter: contrast(2);
+}
+
+#example-3 .filter-grayscale {
+    -webkit-filter: grayscale(.8);
+    filter: grayscale(.8);
+}
+
+#example-3 .filter-hue-rotate {
+    -webkit-filter: hue-rotate(25deg);
+    filter: hue-rotate(25deg);
+}
+
+#example-3 .filter-invert {
+    -webkit-filter: invert(75%);
+    filter: invert(75%);
+}
+
+#example-3 .filter-opacity {
+    -webkit-filter: opacity(50%);
+    filter: opacity(50%);
+}
+
+#example-3 .filter-saturate {
+    -webkit-filter: saturate(15%);
+    filter: saturate(15%);
+}
+
+#example-3 .filter-sepia {
+    -webkit-filter: sepia(.75);
+    filter: sepia(.75);
+}
+
+/*--------------- Свойство clip-path. */
+
+#example-4 [class^='clip'] {
+    height: 400px;
+    width: 400px;
+    background-image: url('./../assets/filters.jpg');
+    display: inline-block;
+}
+
+#example-4 .clip-circle {
+    clip-path: circle(35% at 60% 40%);
+}
+
+#example-4 .clip-ellipse {
+    clip-path: ellipse(100px 50px at 60% 40%);
+}
+
+#example-4 .clip-inset {
+    clip-path: inset(40px 20px 40px 20px round 0 30px 15px 40px);
+}
+
+#example-4 .clip-polygon {
+    clip-path: polygon(50% 60px, 100% calc(100% - 40px), 0% calc(100% - 40px));
+}
+
+#example-4 .clip-url {
+    clip-path: url(#starSymbol);
+}
+
+/*--------------- Режимы смешивания. */
+
+/*
+ * background-size принимает два значения: 
+ * - cover изменяет размер изображения так, чтобы оно полностью заполняло элемент
+ * - contain гарантирует что изображение будет видно полностью, но останутся пустые области
+ * background-size принимает аргументы длины и ширины, что позволяет явно задать размеры
+ */
+
+.blend-1 {
+    min-height: 400px;
+    /* два фоновых изображения через запятую */
+    background-image: url("./../assets/medium.jpg"), url("./../assets/medium.jpg");
+    /* определяет одно значение, которое будет применяться к обоим изображениям */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* определяет разные положения для двух изображений */
+    background-position: -30vw, 30vw;
+    /* режим смешивания */
+    background-blend-mode: multiply;
+}
+
+/* смешивание изображения с монотонным фоном */
+
+.blend-2 {
+    min-height: 400px;
+    background-image: url("./../assets/medium.jpg");
+    /* синий цвет фона */
+    background-color: #148;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* luminosity смешивает монотонный цвет фона с насыщенностью и яркостью изображения */
+    background-blend-mode: luminosity;
+}
+
+/* наложение текстуры на изображение */
+
+.blend-3 {
+    min-height: 400px;
+    /* слой текстуры находится поверх изображения */
+    background-image: url("./../assets/filters.jpg"), url("./../assets/medium.jpg");
+    /* изображение текстуры повторяется каждые 200px */
+    background-size: 200px, cover;
+    background-repeat: repeat, no-repeat;
+    background-position: center center;
+    /* режим смешивания */
+    background-blend-mode: multiply;
+}
+
+.blend-4 {
+    background-image: url("./../assets/medium.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 15em 0 1em;
+}
+
+/* текстовый баннер */
+
+.blend-4>h1 {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 6rem;
+    text-align: center;
+    /* 
+     * свойство mix-blend-mode позволяет применять наложение на обычные элементы html
+     * hard-light и серый цвет шрифта
+     * весь элемент рассматривается как слой, наложенный на фоновое изображение 
+     */
+    mix-blend-mode: hard-light;
+    /* устанавливаем цвет текста и фона для верхнего элемента */
+    background-color: #c33;
+    /*
+     * одноцветный красный фон
+     * толстые светло-серые границы сверху и снизу
+     * серый текст
+     */
+    color: #808080;
+    border: 0.1em solid #ccc;
+    border-width: 0.1em 0;
+}
