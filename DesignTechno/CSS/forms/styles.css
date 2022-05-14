@@ -1,0 +1,341 @@
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* --- body */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* --- form */
+
+.form-wrapper {
+    padding: 10px;
+}
+
+@media (min-width: 800px) {
+    .form-wrapper {
+        max-width: 750px;
+        margin: 0 auto;
+    }
+}
+
+/* --- заголовок формы */
+
+.form-intro {
+    padding-bottom: 10px;
+}
+
+.form-intro h1 {
+    margin-bottom: 0;
+}
+
+.form-intro h2 {
+    margin-top: 5px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+/* --- fieldset */
+
+fieldset {
+    border-radius: 3px;
+    border: 1px solid #666;
+}
+
+fieldset+fieldset {
+    margin-top: 40px;
+}
+
+/* --- легенда для fieldset */
+
+legend {
+    font-size: 1.3em;
+    padding: 3px 6px;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+
+legend span {
+    font-size: 0.8em;
+    opacity: 0.8;
+    display: inline-flex;
+}
+
+/* --- ячейки для элементов ввода input формы */
+
+.form-input-wrapper {
+    display: flex;
+    /*
+     * Flexbox и Grid позволяют поменять элементы местами с помощью объявлений
+     *      'flex-direction: row-reverse' или 'flex-direction: column-reverse',
+     *      что дает более привлекательное размещение надписи над полем (для 
+     *      малых окон просмотра) или слева от поля ввода (для крупных окон 
+     *      просмотра)
+     */
+    flex-direction: column-reverse;
+}
+
+.form-input-wrapper label {
+    color: 888;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+
+@media (min-width: 800px) {
+    .form-input-wrapper {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .form-input-wrapper input:not([type="range"]):not([type="color"]) {
+        flex: 0 0 50%;
+    }
+
+    .form-input-wrapper label {
+        flex: 1 0 50%;
+        margin-bottom: 0;
+    }
+
+    textarea {
+        flex: 1 0 50%;
+    }
+}
+
+.form-input-wrapper+.form-input-wrapper {
+    margin-top: 10px;
+}
+
+.form-input-wrapper input:not([type="range"]):focus {
+    /* трансформация при получении фокуса элементами input */
+    transform: scale(1.06);
+}
+
+/* --- --- настройка слайдера */
+
+.form-slider-wrapper {
+    /* делает слайдер и индикатор одним элементом */
+    display: flex;
+}
+
+#range {
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    margin-left: 1ch;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 3px;
+    border-radius: 50%;
+    background-color: #cc3232;
+}
+
+/* --- --- элементы textarea и все input кроме range */
+
+@media (min-width: 800px) {
+    textarea {
+        /* обратный порядок метки и элемента textarea */
+        flex: 1 0 50%;
+    }
+}
+
+/* --- --- создание эффекта заливки фона */
+
+input:not([type="range"]), textarea {
+    min-height: 40px;
+    padding: 2px;
+    font-size: 17px;
+    border: 1px solid #ebebeb;
+    outline: none;
+    /*
+     * переход между двумя фоновыми изображениями невозможен, но можно 
+     *      обеспечить переходы между значениями свойств background-position и 
+     *      background-size
+     */
+    transition: transform 0.4s, box-shadow 0.4s, background-position 0.2s;
+    /*
+     * генерируется белый радиальный градиент, позиционированный за пределами 
+     *      видимости, расположенный за ним фоновый цвет #fff не имеет смещения, 
+     *      поэтому предоставляет цвет по умолчанию
+     */
+    background: radial-gradient(400px circle, #fff 99%, transparent 99%), #f1f1f1;
+    background-position: -400px 90px, 0 0;
+    background-repeat: no-repeat, no-repeat;
+    border-radius: 0;
+    position: relative;
+    caret-color: var(--caretColor);
+}
+
+input:not([type="range"]):focus, textarea:focus {
+    /*
+     * если input получает фокус, то radial-gradient получает значение 
+     *      по умолчанию и происходит возвращение к установке background-image,
+     *      что вызывает переход между двумя настройками фона
+     */
+    background-position: 0 0, 0 0;
+}
+
+/* --- --- настройка placeholder */
+
+input:placeholder-shown {
+    /* цвет текста заполнителя */
+    color: #999;
+}
+
+input:not([type="range"]):focus:placeholder-shown {
+    /* цвет текста заполнителя при получении фокуса */
+    color: #555;
+}
+
+/* --- --- модуль секции: about */
+
+.form-about-wrapper {
+    --caretColor: #cc3232;
+}
+
+.form-about-wrapper input:not([type="range"]) {
+    box-shadow: inset 0 -3px 0 #cc3232;
+}
+
+.form-about-wrapper input:not([type="range"]):focus {
+    border: 1px solid #cc3232;
+    box-shadow: inset 0 -3px 0 #cc3232, 0 0 15px 5px #ebebeb;
+}
+
+.form-about-wrapper legend {
+    background-color: #cc3232;
+}
+
+/* --- --- модуль секции: what */
+
+.form-what-wrapper {
+    --caretColor: #739327;
+}
+
+.form-what-wrapper input:not([type="range"]) {
+    box-shadow: inset 0 -3px 0 #739327;
+}
+
+.form-what-wrapper input:focus {
+    border: 1px solid #739327;
+    box-shadow: inset 0 -3px 0 #739327, 0 0 15px 5px #ebebeb;
+}
+
+.form-what-wrapper legend {
+    background-color: #739327;
+}
+
+/* --- --- модуль секции: you */
+
+.form-you-wrapper {
+    --caretColor: #236a7e;
+}
+
+.form-you-wrapper input:not([type="range"]) {
+    box-shadow: inset 0 -3px 0 #236a7e;
+}
+
+.form-you-wrapper input:focus {
+    border: 1px solid #236a7e;
+    box-shadow: inset 0 -3px 0 #236a7e, 0 0 15px 5px #ebebeb;
+}
+
+.form-you-wrapper legend {
+    background-color: #236a7e;
+}
+
+/* --- настройки элементов input с атрибутом required */
+
+/* базовая настройка обязательных полей */
+input:required+label:after {
+    /* символ '*' указывает, что поле является обязательным */
+    content: "*";
+    font-size: 2.1em;
+    position: relative;
+    top: 6px;
+    display: inline-flex;
+    margin-left: 0.2ch;
+    transition: color 1s;
+}
+
+input:required:invalid+label:after {
+    /* обязательное поле содержит не правильные данные */
+    color: red;
+}
+
+input:required:valid+label:after {
+    /* обязательное поле содержит правильные данные */
+    color: green;
+}
+
+/* --- кнопка Submit */
+
+.form-submit-btn {
+    appearance: none;
+    border: 0;
+    background: none;
+    outline: 0;
+    padding: 0;
+    margin: 1em 0;
+    font-size: 1rem;
+}
+
+.flipper {
+    perspective: 400px;
+    position: relative;
+    width: 300px;
+    height: 44px;
+    display: block;
+}
+
+.flipper-object {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.panel {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.flipper-vertical .back {
+    transform: rotateX(180deg);
+}
+
+.back {
+    background-color: #739328;
+    color: #fff;
+}
+
+.front {
+    border: 1px solid #739328;
+}
+
+.form-submit-btn:hover .flipper-vertical,
+.form-submit-btn:focus .flipper-vertical {
+    transform: rotateX(180deg);
+}
