@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: свойство background.</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <header>
+        <p class="real-header">Фоны, тени и режимы смешивания.</p>
+    </header>
+
+    <div class="body">
+
+        <div id="example-1" class="container">
+            <h2>Градиенты.</h2>
+            <div class="fade-1"></div>
+            <div class="fade-2"></div>
+            <div class="fade-3"></div>
+            <div class="fade-4"></div>
+            <div class="fade-5"></div>
+            <div class="fade-6"></div>
+            <div class="fade-7"></div>
+            <div class="fade-8"></div>
+            <div class="fade-9"></div>
+            <div class="fade-10"></div>
+            <div class="fade-11"></div>
+            <div class="linear-gradient"></div>
+            <div class="radial-gradient"></div>
+            <div class="carbon-fibre"></div>
+        </div>
+
+        <div id="example-2" class="container">
+            <h2>Тени.</h2>
+            <button class="button-1">Sign up now</button>
+            <button class="button-2">Sign up now</button>
+            <button class="button-3">Sign up now</button>
+            <div class="box-shadow">Outer box-shadow</div>
+            <div class="inner-box-shadow">Inner box-shadow</div>
+            <div class="no-spread">no spread</div>
+            <div class="spread">with spread</div>
+        </div>
+
+        <div id="example-3" class="container">
+            <h2>Фильтры.</h2>
+            <div class="filter-blur">blur(2px)</div>
+            <div class="filter-brightness">brightness(2)</div>
+            <div class="filter-contrast">contrast(2)</div>
+            <div class="filter-grayscale">grayscale(.8)</div>
+            <div class="filter-hue-rotate">hue-rotate(25deg)</div>
+            <div class="filter-invert">invert(75%)</div>
+            <div class="filter-opacity">opacity(50%)</div>
+            <div class="filter-saturate">saturate(15%)</div>
+            <div class="filter-sepia">sepia(.75)</div>
+        </div>
+
+        <div id="example-4" class="container">
+            <h2>SVG-фильтры.</h2>
+            <svg height="0" width="0">
+                <defs>
+                    <clipPath id="starSymbol">
+                        <path
+                            d="M191 300L73.443 361.803l22.451-130.901L.79 138.197l131.432-19.099L191 0l58.779 119.098 131.432 19.099-95.105 92.705 22.451 130.901z"
+                            fill="#fff"></path>
+                    </clipPath>
+                </defs>
+            </svg>
+            <div class="clip-circle"></div>
+            <div class="clip-ellipse"></div>
+            <div class="clip-inset"></div>
+            <div class="clip-polygon"></div>
+            <div class="clip-url"></div>
+        </div>
+
+        <div id="example-5" class="container">
+            <h2>Режимы смешивания.</h2>
+            <div class="blend-1"></div>
+            <div class="blend-2"></div>
+            <div class="blend-3"></div>
+            <div class="blend-4">
+                <h1>Ursa Major</h1>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

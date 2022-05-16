@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: SVG</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+    <script src="./../../../node_modules/fontfaceobserver/fontfaceobserver.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <div id="example-1">
+        <h1>Способы интеграции SVG.</h1>
+
+        <div>
+            <h3>Вставка через тег &lt;img&gt;:</h3>
+            <p>SVG-изображение будет вести себя практически так же, как и любое другое изображение.</p>
+            <img id="svgImg" src="./../assets/star_svg.svg" alt="Star SVG" />
+            <script>
+                document.addEventListener("DOMContentLoaded", function (event) {
+                    let imgStarPath = document.querySelector('#svgImg .star_Wrapper');
+                    console.log("Нельзя получить доступ к содержимому SVG через тег img:",
+                        imgStarPath);
+                });
+            </script>
+        </div>
+
+        <div>
+            <h3>Вставка через тег &lt;object&gt;:</h3>
+            <p>Тег object делает SVG-графику доступной в коде JavaScript.</p>
+            <object id="svgObject" data="./../assets/star_svg.svg" type="image/svg+xml">
+                Браузер не поддерживает SVG.
+            </object>
+            <script>
+                document.addEventListener("DOMContentLoaded", function (event) {
+                    let objectWrapper = document.querySelector('#svgObject');
+                    console.log("Можно получить доступ к SVG через тег object:",
+                        objectWrapper, objectWrapper.contentDocument);
+                });
+            </script>
+        </div>
+
+        <div>
+            <h3>Вставка через CSS-свойство 'background-image':</h3>
+            <p>Этот способ широко поддерживается и хорошо кэшируется.</p>
+            <div class="has-StarBg"></div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function (event) {
+                    let bgStarPath = document.querySelector('.has-StarBg .star_Wrapper');
+                    console.log("Нельзя получить доступ к SVG через свойство background:",
+                        bgStarPath);
+                });
+            </script>
+        </div>
+
+        <div>
+            <h3>Вставка через тег &lt;use&gt;:</h3>
+            <svg>
+                <use xlink:href="#shapeInline" x="50" y="50" />
+                <use xlink:href="star_svg.svg#shape" x="200" y="50" />
+            </svg>
+        </div>
+
+        <div>
+            <h3>Вставка SVG напрямую в код HTML:</h3>
+            <p>
+                Прямое включение в код HTML избавляет от лишнего сетевого запроса.
+                Позволяет анимировать SVG-графику и управлять ее через JavaScript.
+            </p>
+            <p>
+                SVG-документы должны учитывать медиазапросы CSS, определенные внутри
+                этих документов.
+            </p>
+            <span class="inlineSVG">
+                <svg id="svgInline" width="198" height="188" viewBox="0 0 198 188" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>Star 1</title>
+                    <defs>
+                        <style type="text/css">
+                            <![CDATA[
+                            #star_Path {
+                                stroke: red;
+                            }
+
+                            @media (min-width: 800px) {
+                                #star_Path {
+                                    stroke: violet;
+                                }
+                            }
+                            ]]>
+                        </style>
+                        <g id="shapeInline">
+                            <rect fill="#14805e" x="0" y="0" width="50" height="50" />
+                            <circle fill="#ebebeb" cx="100" cy="100" r="50" />
+                        </g>
+                    </defs>
+                    <g class="star_Wrapper" fill="none" fill-rule="evenodd">
+                        <animate xlink:href="#star_Path" attributeName="fill" attributeType="XML" begin="0s" dur="2s"
+                            fill="freeze" from="#F8E81C" to="#14805e" />
+
+                        <path id="star_Path" stroke="#979797" stroke-width="3" fill="#F8E81C"
+                            d="M99 154l-58.78 30.902 11.227-65.45L3.894 73.097l65.717-9.55L99 4l29.39 59.55 65.716 9.548-47.553 46.353 11.226 65.452z" />
+                    </g>
+                </svg>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function (event) {
+                        let inlineStarPath = document.querySelector('#svgInline');
+                        console.log("Можно получить доступ к SVG через прямую вставку:",
+                            inlineStarPath);
+                    });
+                </script>
+            </span>
+        </div>
+
+    </div>
+
+    <div id="example-2">
+        <h1>Повторное использование SVG.</h1>
+
+        <svg class="shape" display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <symbol id="icon-drag-left-right" viewBox="0 0 1344 1024">
+                    <title>drag-left-right</title>
+                    <path class="path1" d="M256 192v-160l-224 224 224 224v-160h256v-128z"></path>
+                    <path class="path2" d="M1088 192v-160l224 224-224 224v-160h-256v-128z" stroke="var(--stroke1)"
+                        fill="var(--fill1)"></path>
+                    <path class="path3"
+                        d="M1120.004 1024h-608c-11.036 0-21.29-5.684-27.136-15.040l-160-256c-9.172-14.68-5.014-33.988 9.386-43.586l96-64c13.608-9.074 31.864-6.422 42.334 6.134l103.416 124.108v-487.616c0-17.672 14.328-32 32-32h128c17.672 0 32 14.328 32 32v199.016l359.762 89.942c14.244 3.56 24.236 16.36 24.236 31.042v384c0 17.674-14.324 32-31.998 32v0zM529.74 960h558.264v-327.016l-64-16v183.016c0 17.674-14.326 32-32 32-17.676 0-32-14.326-32-32v-199.016l-64-16v151.016c0 17.674-14.326 32-32 32s-32-14.326-32-32v-167.016l-64-16v247.016c0 17.674-14.328 32-32 32s-32-14.326-32-32v-480h-64v544c0 13.472-8.44 25.502-21.108 30.088-12.666 4.594-26.85 0.746-35.474-9.602l-141.592-169.91-46.22 30.81 134.13 214.614z"
+                        fill="currentColor"></path>
+                </symbol>
+                <symbol id="icon-drag-left" viewBox="0 0 1344 1024">
+                    <title>drag-left</title>
+                    <path class="path1"
+                        d="M544 1024h608c11.034 0 21.288-5.684 27.136-15.040l160-256c9.172-14.68 5.014-33.988-9.386-43.586l-96-64c-13.608-9.074-31.864-6.422-42.334 6.136l-103.416 124.108v-487.618c0-17.672-14.328-32-32-32h-128c-17.672 0-32 14.328-32 32v199.016l-359.762 89.942c-14.244 3.56-24.238 16.358-24.238 31.042v384c0 17.674 14.326 32 32 32zM1134.264 960h-558.264v-327.016l64-16v183.016c0 17.674 14.326 32 32 32s32-14.326 32-32v-199.016l64-16v151.016c0 17.674 14.326 32 32 32s32-14.326 32-32v-167.016l64-16v247.016c0 17.674 14.328 32 32 32s32-14.326 32-32v-480h64v544c0 13.472 8.438 25.502 21.106 30.088 12.666 4.594 26.85 0.746 35.476-9.602l141.592-169.91 46.22 30.81-134.13 214.614z">
+                    </path>
+                    <path class="path2"
+                        d="M768.030 444.038c5.252 0 10.578-1.294 15.496-4.024 15.458-8.576 21.034-28.054 12.458-43.508-18.308-32.99-27.984-70.51-27.984-108.506 0-123.514 100.486-224 224-224s224 100.486 224 224c0 37.996-9.674 75.516-27.978 108.5-8.576 15.454-3 34.932 12.454 43.508s34.932 2.998 43.506-12.456c23.564-42.462 36.018-90.718 36.018-139.552 0-158.804-129.196-288-288-288s-288 129.196-288 288c0 48.834 12.458 97.090 36.020 139.558 5.846 10.534 16.76 16.48 28.010 16.48z">
+                    </path>
+                    <path class="path3" d="M32 256l224-224v160h384v128h-384v160z"></path>
+                </symbol>
+                <symbol id="icon-drag-right" viewBox="0 0 1344 1024">
+                    <title>drag-right</title>
+                    <path class="path1"
+                        d="M800 1024h-608c-11.034 0-21.288-5.684-27.136-15.040l-160-256c-9.172-14.68-5.014-33.988 9.386-43.586l96-64c13.608-9.074 31.864-6.422 42.334 6.136l103.416 124.108v-487.618c0-17.672 14.328-32 32-32h128c17.672 0 32 14.328 32 32v199.016l359.762 89.942c14.244 3.56 24.238 16.358 24.238 31.042v384c0 17.674-14.326 32-32 32zM209.736 960h558.264v-327.016l-64-16v183.016c0 17.674-14.326 32-32 32s-32-14.326-32-32v-199.016l-64-16v151.016c0 17.674-14.326 32-32 32s-32-14.326-32-32v-167.016l-64-16v247.016c0 17.674-14.328 32-32 32s-32-14.326-32-32v-480h-64v544c0 13.472-8.438 25.502-21.106 30.088-12.666 4.594-26.85 0.746-35.476-9.602l-141.592-169.91-46.22 30.81 134.13 214.614z">
+                    </path>
+                    <path class="path2"
+                        d="M575.97 444.038c-5.252 0-10.578-1.294-15.496-4.024-15.458-8.576-21.034-28.054-12.458-43.508 18.308-32.99 27.984-70.51 27.984-108.506 0-123.514-100.486-224-224-224s-224 100.486-224 224c0 37.996 9.674 75.516 27.978 108.5 8.576 15.454 3 34.932-12.454 43.508s-34.932 2.998-43.506-12.456c-23.564-42.462-36.018-90.718-36.018-139.552 0-158.804 129.196-288 288-288s288 129.196 288 288c0 48.834-12.458 97.090-36.020 139.558-5.846 10.534-16.76 16.48-28.010 16.48z">
+                    </path>
+                    <path class="path3" d="M1312 256l-224-224v160h-384v128h384v160z"></path>
+                </symbol>
+                <symbol id="icon-touch" viewBox="0 0 1024 1024">
+                    <title>touch</title>
+                    <path class="path1"
+                        d="M864 1024h-608c-11.034 0-21.288-5.684-27.136-15.040l-160-256c-9.172-14.678-5.014-33.986 9.386-43.586l96-64c13.608-9.074 31.864-6.422 42.334 6.138l103.416 124.104v-487.616c0-17.672 14.328-32 32-32h128c17.672 0 32 14.328 32 32v199.016l359.762 89.94c14.244 3.562 24.238 16.36 24.238 31.044v384c0 17.674-14.326 32-32 32zM273.736 960h558.264v-327.016l-64-16v183.016c0 17.674-14.326 32-32 32s-32-14.326-32-32v-199.016l-64-16v151.016c0 17.674-14.326 32-32 32s-32-14.326-32-32v-167.016l-64-16v247.016c0 17.674-14.328 32-32 32s-32-14.326-32-32v-480h-64v544c0 13.472-8.438 25.502-21.106 30.088-12.666 4.594-26.85 0.746-35.476-9.602l-141.592-169.91-46.22 30.812 134.13 214.612z">
+                    </path>
+                    <path class="path2"
+                        d="M639.97 444.038c-5.252 0-10.578-1.294-15.496-4.024-15.456-8.576-21.032-28.054-12.456-43.508 18.306-32.99 27.982-70.51 27.982-108.506 0-123.514-100.486-224-224-224s-224 100.486-224 224c0 37.996 9.674 75.516 27.978 108.5 8.576 15.454 3 34.932-12.454 43.508-15.454 8.574-34.932 2.998-43.506-12.456-23.564-42.462-36.018-90.718-36.018-139.552 0-158.804 129.196-288 288-288s288 129.196 288 288c0 48.834-12.456 97.090-36.020 139.558-5.846 10.534-16.76 16.48-28.010 16.48z">
+                    </path>
+                </symbol>
+                <symbol id="icon-multitouch" viewBox="0 0 1024 1024">
+                    <title>multitouch</title>
+                    <path class="path1"
+                        d="M992 1024h-608c-11.038 0-21.292-5.684-27.136-15.040l-160-256c-9.172-14.68-5.014-33.988 9.386-43.586l96-64c13.608-9.074 31.864-6.422 42.334 6.134l103.416 124.11v-487.618c0-17.672 14.328-32 32-32h128c17.672 0 32 14.328 32 32v199.016l359.762 89.942c14.244 3.56 24.234 16.362 24.234 31.042v384c0 17.674-14.322 32-31.996 32v0zM401.736 960h558.264v-327.016l-64-16v183.016c0 17.674-14.326 32-32 32-17.678 0-32-14.326-32-32v-199.016l-64-16v151.016c0 17.674-14.326 32-32 32-17.676 0-32-14.326-32-32v-167.016l-64-16v247.016c0 17.674-14.328 32-32 32s-32-14.326-32-32v-480h-64v544c0 13.472-8.442 25.502-21.11 30.088-12.666 4.594-26.85 0.746-35.472-9.602l-141.592-169.91-46.22 30.81 134.13 214.614z">
+                    </path>
+                    <path class="path2"
+                        d="M736 320c-17.676 0-32-14.328-32-32 0-88.224-71.778-160-160-160-88.224 0-160 71.776-160 160 0 17.672-14.328 32-32 32s-32-14.328-32-32c0-123.514 100.486-224 224-224s224 100.486 224 224c0 17.672-14.326 32-32 32z">
+                    </path>
+                    <path class="path3"
+                        d="M159.976 938.452c-4.602 0-9.276-0.998-13.708-3.104-43.118-20.484-79.612-52.558-105.538-92.756-26.646-41.31-40.73-89.236-40.73-138.592 0-141.158 114.84-256 256-256 38.378 0 75.298 8.294 109.732 24.652 15.964 7.584 22.756 26.672 15.174 42.634-7.584 15.962-26.674 22.754-42.634 15.174-25.788-12.25-53.466-18.46-82.272-18.46-105.87 0-192 86.13-192 192 0 73.754 43.072 141.874 109.728 173.54 15.962 7.584 22.756 26.672 15.172 42.634-5.476 11.532-16.956 18.278-28.924 18.278z">
+                    </path>
+                </symbol>
+            </defs>
+        </svg>
+
+        <svg class="icon-drag-left-right">
+            <use xlink:href="#icon-drag-left-right"></use>
+        </svg>
+
+        <div class="different-context">
+            <svg class="icon-drag-left-right">
+                <use xlink:href="#icon-drag-left-right"></use>
+            </svg>
+        </div>
+
+        <svg class="icon-drag-left-right alternate2">
+            <use xlink:href="#icon-drag-left-right"></use>
+        </svg>
+    </div>
+
+    <div id="example-3">
+        <h1>Замена цвета.</h1>
+
+        <svg class="shape" width="268" height="254" xmlns="http://www.w3.org/2000/svg">
+            <title>Colouring Test</title>
+            <g fill="none" fill-rule="evenodd" stroke-width="10">
+                <path d="M134 6.18L6.73 98.647l48.613 149.615h157.314L261.27 98.647 134 6.18z" stroke="var(--stroke1)"
+                    fill="var(--fill1)" />
+                <path d="M134 36.18l-98.738 71.738 37.714 116.074h122.048l37.714-116.074L134 36.18z"
+                    stroke="var(--stroke2)" fill="var(--fill2)" />
+            </g>
+        </svg>
+
+        <button id="toggle_amended">Amend Colour</button>
+
+        <script>
+            let b = document.querySelector('#toggle_amended');
+            let d = document.querySelector('#example-3');
+            b.addEventListener('click', e => {
+                d.classList.toggle('amended');
+            });
+        </script>
+    </div>
+
+    <div id="example-4">
+        <h1>Анимация SVG с помощью CSS.</h1>
+
+        <div class="wrapper">
+            <svg width="198" height="188" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>Star 1</title>
+                <defs>
+                    <style type="text/css">
+                        <![CDATA[
+                        @keyframes spin {
+                            0% {
+                                transform: rotate(0deg);
+                            }
+
+                            50% {
+                                transform: rotate(271deg);
+                            }
+
+                            100% {
+                                transform: rotate(0deg);
+                            }
+                        }
+
+                        .star_Wrapper {
+                            animation: spin 2s 1s;
+                            animation-iteration-count: infinite;
+                            animation-fill-mode: both;
+                            transform-origin: 50% 50%;
+                        }
+
+                        .wrapper {
+                            padding: 2rem;
+                            margin: 2rem;
+                        }
+                        ]]>
+                    </style>
+                    <g id="shape">
+                        <path fill="#14805e" d="M50 50h50v50H50z" />
+                        <circle fill="#ebebeb" cx="50" cy="50" r="50" />
+                    </g>
+                </defs>
+                <g class="star_Wrapper" fill="none" fill-rule="evenodd">
+                    <path id="star_Path" stroke="#333" stroke-width="3" fill="#F8E81C"
+                        d="M99 154l-58.78 30.902 11.227-65.45L3.894 73.097l65.717-9.55L99 4l29.39 59.55 65.716 9.548-47.553 46.353 11.226 65.453z" />
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <div id="example-5">
+        <h1>Использование SVG в качестве фильтра.</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="myfilter" x="0" y="0">
+                    <feColorMatrix in="SourceGraphic" type="hueRotate" values="90" result="A" />
+                    <feGaussianBlur in="A" stdDeviation="6" />
+                </filter>
+            </defs>
+        </svg>
+        <img class="svg-filter" src="./../assets/filters.jpg" />
+    </div>
+</body>
+
+</html>

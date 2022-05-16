@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: селекторы.</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <header>
+        <p class="real-header">Селекторы.</p>
+    </header>
+
+    <div id="example-1">
+        <p>nth-last-child</p>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div id="example-2">
+        <p>nth-of-type</p>
+        <span class="span-class"></span>
+        <span class="span-class"></span>
+        <span class="span-class"></span>
+        <span class="span-class"></span>
+        <span class="span-class"></span>
+        <div class="span-class"></div>
+        <div class="span-class"></div>
+        <div class="span-class"></div>
+        <div class="span-class"></div>
+        <div class="span-class"></div>
+    </div>
+
+    <div id="example-3">
+        <p>:not</p>
+        <span class="a-div"></span>
+        <span class="a-div"></span>
+        <span class="a-div"></span>
+        <span class="a-div not-me"></span>
+        <span class="a-div"></span>
+    </div>
+
+    <div id="example-4">
+        <p>:empty</p>
+        <div class="thing"></div>
+    </div>
+
+    <p>каждый четвертый</p>
+    <div id="example-5">
+        <span>1</span><span>2</span><span>3</span><span>4</span>
+        <span>5</span><span>6</span><span>7</span><span>8</span>
+        <span>9</span><span>10</span><span>11</span><span>12</span>
+    </div>
+
+    <p>каждый четвертый + только последние четыре</p>
+    <div id="example-6">
+        <span>1</span><span>2</span><span>3</span><span>4</span>
+        <span>5</span><span>6</span><span>7</span><span>8</span>
+        <span>9</span><span>10</span><span>11</span><span>12</span>
+    </div>
+
+    <p>оставшиеся из последней четверки</p>
+    <div id="example-7">
+        <span>1</span><span>2</span><span>3</span><span>4</span>
+        <span>5</span><span>6</span><span>7</span><span>8</span>
+        <span>9</span><span>10</span><span>11</span>
+    </div>
+
+    <p>все вместе</p>
+    <div id="example-8">
+        <span>1</span><span>2</span><span>3</span><span>4</span>
+        <span>5</span><span>6</span><span>7</span><span>8</span>
+        <span>9</span><span>10</span><span>11</span><span>12</span>
+    </div>
+
+    <div id="example-9">
+        <h1>Title 0.</h1>
+        <nav class="scroll-wrapper">
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 1" />
+                <figcaption class="caption">Title 1.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 2" />
+                <figcaption class="caption">Title 2.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 3" />
+                <figcaption class="caption">Title 3.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 4" />
+                <figcaption class="caption">Title 4.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 5" />
+                <figcaption class="caption">Title 5.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 6" />
+                <figcaption class="caption">Title 6.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 7" />
+                <figcaption class="caption">Title 7.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 8" />
+                <figcaption class="caption">Title 8.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 9" />
+                <figcaption class="caption">Title 9.</figcaption>
+            </figure>
+            <figure class="item">
+                <img src="./../assets/R.png" alt="title 10" />
+                <figcaption class="caption">Title 10.</figcaption>
+            </figure>
+        </nav>
+    </div>
+</body>
+
+</html>

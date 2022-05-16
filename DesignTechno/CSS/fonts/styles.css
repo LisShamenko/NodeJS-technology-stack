@@ -1,0 +1,398 @@
+.real-header {
+    color: red;
+    padding: 20px;
+    font-size: 20px;
+}
+
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* --------------- Базовые стили. */
+
+/* в компоненте селектор '.body' заменяет селектор 'html' */
+
+.body {
+    --brand-green: hsl(162, 87%, 21%);
+    --dark-green: hsl(162, 88%, 30%);
+    --medium-green: hsl(162, 73%, 46%);
+    --text-color: hsl(210, 11%, 15%);
+    --gray: hsl(210, 7%, 56%);
+    --light-gray: hsl(210, 17%, 95%);
+    --extra-light-gray: hsl(210, 17%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --green: hsl(0, 98%, 26%);
+    --link-red: hsl(342, 87%, 21%);
+    /**/
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+/* свойства box-sizing */
+
+.body *, .body ::before, .body ::after {
+    box-sizing: inherit;
+}
+
+/* фон и шрифт */
+
+.body {
+    margin: 0;
+    /* применение шрифта Roboto ко всей странице */
+    font-family: Roboto, sans-serif;
+    line-height: 1.4;
+    background-color: var(--extra-light-gray);
+}
+
+h1, h2, h3, h4 {
+    /* установка шрифта Kurale для заголовков */
+    font-family: Kurale, serif;
+}
+
+a {
+    color: var(--medium-green);
+}
+
+a:visited {
+    color: var(--brand-green);
+}
+
+a:hover {
+    color: var(--brand-green);
+}
+
+a:active {
+    color: var(--link-red);
+}
+
+/* --------------- Стили шапки. */
+
+.nav-container {
+    background-color: var(--medium-green);
+}
+
+.nav-container__inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0.625em 0;
+}
+
+.home-link {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    /* установка шрифта Kurale для ссылки на главную страницу */
+    font-family: Kurale, serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.top-nav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+.top-nav>li+li {
+    /* левый отступ */
+    margin-left: 0.625em;
+}
+
+.top-nav a {
+    display: block;
+    padding: 0.3em 1.25em;
+    color: var(--white);
+    background: var(--brand-green);
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.top-nav a:hover {
+    background-color: var(--dark-green);
+}
+
+.top-nav__featured>a {
+    color: var(--brand-green);
+    background-color: var(--white);
+}
+
+.top-nav__featured>a:hover {
+    color: var(--medium-green);
+    background-color: var(--white);
+}
+
+/* --------------- Стили hero-изображения и кнопки. */
+
+.hero {
+    background: url("./../assets/big.jpg") no-repeat;
+    background-size: cover;
+    margin-bottom: 2.5rem;
+}
+
+.hero__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 5.56em 12.5em 12.5em 0;
+    text-align: right;
+    color: var(--green);
+}
+
+.hero h2 {
+    font-size: 1.95rem;
+    margin-top: 0;
+    margin-bottom: 0.625rem;
+}
+
+/* --------------- Модуль Button. */
+
+.button {
+    display: inline-block;
+    padding: 0.4em 1em;
+    color: hsl(162, 87%, 21%);
+    border: 2px solid hsl(162, 87%, 21%);
+    border-radius: 0.2em;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.button:hover {
+    background-color: hsl(162, 88%, 30%);
+    color: white;
+}
+
+.button--cta {
+    padding: 0.6em 1em;
+    background-color: hsl(162, 87%, 21%);
+    color: white;
+    border: none;
+}
+
+/* --------------- Три колонки и блоки с текстом. */
+
+.container {
+    margin: 0 auto;
+    max-width: 1080px;
+}
+
+.tile-row {
+    display: flex;
+}
+
+.tile-row>* {
+    flex: 1;
+}
+
+.tile-row>*+* {
+    margin-left: 1.5625em;
+}
+
+.tile {
+    background-color: var(--white);
+    border-radius: 0.3em;
+    padding: 1.5625em;
+}
+
+.tile>h4 {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.tag-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tag-list>li {
+    display: inline;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+    background-color: var(--light-gray);
+    line-height: 2.6;
+}
+
+/* --------------- Подвал страницы. */
+
+.page-footer {
+    margin-top: 3em;
+    padding: 1em 0;
+    background-color: var(--light-gray);
+    color: var(--gray);
+}
+
+.page-footer__inner {
+    margin: 0 auto;
+    max-width: 1080px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* --------------- Параграфы. */
+
+p {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+/* --------------- Веб-шрифты. Правило @font-face. */
+
+/* 
+ * - правило @font-face определяет шрифт, который может быть задействован в CSS 
+ * - у каждого шрифта указан тип начертания и насыщенность, поэтому для каждого 
+ *      варианта шрифта необходимо отдельное правило @font-face, браузер выбирает
+ *      самый близкий шрифт к заданным значениям начертания и насыщенности, но
+ *      курсив и полужирность могут имитироваться браузером за счет геометрического
+ *      преобразования букв, что дает более худший результат
+ */
+
+@font-face {
+    /* название шрифта, которое используется в таблице стилей */
+    font-family: 'Roboto';
+    /* начертание и насыщенность шрифта */
+    font-style: normal;
+    font-weight: 300;
+    /*
+     * - адреса файлов шрифтов указываются через запятую:
+     *      local означает использование локальных файлов, если они установлены в системе
+     *      url означает, что файл шрифта будет скачан по указанному адресу
+     * - WOFF (Web Open Font Format - открытый формат вебшрифтов) - это формат 
+     *      шрифта для web
+     */
+    src: local('Roboto Light'), local('Roboto-Light'), url('https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfZBw1xU1rKptJj_0jans920.woff2') format('woff2');
+    /* символы Юникода, к которым применяется @font-face */
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+    /* swap соответствует 'вспышке нестилизованного текста' */
+    font-display: swap;
+}
+
+/* --- --- вариативные шрифты */
+
+#example-2 {
+    /* определенние системного стека шрифтов */
+    --MainFont: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+    /* 
+     * загрузка вариативного шрифта в комплекте с диапазонами 
+     *      значений толщины и наклона 
+     */
+    font-family: 'Inter-V';
+    src: url('./../assets/inter.var.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-display: fallback;
+    font-style: oblique 0deg 10deg;
+}
+
+#example-2 p {
+    background-color: var(--background);
+    color: var(--foreground);
+    transition: all 0.35s;
+    font-size: 1.2em;
+    font-family: 'sans-serif';
+    font-family: var(--MainFont);
+    font-weight: 400;
+}
+
+/* 
+ * тесты, определяющие настройки вариативных шрифтов и 
+ *      возможность добавить расширенные свойства 
+ */
+@supports (font-variation-settings: 'wdth'200) {
+    #example-2 p {
+        font-family: 'Inter-V';
+        font-variation-settings: 'wght'300, 'slnt'-4;
+        font-feature-settings: 'cv08', 'cv05';
+    }
+}
+
+/* --------------- Текстовые интервалы. */
+
+/*
+ * - межстрочный интервал называется интерлиньяжем, обычно задается в пунктах (pt), 
+ *      перевести 18pt (интерлиньяж) в em:
+ *      18pt * 1.333 (дюйм примерно равен 96px или 72pt: 96px / 72pt = 1.333) = 24px
+ *      24px / 16px (размер шрифта) = 1.5em (стилевое значение)
+ * - интервал между буквами называется трекингом, задается как тысячные доли 
+ *      единицы em:
+ *      100 (трекинг) / 1000 = 0.1em (стилевое значение)
+ */
+
+.body {
+    /* высота строки и интервал между буквами */
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+}
+
+/* 
+ * - заголовки бывают как короткими так и длинными, будет ошибкой тестировать дизайн 
+ *      только для коротких заголовков
+ */
+
+h1, h2, h3, h4 {
+    /* увеличение интервала между буквами для заголовков */
+    letter-spacing: 0.03em;
+}
+
+.home-link {
+    letter-spacing: 0.03em;
+}
+
+.hero h2 {
+    /* отрицательное значение сжимает интервал */
+    letter-spacing: -0.02em;
+}
+
+.nav-container__inner {
+    /* выравнивание элементов контейнера nav по нижнему краю */
+    align-items: flex-end;
+}
+
+.top-nav a {
+    /* уменьшение размера шрифта ссылок на панели навигации */
+    font-size: 0.8rem;
+    /* изменение единиц измерения отступов с em на rem */
+    padding: 0.3rem 1.25rem;
+    /* 
+     * - изменение регистра букв: uppercase - верхний, lowercase - нижний,
+     *      capitalize - перевод в верхний регистр первой буквы каждого слова
+     * - не рекомендуется менять регистр букв в HTML-коде, если это необходимо 
+     *      только для дизайна страницы
+     */
+    text-transform: uppercase;
+    /* увеличение интервала между буквами */
+    letter-spacing: 0.03em;
+}
+
+.button {
+    /* уменьшение размера шрифта на кнопках */
+    font-size: 0.8rem;
+}
+
+/* --------------- Контроль загрузки шрифтов. */
+
+/* нейтрализация 'вспышки невидимого текста' */
+
+.body {
+    font-family: Roboto, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: Kurale, serif;
+}
+
+.body .fonts-failed {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.fonts-failed h1, .fonts-failed h2, .fonts-failed h3, .fonts-failed h4 {
+    font-family: Georgia, serif;
+}
+
+.fonts-failed .home-link {
+    font-family: Georgia, serif;
+}

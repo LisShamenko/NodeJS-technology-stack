@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: transformations.</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <header>
+        <p class="real-header">Переходы.</p>
+    </header>
+
+    <div class="body">
+
+        <div id="example-1">
+            <div class="card">
+                <img src="./../assets/home.svg" alt="a chicken" />
+                <h4>Mrs. Featherstone</h4>
+                <p>
+                    Разметка состоит из заголовка header и элемента nav, который состоит из неупорядоченного списка
+                    ссылок.
+                    Каждая ссылка представляет собой SVG-значок и метку.
+                </p>
+                <p>
+                    SVG — сокращение от Scalable Vector Graphics (масштабируемая векторная графика). Это формат
+                    изображения,
+                    основанный на XML, который определяет изображение с помощью векторов. А так как изображение
+                    определяется
+                    математически, его можно сжимать и растягивать до любых размеров. Формат SVG поддерживают все
+                    браузеры.
+                </p>
+            </div>
+        </div>
+
+        <div id="example-9">
+            <nav>
+                <a href="#" class="scale">scale(1.4)</a>
+                <a href="#" class="translate">translate(-20px, -20px)</a>
+                <a href="#" class="rotate">rotate(30deg)</a>
+                <a href="#" class="skew">skew(40deg, 12deg)</a>
+                <a href="#" class="matrix">matrix(1.178, -0.256, 1.122, 1.333, -41.533, -1.989)</a>
+            </nav>
+        </div>
+
+        <div id="example-10">
+            <p>
+                Here is some flowing text. This <b class="margin">item</b> has
+                <code>margin-left: 10px;</code> added on hover.
+            </p>
+            <p>
+                Here is some flowing text. This <b class="transform">item</b> has
+                <code>transform: translateX(10px)</code> added on hover.
+            </p>
+        </div>
+
+        <div id="example-11">
+            <div class="outer">
+                <p>центрирование при помощи transform</p>
+                <div class="inner-1">
+                    It's late, I'm in for it as it is. I need your help, Luke. She needs your help. I'm getting too old
+                    for this sort of thing. I can't get involved! I've got work to do! It's not that I like the Empire.
+                    I hate it! But there's nothing I can do about it right now.
+                </div>
+            </div>
+            <div class="outer">
+                <p>центрирование при помощи margin</p>
+                <div class="inner-2">
+                    It's late, I'm in for it as it is. I need your help, Luke. She needs your help. I'm getting too old
+                    for this sort of thing. I can't get involved! I've got work to do! It's not that I like the Empire.
+                    I hate it! But there's nothing I can do about it right now.
+                </div>
+            </div>
+        </div>
+
+        <div id="example-2">
+            <header>
+                <h1 class="page-header">Масштабирование значков.</h1>
+            </header>
+            <nav class="main-nav">
+                <h3 class="page-header">Масштабирование значков.</h3>
+                <ul class="nav-links">
+                    <li>
+                        <a href="/">
+                            <img src="./../assets/home.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/events">
+                            <img src="./../assets/calendar.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Events</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/members">
+                            <img src="./../assets/members.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Members</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <img src="./../assets/star.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">About</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="example-3">
+            <header>
+                <h1 class="page-header">Появление/сокрытие меток.</h1>
+            </header>
+            <nav class="main-nav">
+                <h3 class="page-header">Появление/сокрытие меток.</h3>
+                <ul class="nav-links">
+                    <li>
+                        <a href="/">
+                            <img src="./../assets/home.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/events">
+                            <img src="./../assets/calendar.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Events</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/members">
+                            <img src="./../assets/members.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Members</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <img src="./../assets/star.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">About</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="example-4">
+            <header>
+                <h1 class="page-header">Эффекты появления/сокртыия меток.</h1>
+            </header>
+            <nav class="main-nav">
+                <h3 class="page-header">Эффекты появления/сокртыия меток.</h3>
+                <ul class="nav-links">
+                    <li>
+                        <a href="/">
+                            <img src="./../assets/home.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/events">
+                            <img src="./../assets/calendar.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Events</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/members">
+                            <img src="./../assets/members.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">Members</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <img src="./../assets/star.svg" class="nav-links__icon" />
+                            <span class="nav-links__label">About</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="example-12">
+            <div class="flipper">
+                <span class="flipper-object flipper-vertical">
+                    <span class="panel front">The Front</span>
+                    <span class="panel back">The Back</span>
+                </span>
+            </div>
+            <div class="flipper">
+                <span class="flipper-object flipper-horizontal">
+                    <span class="panel front">The Front</span>
+                    <span class="panel back">The Back</span>
+                </span>
+            </div>
+        </div>
+
+        <div id="example-5">
+            <div class="row">
+                <div class="box">One</div>
+                <div class="box">Two</div>
+                <div class="box">Three</div>
+                <div class="box">Four</div>
+            </div>
+        </div>
+
+        <div id="example-6">
+            <div class="row">
+                <div class="box">One</div>
+                <div class="box">Two</div>
+                <div class="box">Three</div>
+                <div class="box">Four</div>
+            </div>
+        </div>
+
+        <div id="example-7">
+            <div class="row">
+                <div class="box">One</div>
+                <div class="box">Two</div>
+                <div class="box">Three</div>
+                <div class="box">Four</div>
+            </div>
+        </div>
+
+        <div id="example-8">
+            <div class="row">
+                <div class="box">One</div>
+                <div class="box">Two</div>
+                <div class="box">Three</div>
+                <div class="box">Four</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

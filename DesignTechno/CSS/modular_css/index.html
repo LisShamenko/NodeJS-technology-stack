@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: модульный CSS.</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <header>
+        <p class="real-header">Модульный CSS.</p>
+    </header>
+
+    <div class="body">
+
+        <div id="example-1">
+            <div class="message">Successful.</div>
+            <div class="message message--success">Successful.</div>
+            <div class="message message--warning">Warning!</div>
+            <div class="message message--error">Error!</div>
+        </div>
+
+        <div id="example-2">
+            <button class="button button--large">Button: large.</button>
+            <button class="button button--success">Button: success.</button>
+            <button class="button button--danger button--small">Button: danger, small.</button>
+        </div>
+
+        <div id="example-3">
+            <div class="media">
+                <img class="media__image" src="./../assets/S.png">
+                <div class="media__body">
+                    <h4>Модуль Media, именование классов.</h4>
+                    <p>
+                        Изображенире имеет класс 'media__image', а основная часть 'media__body'.
+                        Имена классов состоят из названия модуля и имен дочерних элементов,
+                        разделенных двойным подчеркиванием, что является правилом методологии БЭМ.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="example-4">
+            <div class="media media--right">
+                <img class="media__image" src="./../assets/S.png">
+                <div class="media__body">
+                    <h4>Модификатор: media--right.</h4>
+                    <p>Модификатор перекрывает правило 'float: left' модуля Media.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="example-5">
+            <div class="dropdown">
+                <button class="dropdown__toggle">toggle-кнопка для раскрывающегося меню</button>
+                <div class="dropdown__drawer">
+                    <ul class="menu">
+                        <li><a href="/">Ссылка 1.</a></li>
+                        <li><a href="/">Ссылка 2.</a></li>
+                        <li><a href="/">Ссылка 3.</a></li>
+                        <li><a href="/">Ссылка 4.</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="example-5">
+            <div class="text-center">Вспомогательные классы.</div>
+            <p class="clearfix">
+                <img src="./../assets/S.png" class="float-left" />
+                Текст параграфа обтекает изображение.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

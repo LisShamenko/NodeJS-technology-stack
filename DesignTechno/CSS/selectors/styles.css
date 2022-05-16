@@ -1,0 +1,203 @@
+/* --------------- Интервалы. */
+
+/* nth-last-child */
+
+#example-1 span, #example-2 span, #example-3 span, #example-4 span,
+#example-5 span, #example-6 span, #example-7 span, #example-8 span {
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    background-color: blue;
+    text-align: center
+}
+
+#example-1 span:nth-last-child(-n+3) {
+    background-color: rgb(122, 118, 112);
+    border-radius: 50%;
+}
+
+/* nth-of-type */
+
+#example-2 .span-class:nth-of-type(-2n+3) {
+    background-color: #f90;
+    border-radius: 50%;
+}
+
+/* :not */
+
+#example-3 .a-div:not(.not-me) {
+    background-color: #f90;
+    border-radius: 50%;
+}
+
+/* :empty */
+
+#example-4 .thing:empty {
+    padding: 1rem;
+    background-color: violet;
+}
+
+/*  */
+
+#example-5 span:nth-child(4n+1) {
+    background-color: #f90;
+    border-radius: 50%;
+}
+
+#example-6 span:nth-child(4n+1):nth-last-child(-n+4) {
+    background-color: #f90;
+    border-radius: 50%;
+}
+
+#example-7 span:nth-child(4n+1):nth-last-child(-n+4)~span {
+    background-color: #f90;
+    border-radius: 50%;
+}
+
+#example-8 span:nth-child(4n+1):nth-last-child(-n+4),
+#example-8 span:nth-child(4n+1):nth-last-child(-n+4)~span {
+    background-color: #f90;
+    border-radius: 50%;
+}
+
+/* --- сложный пример */
+
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('fonts/Roboto-Regular-webfont.eot');
+    src: url('fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Roboto-Regular-webfont.woff') format('woff'),
+        url('fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+        url('fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    margin: 0 auto;
+    background-color: #ebebeb;
+    max-width: 40rem;
+    padding: 0 2rem;
+}
+
+body {
+    font-family: robotoregular;
+    font-size: 2.1vw;
+}
+
+@media (min-width: 45rem) {
+    html, body {
+        max-width: 50.75rem;
+        font-size: 1.8vw;
+    }
+}
+
+@media (min-width: 55rem) {
+    html, body {
+        max-width: 78.75rem;
+        font-size: 1.7vw;
+    }
+}
+
+h1 {
+    padding: 0 1rem;
+}
+
+.scroll-wrapper {
+    display: flex;
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    /* устанавливает значение счётчика в 0 */
+    counter-reset: count-items;
+}
+
+/* настройки колонок */
+
+.item {
+    display: flex;
+    /* инкрементирует счётчик */
+    counter-increment: count-items;
+    position: relative;
+    background-color: #ebebeb;
+    border-bottom: 2px solid #bbb;
+    height: 9rem;
+    /* 
+     * начальная настройка ширины для двух колонок: 
+     *      каждый элемент занимает половину ширины
+     */
+    width: 50%;
+    margin: 1rem 0;
+}
+
+/* макет на 2 колонки */
+
+@media (max-width: 44.99rem) {
+
+    .item:nth-child(2n+1):nth-last-child(-n+2),
+    .item:nth-child(2n+1):nth-last-child(-n+2)~.item {
+        border-bottom: 0;
+    }
+}
+
+/* макет на 3 колонки */
+
+@media (min-width: 45rem) {
+
+    /* каждый элемент занимает треть ширины */
+    .item {
+        width: 33.3333333333%;
+    }
+
+    .item:nth-child(3n+1):nth-last-child(-n+3),
+    .item:nth-child(3n+1):nth-last-child(-n+3)~.item {
+        border-bottom: 0;
+    }
+}
+
+/* макет на 4 колонки */
+
+@media (min-width: 55rem) {
+
+    /* каждый элемент занимает четверть ширины */
+    .item {
+        width: 25%;
+    }
+
+    .item:nth-child(4n+1):nth-last-child(-n+4),
+    .item:nth-child(4n+1):nth-last-child(-n+4)~.item {
+        border-bottom: 0;
+    }
+}
+
+.item::before {
+    /* отображает текущее значение счётчика */
+    content: counter(count-items);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1rem;
+    top: 0;
+    left: -2rem;
+    border-radius: 50%;
+    height: 1.4rem;
+    width: 1.4rem;
+    background-color: #ccc;
+    border: 1px solid #999;
+}
+
+.item img {
+    max-height: 7.25rem;
+}
+
+.caption {
+    max-width: 4rem;
+    padding-left: .5rem;
+    font-size: 1rem;
+    line-height: 1.1;
+}

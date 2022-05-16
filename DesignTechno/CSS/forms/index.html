@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: формы.</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <div id="example-1" class="container">
+
+        <form class="form-wrapper" id="forma" method="post">
+
+            <div class="form-intro">
+                <h1>Форма.</h1>
+            </div>
+
+            <fieldset class="form-about-wrapper">
+                <legend>Элемент fieldset <span>(первый из трех)</span>.</legend>
+
+                <div class="form-input-wrapper">
+                    <input id="first" name="first" type="text" placeholder="текст" required />
+                    <label for="first">Тип 'text'</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <input id="second" name="second" type="number" min="1929" max="2015" placeholder="год" required />
+                    <label for="second">Тип 'number' - год</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <input id="third" name="third" type="text" list="third-list" placeholder="список ответов" />
+                    <datalist id="third-list">
+                        <select>
+                            <option value="значение 1"></option>
+                            <option value="значение 2"></option>
+                            <option value="значение 3"></option>
+                            <option value="значение 4"></option>
+                        </select>
+                    </datalist>
+                    <label for="third">Тип 'text' - список на выбор</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <textarea id="fourth" name="fourth" placeholder="длинный текст" required></textarea>
+                    <label for="fourth">Элемент textarea</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <span class="form-slider-wrapper">
+                        <input id="fifth" name="fifth" type="range" min="1" max="10" value="5"
+                            onchange="showValue(this.value)" />
+                        <span id="range">5</span>
+                    </span>
+                    <label for="fifth">Тип 'range' - (1:10)</label>
+                </div>
+
+                <script>
+                    function showValue(newValue) {
+                        document.getElementById("range").innerHTML = newValue;
+                    }
+                </script>
+            </fieldset>
+
+            <fieldset class="form-what-wrapper">
+                <legend>Элемент fieldset <span>(второй из трех)</span>.</legend>
+
+                <div class="form-input-wrapper">
+                    <input id="sixth" name="sixth" type="text" placeholder="текст" required />
+                    <label for="sixth">Тип 'text'</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <textarea id="seventh" name="seventh" placeholder="длинный текст" required></textarea>
+                    <label for="seventh">Элемент textarea</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-you-wrapper">
+                <legend>Элемент fieldset <span>(третий из трех)</span>.</legend>
+
+                <div class="form-input-wrapper">
+                    <input id="eighth" name="eighth" pattern="^([\D]{2,30}\s+)+([a-zA-Z]{2,30})$"
+                        placeholder="^([\D]{2,30}\s+)+([a-zA-Z]{2,30})$" required />
+                    <label for="eighth">Тип 'text' - аттрибут 'pattern'</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <input id="ninth" name="ninth" type="color" />
+                    <label for="ninth">Тип 'color'</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <input id="tenth" class="pick-date" type="date" name="tenth" />
+                    <label for="tenth">Тип 'date'</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <input id="eleventh" name="eleventh" type="tel" placeholder="1-234-567-890" autocomplete="off"
+                        required />
+                    <label for="eleventh">Тип 'tel'</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <input id="twelfth" name="twelfth" type="email" placeholder="имя@домен.com" required />
+                    <label for="twelfth">Тип 'email'</label>
+                </div>
+
+                <div class="form-input-wrapper">
+                    <input id="thirteenth" name="thirteenth" type="url" placeholder="http://www.site.com" />
+                    <label for="thirteenth">Тип 'url'</label>
+                </div>
+            </fieldset>
+
+            <button class="form-submit-btn" type="submit" value="">
+                <span class="flipper">
+                    <span class="flipper-object flipper-vertical">
+                        <span class="panel front">форма</span>
+                        <span class="panel back">отправка</span>
+                    </span>
+                </span>
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+[id^="example-"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* --- Вставка SVG на страницу. */
+
+.star_Wrapper path {
+    stroke-width: 6px;
+}
+
+.has-StarBg {
+    background-image: url('./../assets/star_svg.svg');
+    background-size: cover;
+    width: 198px;
+    height: 188px;
+}
+
+/* --- Повторное использование SVG. */
+
+#example-2 .icon-drag-left-right {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: #f90;
+    color: #ccc;
+}
+
+#example-2 .different-context .icon-drag-left-right {
+    fill: #14805e;
+    color: #223344;
+    width: 4rem;
+    height: 4rem;
+}
+
+#example-2 .alternate2.icon-drag-left-right {
+    fill: rgba(33, 21, 220, 0.6);
+    color: rgba(65, 30, 234, 0.88);
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+/* --- Замена цвета. */
+
+#example-3 .shape * {
+    transition: all 1s;
+}
+
+#example-3 .shape {
+    display: block;
+    --stroke1: #ddd;
+    --fill1: #444;
+    --stroke2: #f90;
+    --fill2: #663d00;
+}
+
+#example-3 .shape:hover {
+    --stroke1: #333;
+    --fill1: #444;
+    --stroke2: #fff;
+    --fill2: #ffc266;
+}
+
+#example-3.amended .shape {
+    --stroke1: #080b2b;
+    --fill1: #141a67;
+    --fill2: #192183;
+    --stroke2: #2d3ad7;
+}
+
+#example-3.amended .shape:hover {
+    --stroke1: #092b08;
+    --fill1: #125610;
+    --fill2: #2dd728;
+    --stroke2: #1b8118;
+}
+
+#example-3 button {
+    margin: 20px;
+    height: 40px;
+    font-size: 1.2rem;
+    padding: 0 20px;
+}
+
+/* --- SVG-фильтр */
+
+#example-5 .svg-filter {
+    /* filter: url('./../assets/star_svg.svg#myfilter'); */
+    filter: url(#myfilter);
+}
