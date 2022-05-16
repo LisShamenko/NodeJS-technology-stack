@@ -1,6 +1,5 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-//import { AppModule } from './app/app.module';
-import { CSSModule } from './css/css.module';
+import { AppModule } from './app/app.module';
 
 // приложения Angular можно запускать на разных платформах, каждая из которых 
 //      предоставляет исполнительную среду для загрузки и запуска приложений
@@ -8,7 +7,7 @@ import { CSSModule } from './css/css.module';
 const platform = platformBrowserDynamic();
 
 // метод bootstrapModule передает Angular модуль, который описывает приложение
-platform.bootstrapModule(CSSModule);
+platform.bootstrapModule(AppModule);
 
 // --------------- загрузка приложения
 
