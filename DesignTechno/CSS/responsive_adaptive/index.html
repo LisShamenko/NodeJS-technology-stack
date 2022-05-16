@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS: адаптивный дизайн.</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script src="./theory.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2" rel="stylesheet">
+</head>
+
+<body class="m-a-1 mat-typography">
+
+    <header>
+        <p class="real-header">Адаптивный дизайн.</p>
+    </header>
+
+    <div id="example-7">
+
+        <div class="header">
+            <a href="/" class="logo-wrapper">
+                <img src="./../assets/logo.png" alt="logo" />
+            </a>
+            <p class="strap">Рецепт.</p>
+        </div>
+
+        <div class="intro-wrapper">
+            <p class="intro-text">Описание рецепта.</p>
+            <div class="money-shot">
+                <img class="money-shot-img" src="./../assets/image.jpg" alt="image" />
+                <p class="image-caption">Ссылка.</p>
+            </div>
+        </div>
+
+        <p>Рекомендации.</p>
+
+        <div class="ingredients">
+            <h3 class="sub-header">Ингредиенты</h3>
+            <ul>
+                <li>первый ингредиент</li>
+                <li>второй ингредиент</li>
+                <li>третий ингредиент</li>
+            </ul>
+        </div>
+
+        <div class="how-to-make">
+            <h3 class="sub-header">Метод приготовления:</h3>
+            <ol class="method-wrapper">
+                <li>
+                    <span class="step-header">Шаг 1</span>
+                    <div class="editor-content">
+                        <p>Описание шага.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-header">Шаг 2</span>
+                    <div class="editor-content">
+                        <p>Описание шага.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-header">Шаг 3</span>
+                    <div class="editor-content">
+                        <p>Описание шага.</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+
+
+    <div class="body">
+
+        <div id="example-6">
+            <p>Тип userAgent: <span id="user-agent-info"></span></p>
+        </div>
+
+        <div id="example-1">
+
+            <header id="header" class="page-header">
+                <div class="title">
+                    <h1>example-1: Мобильная версия макета.</h1>
+                    <div class="slogan">Слоган.</div>
+                </div>
+            </header>
+
+            <nav class="menu" id="main-menu-1">
+                <button class="menu-toggle" id="toggle-menu-1">Меню.</button>
+                <div class="menu-dropdown">
+                    <ul class="nav-menu">
+                        <li><a>Меню будет скрыто на мобильных устройствах.</a></li>
+                        <li><a href="./../not_define">Ссылка 1.</a></li>
+                        <li><a href="./../not_define">Ссылка 2.</a></li>
+                        <li><a href="./../not_define">Ссылка 3.</a></li>
+                        <li><a href="./../not_define">Ссылка 4.</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <aside id="hero" class="hero">
+                Меню nav-menu расположено там, где оно может удовлетворить
+                потребности как мобильной, так и настольной версии.
+                Классы row и column позволяют создать макет для настольной версии.
+            </aside>
+
+            <main id="main">
+                <div class="row">
+
+                    <h1>Для мобильной версии секции с классом column размещаются горизонтально.</h1>
+
+                    <section class="column">
+                        <h2 class="subtitle">Первая колонка.</h2>
+                        <p>
+                            Программы экранного доступа в качестве ориентиров используют
+                            элементы [form, main, nav, aside].
+                        </p>
+                    </section>
+
+                    <section class="column">
+                        <h2 class="subtitle">Вторая колонка.</h2>
+                        <p>
+                            Кнопка меню должна находится внутри элемента nav, иначе будет
+                            сложно найти кнопку меню через программу экранного доступа.
+                        </p>
+                    </section>
+
+                    <section class="column">
+                        <h2 class="subtitle">Третья колонка.</h2>
+                        <p>
+                            Кнопки, ссылки и другие ключевые области должны быть достаточно
+                            большими, чтобы их можно было легко коснуться пальцем
+                        </p>
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <div id="example-2">
+            <header id="header" class="page-header">
+                <div class="title">
+                    <h1>example-2: Средняя версия макета.</h1>
+                    <div class="slogan">Слоган.</div>
+                </div>
+            </header>
+            <nav class="menu" id="main-menu-2">
+                <button class="menu-toggle" id="toggle-menu-2">Меню.</button>
+                <div class="menu-dropdown">
+                    <ul class="nav-menu">
+                        <li><a href="./../not_define">Ссылка 1.</a></li>
+                        <li><a href="./../not_define">Ссылка 2.</a></li>
+                        <li><a href="./../not_define">Ссылка 3.</a></li>
+                        <li><a href="./../not_define">Ссылка 4.</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <aside id="hero" class="hero">Описание.</aside>
+            <main id="main">
+                <div class="row">
+                    <section class="column">
+                        <h2 class="subtitle">Первая колонка.</h2>
+                        <p>Контент</p>
+                    </section>
+                    <section class="column">
+                        <h2 class="subtitle">Вторая колонка.</h2>
+                        <p>Контент</p>
+                    </section>
+                    <section class="column">
+                        <h2 class="subtitle">Третья колонка.</h2>
+                        <p>Контент</p>
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <div id="example-3">
+            <header id="header" class="page-header">
+                <div class="title">
+                    <h1>example-3: Резиновый макет.</h1>
+                    <div class="slogan">Слоган.</div>
+                </div>
+            </header>
+            <nav class="menu" id="main-menu-3">
+                <button class="menu-toggle" id="toggle-menu-3">Меню.</button>
+                <div class="menu-dropdown">
+                    <ul class="nav-menu">
+                        <li><a href="./../not_define">Ссылка 1.</a></li>
+                        <li><a href="./../not_define">Ссылка 2.</a></li>
+                        <li><a href="./../not_define">Ссылка 3.</a></li>
+                        <li><a href="./../not_define">Ссылка 4.</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <aside id="hero" class="hero">Описание.</aside>
+            <main id="main">
+                <div class="row">
+                    <section class="column">
+                        <h2 class="subtitle">Первая колонка.</h2>
+                        <p>Контент</p>
+                    </section>
+                    <section class="column">
+                        <h2 class="subtitle">Вторая колонка.</h2>
+                        <p>Контент</p>
+                    </section>
+                    <section class="column">
+                        <h2 class="subtitle">Третья колонка.</h2>
+                        <p>Контент</p>
+                    </section>
+                </div>
+            </main>
+
+            <div id="example-8">
+                <h2>example-8: Резиновый макет без медиазапроса.</h2>
+                <div class="wrap">
+                    <header class="header">
+                        <p>header</p>
+                    </header>
+                    <div class="wrap-middle">
+                        <aside class="left">
+                            <p>left</p>
+                        </aside>
+                        <main class="middle">
+                            <p>middle</p>
+                        </main>
+                        <aside class="right">
+                            <p>right</p>
+                        </aside>
+                    </div>
+                    <footer class="footer">
+                        <p>footer</p>
+                    </footer>
+                </div>
+            </div>
+
+            <div id="example-4">
+                <h2>example-4: Таблица в резиновом макете.</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Поле 1.</th>
+                            <th>Поле 2.</th>
+                            <th>Поле 3.</th>
+                            <th>Поле 4.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Строка 1 - Значение 1.</td>
+                            <td>Строка 1 - Значение 2.</td>
+                            <td>Строка 1 - Значение 3.</td>
+                            <td>Строка 1 - Значение 4.</td>
+                        </tr>
+                        <tr>
+                            <td>Строка 2 - Значение 1.</td>
+                            <td>Строка 2 - Значение 2.</td>
+                            <td>Строка 2 - Значение 3.</td>
+                            <td>Строка 2 - Значение 4.</td>
+                        </tr>
+                        <tr>
+                            <td>Строка 3 - Значение 1.</td>
+                            <td>Строка 3 - Значение 2.</td>
+                            <td>Строка 3 - Значение 3.</td>
+                            <td>Строка 3 - Значение 4.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="example-5">
+            <h3>example-5: Адаптивное изображение.</h3>
+            <img alt="Адаптивное изображение." src="./../assets/small.jpg"
+                srcset="./../assets/small.jpg 560w, ./../assets/medium.jpg 800w, ./../assets/big.jpg 1280w">
+        </div>
+
+    </div>
+
+</body>
+
+</html>
