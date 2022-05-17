@@ -58,6 +58,12 @@
 
 // --------------- rabbitmq
 
-const RabbitMQApp = require('./RabbitMQTechno/RabbitMQApp');
-console.log('--- RabbitMQApp');
-RabbitMQApp([], []);
+//      const RabbitMQApp = require('./RabbitMQTechno/RabbitMQApp');
+//      console.log('--- RabbitMQApp');
+//      RabbitMQApp([], []);
+
+// --------------- graphql
+
+const GraphQLApp = require('./GraphQLTechno/GraphQLApp');
+console.log('--- GraphQLApp');
+GraphQLApp([4], [10]);
