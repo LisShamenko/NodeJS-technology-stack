@@ -109,7 +109,7 @@
 //      Photo ---(postedBy)--→ User
 
 //      type User {
-//          githubLogin: ID!            // идентификатор
+//          login: ID!            // идентификатор
 //          name: String                // имя
 //          avatar: String              // фото
 //      }
@@ -132,7 +132,7 @@
 //      User и Photo. Photo связан с одним User. User связан с массивом Photo.
 
 //      type User {
-//          githubLogin: ID!
+//          login: ID!
 //          name: String
 //          avatar: String
 //          postedPhotos: [Photo!]!     // опубликованные пользователем фотографии
@@ -303,13 +303,13 @@
 // Аргументы используются для указания идентификаторов.
 //      type Query {
 //              ...
-//          User(githubLogin: ID!): User!   // обязательные аргументы, определяются
+//          User(login: ID!): User!   // обязательные аргументы, определяются
 //          Photo(id: ID!): Photo!          //       как поля не допускающие null
 //      }
 
-// Запрос передает идентификатор пользователя в аргументе githubLogin.
+// Запрос передает идентификатор пользователя в аргументе login.
 //      query {
-//          User(githubLogin: "MoonTahoe") {
+//          User(login: "MoonTahoe") {
 //              name
 //              avatar
 //          }
@@ -642,7 +642,7 @@
 //          """
 //          идентификатор
 //          """
-//          githubLogin: ID!
+//          login: ID!
 //          """
 //          имя
 //          """

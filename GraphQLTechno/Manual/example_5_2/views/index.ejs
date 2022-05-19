@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+
+        function setData(data) {
+            let messages = document.getElementById('messages');
+            messages.innerHTML = `
+                <p>photos: ${data.totalPhotos}</p>
+                <p>users: ${data.totalUsers}</p>
+            `;
+        }
+
+        function setError(err) {
+            let messages = document.getElementById('messages');
+            messages.innerHTML = `<p>Error: ${err}</p>`;
+        }
+
+        function sendMessage() {
+
+            // запрос
+            let query = `{ totalPhotos, totalUsers }`;
+            let url = 'http://localhost:4000';
+            let opts = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query })
+            }
+
+            // Выполнение запроса с помощью fetch:
+            fetch(url, opts)
+                .then(res => res.json())
+                .then(result => setData(result.data))
+                .catch(err => setError(err));
+        }
+    </script>
+</head>
+
+<body>
+    <div id='messages'></div>
+    <button onclick='sendMessage()'>send fetch</button>
+</body>
+
+</html>

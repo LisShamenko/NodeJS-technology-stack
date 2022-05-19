@@ -66,4 +66,4 @@
 
 const GraphQLApp = require('./GraphQLTechno/GraphQLApp');
 console.log('--- GraphQLApp');
-GraphQLApp([4], [10]);
+GraphQLApp([5], [7]);
