@@ -1,0 +1,21 @@
+# --- скалярный тип
+scalar DateTime
+
+# --- объект фото
+type Photo {
+    id: ID!
+    url: String!
+    name: String!
+    description: String
+    created: DateTime!
+}
+
+# --- корневой тип запросов
+type Query {
+    allPhotos(after: DateTime): [Photo!]!
+}
+
+# --- корневой тип мутаций
+type Mutation {
+    postPhoto(name: String! description: String): Photo!
+}
