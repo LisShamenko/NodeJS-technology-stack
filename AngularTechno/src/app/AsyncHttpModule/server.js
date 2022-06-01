@@ -24,7 +24,7 @@ function getLastId() {
 // --------------- server
 
 // тестовый сервер без проверок данных, запуск:
-//      node "E:/4. Unity Projects/7. NodeJS/technology_NodeJS/AngularTechno/src/app/AsyncHttpModule/server.js"
+//      node "E:/ ... полный путь ... /NodeJS-technology-stack/AngularTechno/src/app/AsyncHttpModule/server.js"
 
 //      https://developer.mozilla.org/ru/docs/Web/HTTP/Status
 

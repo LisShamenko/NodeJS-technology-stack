@@ -437,7 +437,7 @@ function useMousePosition() {
 // последовательность событий
 function UseHooks() {
 
-    //Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering. at UseHooks (webpack://technology_nodejs/./ReactTechno/Chapters/Hooks/index.js?:523:19)
+    //Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering. at UseHooks ( ... /Hooks/index.js?:523:19)
 
     //
     const postCreator = new PostCreator();

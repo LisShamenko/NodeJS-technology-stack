@@ -1,6 +1,6 @@
 ## Sequelize
 
-[каталог проекта](https://github.com/LisShamenko/technology_NodeJS/tree/master/Database/Sequelize) / [стек технологий](https://github.com/LisShamenko/NodeJS-technology-stack/blob/master/README.md)
+[каталог проекта](https://github.com/LisShamenko/NodeJS-technology-stack/tree/master/Database/Sequelize) / [стек технологий](https://github.com/LisShamenko/NodeJS-technology-stack/blob/master/README.md)
 ____
 
 ### Запуск проекта Sequelize

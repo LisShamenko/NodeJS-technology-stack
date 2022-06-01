@@ -1,5 +1,5 @@
 {
-  "name": "technology_nodejs",
+  "name": "nodejs-technology-stack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -52,14 +52,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LisShamenko/technology_NodeJS.git"
+    "url": "git+https://github.com/LisShamenko/NodeJS-technology-stack.git"
   },
   "author": "lis shamen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LisShamenko/technology_NodeJS/issues"
+    "url": "https://github.com/LisShamenko/NodeJS-technology-stack/issues"
   },
-  "homepage": "https://github.com/LisShamenko/technology_NodeJS#readme",
+  "homepage": "https://github.com/LisShamenko/NodeJS-technology-stack",
   "dependencies": {
     "@angular/animations": "~11.2.5",
     "@angular/cdk": "^11.2.7",

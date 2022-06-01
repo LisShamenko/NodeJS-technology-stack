@@ -1,6 +1,6 @@
 ## Angular
 
-[каталог проекта](https://github.com/LisShamenko/technology_NodeJS/tree/master/AngularTechno) / [стек технологий](https://github.com/LisShamenko/NodeJS-technology-stack/blob/master/README.md)
+[каталог проекта](https://github.com/LisShamenko/NodeJS-technology-stack/tree/master/AngularTechno) / [стек технологий](https://github.com/LisShamenko/NodeJS-technology-stack/blob/master/README.md)
 ____
 
 ### Запуск проекта Angular
