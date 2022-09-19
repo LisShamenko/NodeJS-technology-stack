@@ -9,7 +9,7 @@ async function createServer(port, callback) {
     return new Promise(async (resolve, reject) => {
 
         // 
-        const redisPub = redis.createClient();
+        const redisPub = redis.createClient({ url: process.env.REDIS_URL });
         await redisPub.connect();
 
         // 

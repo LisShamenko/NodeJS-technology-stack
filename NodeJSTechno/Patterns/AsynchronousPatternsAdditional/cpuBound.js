@@ -4,7 +4,6 @@ const path = require('path');
 const http = require('http');
 const url = require('url');
 const request = require('request');
-const { interval } = require('rxjs');
 
 // 
 const port = 3000;

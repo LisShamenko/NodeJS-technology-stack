@@ -185,7 +185,7 @@ function reviverFunc(key, value) {
 
 // пкает type-is
 //      https://www.npmjs.com/package/type-is
-const typeis = require('typeis');
+const typeis = require('type-is');
 let mediaType = 'application/json';
 typeis.is(mediaType, ['json']);             // => 'json'
 typeis.is(mediaType, ['html', 'json']);     // => 'json'
@@ -193,7 +193,7 @@ typeis.is(mediaType, ['application/*']);    // => 'application/json'
 typeis.is(mediaType, ['application/json']); // => 'application/json'
 typeis.is(mediaType, ['html']);             // => false
 
-function bodyParser(req, res, next) {
+function bodyParserMW(req, res, next) {
     if (!typeis.hasBody(req)) {
         return next()
     }
@@ -1204,7 +1204,7 @@ const server = app.listen(PORT, () => {
 
 //      https://nodejs.org/api/http.html#http_server_listen
 
-// --------------- 
+// ---------------
 
 // связанные ссылки:
 //      https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/

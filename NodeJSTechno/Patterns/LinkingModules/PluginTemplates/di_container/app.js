@@ -56,7 +56,7 @@ async function modules_di_container() {
         // плагин
         //      любой плагин сможет загрузить свой набор зависимостей через 
         //      DI-контейнер без участия родительского приложения
-        diContainer.inject(require('authsrv-plugin-logout'));
+        diContainer.inject(require('./../authsrv-plugin-logout'));
 
         // маршрутизация
         const authController = diContainer.get('authController');

@@ -11,7 +11,8 @@ module.exports = (inPath, inPg) => {
     path = inPath;
     pg = inPg;
 
-    const PostgresWrapper = require(path.join(process.cwd(), 'Database/Postgres/PostgresWrapper'));
+    //const PostgresWrapper = require(path.join(process.cwd(), 'Database/Postgres/PostgresWrapper'));
+    const PostgresWrapper = require('./PostgresWrapper');
     const pgWrapper = PostgresWrapper(pg);
     poolWrapper = pgWrapper.getPoolWrapper({
         host: 'localhost',

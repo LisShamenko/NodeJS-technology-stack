@@ -1,0 +1,31 @@
+{
+  "name": "app_express",
+  "version": "1.0.0",
+  "description": "OK",
+  "main": "ExpressApp.js",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/LisShamenko/NodeJS-technology-stack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisShamenko/NodeJS-technology-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LisShamenko/NodeJS-technology-stack/issues"
+  },
+  "scripts": {
+    "express-app": "echo \"--- Express App package ---\" && node ExpressApp.js",
+    "express-techno": "echo \"--- Express Techno package ---\" && node ExpressTechno.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "ejs": "^3.1.5",
+    "cookie-parser": "^1.4.5",
+    "body-parser": "^1.19.1",
+    "fresh": "^0.5.2",
+    "axios": "^0.27.2",
+    "ejs-locals": "^1.0.2",
+    "type-is": "^1.6.18"
+  },
+  "devDependencies": {}
+}

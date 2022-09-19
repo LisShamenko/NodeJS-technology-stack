@@ -87,7 +87,7 @@ async function redis_async_aterator() {
 async function redis_scan_iterators() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });

@@ -1,0 +1,27 @@
+{
+  "name": "app_swagger",
+  "version": "1.0.0",
+  "description": "OK",
+  "main": "SwaggerApp.js",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/LisShamenko/NodeJS-technology-stack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisShamenko/NodeJS-technology-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LisShamenko/NodeJS-technology-stack/issues"
+  },
+  "scripts": {
+    "swagger-app": "echo \"--- Swagger App package ---\" && node SwaggerApp.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "joi": "^17.4.0",
+    "joi-to-swagger": "^5.2.0",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {}
+}

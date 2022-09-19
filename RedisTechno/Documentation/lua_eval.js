@@ -84,7 +84,7 @@ const redis = require("redis");
 async function redis_params() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -125,7 +125,7 @@ async function redis_params() {
 async function redis_call_pcall() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -170,7 +170,7 @@ async function redis_call_pcall() {
 async function redis_script_load() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });

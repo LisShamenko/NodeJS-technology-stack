@@ -45,7 +45,7 @@ async function modules_hard_coded_dependency() {
         //      чтобы подключить плагин, достаточно просто загрузить его, управление будет 
         //      передано плагину, который осуществит расширение модулей authService и app
         module.exports.app = app;
-        require('authsrv-plugin-logout');
+        require('./../authsrv-plugin-logout');
 
         // маршрутизация
         app.post('/login', authController.login);

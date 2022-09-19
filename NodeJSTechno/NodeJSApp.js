@@ -1,130 +1,218 @@
-module.exports = (chapters) => {
+module.exports = async (chapters, examples) => {
 
     const isChapter = (c) => {
         return (chapters.length === 0 || chapters.find(i => i === c));
     }
 
+    const isExample = (e) => {
+        return (examples.find(i => i === e));
+    }
+
     // --------------- Базовые паттерны NodeJS.
     if (isChapter(1)) {
+
         // 1. Паттерн Callback.
-        require('./Patterns/MainPatterns/patternCallback');
+        if (isExample(1))
+            require('./Patterns/MainPatterns/patternCallback');
+
         // 2. Паттерн Revealing Module.
-        require('./Patterns/MainPatterns/patternRevealingModule');
+        if (isExample(2))
+            require('./Patterns/MainPatterns/patternRevealingModule');
+
         // 3. Паттерн Observer.
-        require('./Patterns/MainPatterns/patternObserver');
+        if (isExample(3))
+            require('./Patterns/MainPatterns/patternObserver');
+
         // 4. Паттерн Reactor.
-        require('./Patterns/MainPatterns/patternReactor');
+        if (isExample(4))
+            require('./Patterns/MainPatterns/patternReactor');
     }
 
     // --------------- Паттерны управления потоком асинхронного выполнения.
     if (isChapter(2)) {
+
         // 5. Кастомные реализации паттернов управления.
-        require('./Patterns/WоrkflоwPatterns/customVersion');
+        if (isExample(5))
+            require('./Patterns/WоrkflоwPatterns/customVersion');
+
         // 6. Библиотека Async.
-        require('./Patterns/WоrkflоwPatterns/asyncPackage');
+        if (isExample(6))
+            require('./Patterns/WоrkflоwPatterns/asyncPackage');
+
         // 7. Promises.
-        require('./Patterns/WоrkflоwPatterns/promises');
+        if (isExample(7))
+            require('./Patterns/WоrkflоwPatterns/promises');
+
         // 8. Generators.
-        require('./Patterns/WоrkflоwPatterns/generators');
+        if (isExample(8))
+            require('./Patterns/WоrkflоwPatterns/generators');
+
         // 9. Использование async/await.
-        require('./Patterns/WоrkflоwPatterns/useAsyncAwait');
+        if (isExample(9))
+            require('./Patterns/WоrkflоwPatterns/useAsyncAwait');
+
         // 10. Сравнение методов выполнения асинхронных задач.
     }
 
     // --------------- Потоки.
     if (isChapter(3)) {
+
         // 11. Потоки данных (streams).
-        require('./Patterns/DataStreams/beginningStreams');
+        if (isExample(11))
+            require('./Patterns/DataStreams/beginningStreams');
+
         // 12. Работа с потоками данных.
-        require('./Patterns/DataStreams/streams');
+        if (isExample(12))
+            require('./Patterns/DataStreams/streams');
+
         // 13. Управление асинхронным выполнением с помощью потоков. 
-        require('./Patterns/DataStreams/asyncStreams');
+        if (isExample(13))
+            require('./Patterns/DataStreams/asyncStreams');
+
         // 14. Шаблоны конвейерной обработки.
-        require('./Patterns/DataStreams/pipelineTemplates');
+        if (isExample(14))
+            require('./Patterns/DataStreams/pipelineTemplates');
     }
 
     // --------------- Шаблоны проектирования.
     if (isChapter(4)) {
+
         // 15. Фабрика (Factory).
-        require('./Patterns/GoF/factory');
+        if (isExample(15))
+            require('./Patterns/GoF/factory');
+
         // 16. Открытый конструктор (Revealing Constructor).
-        require('./Patterns/GoF/revealingConstructor');
+        if (isExample(16))
+            require('./Patterns/GoF/revealingConstructor');
+
         // 17. Прокси (proxy).
-        require('./Patterns/GoF/proxy');
+        if (isExample(17))
+            require('./Patterns/GoF/proxy');
+
         // 18. Декоратор (decorator).
-        require('./Patterns/GoF/decorator');
+        if (isExample(18))
+            require('./Patterns/GoF/decorator');
+
         // 19. Адаптер (adapter).
-        require('./Patterns/GoF/adapter');
+        if (isExample(19))
+            require('./Patterns/GoF/adapter');
+
         // 20. Стратегия (strategy).
-        require('./Patterns/GoF/strategy');
+        if (isExample(20))
+            require('./Patterns/GoF/strategy');
+
         // 21. Состояние (state).
-        require('./Patterns/GoF/state');
+        if (isExample(21))
+            require('./Patterns/GoF/state');
+
         // 22. Макет (template).
-        require('./Patterns/GoF/template');
+        if (isExample(22))
+            require('./Patterns/GoF/template');
+
         // 23. Промежуточное программное обеспечение (middleware).
-        require('./Patterns/GoF/middleware_koa');
+        if (isExample(23))
+            require('./Patterns/GoF/middleware_koa');
+
         // 24. Команда (command).
-        require('./Patterns/GoF/command');
+        if (isExample(24))
+            require('./Patterns/GoF/command');
     }
 
     // --------------- Связывание модулей
     if (isChapter(5)) {
+
         // 25. Жесткие зависимости.
-        require('./Patterns/LinkingModules/PureTemplates/hard_coded_dependency/app');
+        if (isExample(25))
+            require('./Patterns/LinkingModules/PureTemplates/hard_coded_dependency/app');
+
         // 26. Инверсия зависимостей.
-        require('./Patterns/LinkingModules/PureTemplates/dependency_injection/app');
+        if (isExample(26))
+            require('./Patterns/LinkingModules/PureTemplates/dependency_injection/app');
+
         // 27. DI-контейнер.
-        require('./Patterns/LinkingModules/PureTemplates/di_container/app');
+        if (isExample(27))
+            require('./Patterns/LinkingModules/PureTemplates/di_container/app');
+
         // 28. Локатор служб.
-        require('./Patterns/LinkingModules/PureTemplates/service_locator/app');
+        if (isExample(28))
+            require('./Patterns/LinkingModules/PureTemplates/service_locator/app');
+
         // 29. Локатор служб Express.
-        require('./Patterns/LinkingModules/PureTemplates/service_locator_express/app');
+        if (isExample(29))
+            require('./Patterns/LinkingModules/PureTemplates/service_locator_express/app');
+
         // 30. Плагин: доступ к службам через жесткие зависимости.
-        require('./Patterns/LinkingModules/PluginTemplates/hard_coded_dependency/app');
+        if (isExample(30))
+            require('./Patterns/LinkingModules/PluginTemplates/hard_coded_dependency/app');
+
         // 31. Плагин: инверсия зависимостей.
-        require('./Patterns/LinkingModules/PluginTemplates/dependency_injection/app');
+        if (isExample(31))
+            require('./Patterns/LinkingModules/PluginTemplates/dependency_injection/app');
+
         // 32. Плагин: DI-контейнер
-        require('./Patterns/LinkingModules/PluginTemplates/di_container/app');
+        if (isExample(32))
+            // error
+            require('./Patterns/LinkingModules/PluginTemplates/di_container/app');
+
         // 33. Плагин: локатор служб.
-        require('./Patterns/LinkingModules/PluginTemplates/service_locator/app');
+        if (isExample(33))
+            require('./Patterns/LinkingModules/PluginTemplates/service_locator/app');
     }
 
     // --------------- Асинхронная обработка модулей.
     if (isChapter(6)) {
+
         // 34. Асинхронная инициализаия модулей.
-        require('./Patterns/AsynchronousPatternsAdditional/asyncInit');
+        if (isExample(34))
+            require('./Patterns/AsynchronousPatternsAdditional/asyncInit');
+
         // 35. Группировка и кэширование асинхронных операций.
-        require('./Patterns/AsynchronousPatternsAdditional/batchingCaching');
+        if (isExample(35))
+            require('./Patterns/AsynchronousPatternsAdditional/batchingCaching');
+
         // 36. Дочерние процессы.
-        require('./Patterns/AsynchronousPatternsAdditional/cpuBound');
+        if (isExample(36))
+            require('./Patterns/AsynchronousPatternsAdditional/cpuBound');
     }
 
     // --------------- Шаблоны масштабирования и организации архитектуры.
     if (isChapter(7)) {
-        let examples = [38.1, 38.2, 38.3, 38.8, 38.9];
 
         // 37. Масштабирование приложений.
+
         // 38. Клонирование и распределение нагрузки.
         //      38.3 Запуск в linux.
         const cloningLoadBalancing = require('./Patterns/OrganizationPatterns/cloningLoadBalancing');
-        examples.forEach(e => cloningLoadBalancing(e));
+        if (isExample(38.1)) cloningLoadBalancing(38.1);
+        if (isExample(38.2)) cloningLoadBalancing(38.2);
+        if (isExample(38.3)) cloningLoadBalancing(38.3);
+        if (isExample(38.8)) cloningLoadBalancing(38.8);
+        if (isExample(38.9)) cloningLoadBalancing(38.9);
+
         // 39. Декомпозиция сложных приложений.
     }
 
     // --------------- Шаблоны обмена сообщениями и интеграции.
     if (isChapter(8)) {
-        let examples = [41.1, 41.2, 41.3, 41.6, 42.1, 42.2, 43.1, 43.2, 43.2];
 
         // 40. Системы обмена сообщениями.
         //      ./Patterns/IntegrationPatterns/messagingSystems
+
         // 41. Шаблон "Публикация/подписка".
         const patternPublishSubscribe = require('./Patterns/IntegrationPatterns/patternPublishSubscribe');
-        examples.forEach(e => patternPublishSubscribe(e));
+        if (isExample(41.1)) patternPublishSubscribe(41.1)
+        if (isExample(41.2)) patternPublishSubscribe(41.2)
+        if (isExample(41.3)) patternPublishSubscribe(41.3)
+        if (isExample(41.6)) patternPublishSubscribe(41.6)
+
         // 42. Шаблоны конвейеров и распределения заданий.
         const patternsPipeline = require('./Patterns/IntegrationPatterns/patternsPipeline');
-        examples.forEach(e => patternsPipeline(e));
+        if (isExample(42.1)) patternsPipeline(42.1);
+        if (isExample(42.2)) patternsPipeline(42.2);
+
         // 43. Шаблоны конвейеров и распределения заданий.
         const patternsRequestResponse = require('./Patterns/IntegrationPatterns/patternsRequestResponse');
-        examples.forEach(e => patternsRequestResponse(e));
+        if (isExample(43.1)) patternsRequestResponse(43.1);
+        if (isExample(43.2)) patternsRequestResponse(43.2);
     }
 };

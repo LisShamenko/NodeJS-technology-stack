@@ -49,7 +49,7 @@ async function modules_dependency_injection() {
         }));
 
         // плагин
-        require('authsrv-plugin-logout')(app, authService, db);
+        require('./../authsrv-plugin-logout')(app, authService, db);
 
         // маршрутизация
         app.post('/login', authController.login);

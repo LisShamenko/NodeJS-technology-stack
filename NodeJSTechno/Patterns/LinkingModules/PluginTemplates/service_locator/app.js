@@ -54,7 +54,7 @@ async function modules_service_locator() {
         svcLoc.register('app', app);
 
         // плагин
-        const plugin = require('authsrv-plugin-logout');
+        const plugin = require('./../authsrv-plugin-logout');
         // вызов функции плагина и передача ей локатора служб
         plugin(svcLoc);
 

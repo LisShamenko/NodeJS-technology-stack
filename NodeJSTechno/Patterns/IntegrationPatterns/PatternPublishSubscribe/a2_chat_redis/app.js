@@ -47,9 +47,9 @@ async function createServer(port, callback) {
         // прием соединений
         wss.on('connection', (ws) => {
             console.log('--- connected');
-            
+
             // прием сообщений
-            ws.on('message', msg => {
+            ws.on('message', async msg => {
                 console.log(`--- message: ${msg.toString()}`);
 
                 // новые сообщения публикуются в канале chat_messages, сообщения 

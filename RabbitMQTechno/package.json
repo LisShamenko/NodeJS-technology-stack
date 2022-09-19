@@ -1,0 +1,21 @@
+{
+  "name": "rabbitmqtechno",
+  "version": "1.0.0",
+  "description": "",
+  "main": "RabbitMQApp.js",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/LisShamenko/NodeJS-technology-stack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisShamenko/NodeJS-technology-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LisShamenko/NodeJS-technology-stack/issues"
+  },
+  "scripts": {},
+  "dependencies": {
+    "amqplib": "^0.8.0"
+  },
+  "devDependencies": {}
+}

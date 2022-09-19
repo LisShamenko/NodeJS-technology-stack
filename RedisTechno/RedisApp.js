@@ -22,6 +22,8 @@ module.exports = (chapters, examples) => {
     //      lis@lis-vb:~$ cd ./redis/redis-6.2.6
     //      lis@lis-vb:~/redis/redis-6.2.6$ redis-server
 
+    process.env.REDIS_URL = 'redis://192.168.56.107:6379';
+
     // --------------- Programming with Redis.
     if (isChapter(1)) {
 

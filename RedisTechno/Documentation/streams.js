@@ -79,7 +79,7 @@ const redis = require("redis");
 async function redis_streams_base() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -234,7 +234,7 @@ async function redis_streams_base() {
 async function redis_xrange() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -327,7 +327,7 @@ async function redis_xrange() {
 async function redis_xread() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -595,7 +595,7 @@ async function redis_xread() {
 async function redis_xgroup() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -780,7 +780,7 @@ async function redis_xgroup() {
 async function redis_xpending() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -905,7 +905,7 @@ async function redis_xpending() {
 async function redis_xautoclaim() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -1067,7 +1067,7 @@ async function redis_xautoclaim() {
 async function redis_xinfo() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -1164,7 +1164,7 @@ async function redis_xinfo() {
 async function redis_maxlen() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -1287,7 +1287,7 @@ async function redis_maxlen() {
 async function redis_maxlen() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });

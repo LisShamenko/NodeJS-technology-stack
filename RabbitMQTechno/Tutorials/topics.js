@@ -1,3 +1,4 @@
+const amqpPromise = require('amqplib');
 const amqp = require('amqplib/callback_api');
 
 

@@ -11,8 +11,12 @@
     "src/test.ts",
     "src/polyfills.ts"
   ],
+  // An error was thrown in afterAll
+  // Uncaught Error: Module build failed (from '...'):
+  // Error: '...' is missing from the TypeScript compilation. fig via the 'files' or 'include' property.
+  // Please make sure it is in your tsconfig via the 'files' or 'include' property.
   "include": [
-    "./../spec/tests/**/*.spec.ts",
-    "./../spec/tests/**/*.d.ts"
+    "./spec/tests/**/*.spec.ts",
+    "./spec/tests/**/*.d.ts"
   ]
 }

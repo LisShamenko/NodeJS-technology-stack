@@ -92,7 +92,7 @@ const redis = require("redis");
 async function redis_strings() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -166,7 +166,7 @@ async function redis_strings() {
 async function redis_key_space() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -226,7 +226,7 @@ async function redis_key_space() {
 async function redis_key_space() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -338,7 +338,7 @@ async function redis_key_space() {
 async function redis_list() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -358,7 +358,8 @@ async function redis_list() {
 
     // 
     console.log(`--- key: multi_list_key
-        --- RPUSH = ${await client.RPUSH('multi_list_key', [1, 2, 3, 4, 5, 'foo bar'])}
+        --- DEL = ${await client.DEL('multi_list_key')}
+        --- RPUSH = ${await client.RPUSH('multi_list_key', ['1', '2', '3', '4', '5', 'foo bar'])}
         --- LRANGE = ${await client.LRANGE('multi_list_key', 0, -1)}
     `);
 
@@ -402,7 +403,7 @@ async function redis_list() {
 async function redis_limited_list() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -494,7 +495,7 @@ async function redis_blocking_list() {
         setTimeout(async () => {
 
             // 
-            const client_1 = redis.createClient();
+            const client_1 = redis.createClient({ url: process.env.REDIS_URL });
             client_1.on('error', (err) => {
                 console.log(`--- redis client_1 error: ${err}`);
             });
@@ -516,7 +517,7 @@ async function redis_blocking_list() {
     });
 
     // 
-    const client_2 = redis.createClient();
+    const client_2 = redis.createClient({ url: process.env.REDIS_URL });
     client_2.on('error', (err) => {
         console.log(`--- redis client_2 error: ${err}`);
     });
@@ -600,7 +601,7 @@ async function redis_blocking_list() {
 async function redis_keys() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -694,7 +695,7 @@ async function redis_keys() {
 async function redis_hashes() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -822,7 +823,7 @@ async function redis_hashes() {
 async function redis_sets() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -973,7 +974,7 @@ async function redis_sets() {
 async function redis_sorted_sets() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -1031,7 +1032,7 @@ async function redis_sorted_sets() {
 async function redis_ranges() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -1102,7 +1103,7 @@ async function redis_ranges() {
 async function redis_ranges() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -1196,7 +1197,7 @@ async function redis_ranges() {
 async function redis_bitmaps() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -1264,7 +1265,7 @@ async function redis_bitmaps() {
 async function redis_hll() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });

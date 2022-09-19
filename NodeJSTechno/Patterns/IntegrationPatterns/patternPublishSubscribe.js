@@ -152,7 +152,7 @@ function require_413() {
     //      require('./app');
 
     // запуск клиентов
-    const { createApp } = require('./expressApp');
+    const { createApp } = require('./PatternPublishSubscribe/expressApp');
     (async () => {
         await createApp('index.ejs', 8080, 8002);
         await createApp('index.ejs', 8081, 8003);

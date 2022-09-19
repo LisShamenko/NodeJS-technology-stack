@@ -10,7 +10,7 @@ module.exports = (chapters, examples) => {
 
     // --------------- 4. Сервер GraphQL.
     if (isChapter(4)) {
-        const graphql_server = require('./Manual/graphql_server');
+        const graphql_server = require('./Manual/chapter_4/graphql_server');
 
         // 
         if (isExample(1)) graphql_server(1);
@@ -27,13 +27,15 @@ module.exports = (chapters, examples) => {
 
     // --------------- 5. Клиенты GraphQL.
     if (isChapter(5)) {
-        const graphql_client = require('./Manual/graphql_client');
+        const graphql_client = require('./Manual/chapter_5/server/graphql_client');
 
         // 
         if (isExample(1)) graphql_client(1);
         if (isExample(2)) graphql_client(2);
         if (isExample(3)) graphql_client(3);
+        // 5-4
         if (isExample(4)) graphql_client(4);
+        // 5-5, 5-6, 5-7
         if (isExample(5)) graphql_client(5);
         if (isExample(6)) graphql_client(6);
         if (isExample(7)) graphql_client(7);
@@ -41,10 +43,11 @@ module.exports = (chapters, examples) => {
 
     // --------------- 6. Подписки.
     if (isChapter(6)) {
-        const graphql_subscription = require('./Manual/graphql_subscription');
+        const graphql_subscription = require('./Manual/chapter_6/server/graphql_subscription');
 
-        // 
+        // 6-1
         if (isExample(1)) graphql_subscription(1);
+        // 6-2
         if (isExample(2)) graphql_subscription(2);
     }
 }

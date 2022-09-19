@@ -60,7 +60,7 @@ const redis = require("redis");
 async function using_pipeline() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });

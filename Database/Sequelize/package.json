@@ -1,0 +1,25 @@
+{
+  "name": "database_sequelize",
+  "version": "1.0.0",
+  "description": "OK",
+  "main": "SequelizeApp.js",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/LisShamenko/NodeJS-technology-stack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisShamenko/NodeJS-technology-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LisShamenko/NodeJS-technology-stack/issues"
+  },
+  "scripts": {},
+  "dependencies": {
+    "sqlite3": "^5.0.2",
+    "sequelize": "^6.6.2",
+    "colors": "^1.4.0",
+    "zlib": "^1.0.5",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {}
+}

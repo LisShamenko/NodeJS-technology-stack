@@ -1,0 +1,26 @@
+{
+  "name": "designtechno_css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/LisShamenko/NodeJS-technology-stack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisShamenko/NodeJS-technology-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LisShamenko/NodeJS-technology-stack/issues"
+  },
+  "scripts": {
+    "kss": "echo \"--- DesignTechno CSS package ---\" && kss --config ./modular_css/kss-config.json"
+  },
+  "dependencies": {
+    "fontfaceobserver": "^2.1.0"
+  },
+  "devDependencies": {
+    "kss": "^3.0.1",
+    "@types/fontfaceobserver": "^2.1.0"
+  }
+}

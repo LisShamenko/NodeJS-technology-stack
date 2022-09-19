@@ -847,3 +847,18 @@ function getObjectProps(obj) {
 //});
 
 // --------------- ejs-locals
+
+// --------------- axios 
+
+const axios = require('axios').default;
+
+const getAxios = async (url) => {
+    const res = await axios.get(url);
+    console.log(`--- ${url} ---`, res);
+}
+
+(async () => {
+    await getAxios('http://localhost:3000/folder_1');
+    await getAxios('http://localhost:3000/.test_dotfile');
+    await getAxios('http://localhost:3000/1.png');
+})()

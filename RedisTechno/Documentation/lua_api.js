@@ -623,7 +623,7 @@ async function redis_log() {
 async function redis_lua_to_resp2() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -764,7 +764,7 @@ async function redis_lua_to_resp2() {
 async function redis_cjson() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -814,7 +814,7 @@ async function redis_cjson() {
 async function redis_cmsgpack() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
@@ -885,7 +885,7 @@ async function redis_cmsgpack() {
 async function redis_bit() {
 
     // 
-    const client = redis.createClient();
+    const client = redis.createClient({ url: process.env.REDIS_URL });
     client.on('error', (err) => {
         console.log(`--- redis client error: ${err}`);
     });
